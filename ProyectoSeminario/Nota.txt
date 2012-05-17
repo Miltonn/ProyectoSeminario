@@ -1,0 +1,14 @@
+Ing. como esta este es el proyecto de:
+
+	Angel Gutierrez
+	Milton Quispe
+	Nancy Villca
+
+Ademas lo enviamos un Bakup de nuestra base de datos.
+la BD con la que estamos trabajando se llama biblioteca2.
+y nuestra coneccion del nombre del servidor es Nancy-pc como
+lo podra ver en el Visual Studio.
+
+Ing. la URL de GitHub lo enviamos a su correo y es con la q vamos a trabajar.
+
+para alguna consulta lo buscamos en el Facebook.

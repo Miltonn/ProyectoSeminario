@@ -1,0 +1,14 @@
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\bin\biblioteca2.dll
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\bin\biblioteca2.pdb
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\bin\EntityFramework.dll
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\bin\EntityFramework.xml
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
+c:\users\nancy\documents\visual studio 2010\Projects\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\bin\biblioteca2.dll
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\bin\biblioteca2.pdb
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\bin\EntityFramework.dll
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\bin\EntityFramework.xml
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
+T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb
