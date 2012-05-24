@@ -1,0 +1,34 @@
+﻿.links
+{
+	-moz-border-radius:5px;	
+}
+#title img
+{
+	float:left;
+	position:relative;
+	width: 200px;
+	height: 100px;
+	border:1px solid #000000;	
+}
+#title img bljaIMGtex
+{
+		
+		width:20px;
+		position:absolute;
+		top:10px;
+		left:14px;
+}
+.title 
+{
+	border:1px solid #000000;	
+}
+.reg
+{
+	color:#700000;	
+}
+.texto
+{
+	text-shadow: 5px 5px 5px #FFFF00;
+	color:#F0f0f0;
+	font-family:Old English Text MT;
+}

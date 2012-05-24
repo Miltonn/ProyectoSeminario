@@ -1,13 +1,19 @@
 ﻿@model biblioteca2.Models.RegisterModel
 @{
     ViewBag.Title = "Home Page";
+    string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
 }
 
 <h2>@ViewBag.Message</h2>
+<img src="@Url.Content(img)" width="100" height="100"/></br>
+    <p1 class="reg">@ViewBag.list.nombre;</br></p1>
+    <p1 class="reg">@ViewBag.list.apellido;</p1>
 
 <p class="links">
     Enlace de Publicaciones........... <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Tutoriales</a>
 </p>
 <div>
-     
+     <p>E-mail o Nick: <br>@Html.TextBoxFor(x => x.UserName)</p>
+     <p>Comentario: <br>@Html.TextAreaFor(x => x.UserName)</p>
+     <p><input type="submit" value="Comentar"/></p>
 </div>

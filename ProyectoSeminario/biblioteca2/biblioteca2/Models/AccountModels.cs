@@ -40,6 +40,8 @@ namespace biblioteca2.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+        
     }
 
     public class RegisterModel
@@ -64,4 +66,7 @@ namespace biblioteca2.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+ 
 }
+
+

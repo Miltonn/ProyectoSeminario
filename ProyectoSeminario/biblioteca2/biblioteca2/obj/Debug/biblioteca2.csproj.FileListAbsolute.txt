@@ -12,3 +12,10 @@ T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\bin\EntityFramework.xml
 T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
 T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
 T:\SEMINARIO-DE-SISTEMAS\TEMAS\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.dll
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.pdb
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.dll
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.xml
+E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll

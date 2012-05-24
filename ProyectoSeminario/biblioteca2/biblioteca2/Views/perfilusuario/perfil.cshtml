@@ -5,13 +5,63 @@
 }
 
 <h2>REGISTRO DE PERFIL DE USUARIO</h2>
-@using (Html.BeginForm()) { 
-    <p>Nombre: <br>@Html.TextBoxFor(x => x.nombre)</p>
-    <p>Apellido:<br>@Html.TextBoxFor(x => x.apellido)</p>
-    <p>Avatar:<br></p>
-    <p>Ubicacion:<br>@Html.TextBoxFor(x => x.ubicacion)</p>
-    <p>Interes:<br>@Html.TextBoxFor(x => x.interes)</p>
+<form enctype="multipart/form-data" method="post" action="@Url.Action("perfil")">
+        <fieldset>
+            <legend>Account Information</legend>
+
+            <div class="clearfix">
+                @Html.LabelFor(m => m.nombre)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.nombre)
+                    @Html.ValidationMessageFor(m => m.nombre)
+                </div>
+            </div>           
+
+            <div class="clearfix">
+                @Html.LabelFor(m => m.apellido)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.apellido)
+                    @Html.ValidationMessageFor(m => m.apellido)
+                </div>
+            </div>
+           
+            <div class="clearfix">
+                @Html.LabelFor(m => m.ubicacion)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.ubicacion)
+                    @Html.ValidationMessageFor(m => m.ubicacion)
+                </div>
+            </div>
+
+            <div class="clearfix">
+                @Html.LabelFor(m => m.interes)
+                <div class="input">
+                    @Html.EditorFor(m => m.interes)
+                    @Html.ValidationMessageFor(m => m.interes)
+                </div>
+            </div>
+
+            <div class="clearfix">
+                @Html.LabelFor(m => m.avatar)
+                <div class="input">
+                    <input type="file"  name="Avatar" />
+                    @Html.ValidationMessageFor(m => m.avatar)
+                </div>
+            </div>
+
+            <div class="actions">
+                <input type="submit" class="btn primary" value="Guardar" />
+                <input type="button" class="btn" value="Cancelar" />
+            </div>
+        </fieldset>   
+</form>
+<!--@using (Html.BeginForm()) { 
+    <p>Nombre: <br/>@Html.TextBoxFor(x => x.nombre)</p>
+    <p>Apellido:<br/>@Html.TextBoxFor(x => x.apellido)</p>
+    <p>Avatar:<br/><input type="file" value="Importar-Imagen" name="Avatar"/></p>
+    <p>Ubicacion:<br/>@Html.TextBoxFor(x => x.ubicacion)</p>
+    <p>Interes:<br/>@Html.TextBoxFor(x => x.interes)</p>
     <p>
         <input type ="submit" value="Registrar"/>
     </p>
-}
+}-->

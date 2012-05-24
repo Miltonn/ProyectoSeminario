@@ -22,36 +22,44 @@ namespace biblioteca2.Controllers
 
         //
         // POST: /Account/LogOn
-
+        //int cont = 0;
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
-            if (ModelState.IsValid)
-            {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+            //validacion de usuario con permisos
+
+           /* if (cont < 3)
+            {*/
+                if (ModelState.IsValid)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    if (Membership.ValidateUser(model.UserName, model.Password))
                     {
-                        return Redirect(returnUrl);
+                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                        {
+                            
+                            return Redirect(returnUrl);
+                        }
+                        else
+                        {
+                           
+                            return RedirectToAction("login", "Home");
+                        }
                     }
                     else
-                    {
-                        return RedirectToAction("Index", "Home");
+                   
+                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
+                        //cont += 1;
                     }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                }
-            }
+                
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
+                // If we got this far, something failed, redisplay form
+                return View(model);
+             //}
+         }
 
-        //
+        
         // GET: /Account/LogOff
 
         public ActionResult LogOff()
@@ -86,10 +94,14 @@ namespace biblioteca2.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     //registro usuarioroles
-                    DataClasses2DataContext db = new DataClasses2DataContext();
+                                      
+                    DataClasses1DataContext db = new DataClasses1DataContext();
+                    //var registro = from UsersId in db.aspnet_Users select UsersId;
+
                     System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
                     System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Cliente").Select(a => a.RoleId).ToArray()[0];
-                    aspnet_UsersInRole rel = new aspnet_UsersInRole() { RoleId = idRol, UserId = idUs };
+                    aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = idUs };
+                    
                     db.aspnet_UsersInRoles.InsertOnSubmit(rel);
                     db.SubmitChanges();
                     

@@ -10,6 +10,7 @@ body {
     margin: 0;
     padding: 0;
     color: #696969;
+    
 }
 
 a:link {
@@ -246,11 +247,20 @@ nav,
     margin-top: 40px;
 }
 
-div#title {
-    display: block;
+div#title 
+{
+	display: block;
     float: left;
     text-align: left;
+    position:relative;
 }
+div#title bljaIMGtex 
+{
+	width:320px;
+	position:absolute;
+	top:10px;
+	left:14px;
+}	
 
 #logindisplay {
     font-size: 1.1em;
@@ -322,7 +332,51 @@ div#title {
 .tri-state {
     width: 6em;
 }
-.links 
+.links
 {
-    background-color: #ffeeee;
+	padding:10px;
+	-moz-border-top-left-radius: 30px;
+	-moz-border-top-rigth-radius: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-webkit-border-top-rigth-radius: 30px;
+	/*background:repeating-radial-gradient(left bottom, ellipse farthest-side, #f7ff08 0%, #21ad11 10%, #00A3ef 20%);*/
+	background-color:#180000;
+	text-decoration:none;
+	background: linear-gradient(top, black, white);
+}
+.links:hover
+{
+	padding:10px;
+	background-color:#180000;
+	text-decoration:none;
+	
+}
+.links a
+{
+	background-color:#0000FF;
+	text-decoration:none;
+	padding:5px;
+	color:#00FF00;
+	text-shadow: 0.1em 0.1em #333;
+	font-family:Old English Text MT;
+	font-size:20px;
+	-moz-border-radius:3px;
+	
+}
+.links a:hover
+{
+	background-color:#000066;
+	text-decoration:none;
+	padding:5px;
+	text-shadow: 0.1em 0.1em #333;
+	font-family:Old English Text MT;
+	font-size:22px;
+	-moz-border-radius:3px;
+	transform: rotateY(150deg);
+	-webkit-transform: rotateY(150deg); /* Safari and Chrome */
+	-moz-transform: rotateY(150deg); /* Firefox */
+	border: 5px solid #feb515;
+-webkit-border-radius: 3px; -moz-border-radius: 3px;
+-webkit-border-image: url(/playground/playground/awesome-overlays/border-image.png) 5 5 5 5 stretch;
+-moz-border-image: url(/playground/playground/awesome-overlays/border-image.png) 5 5 5 5 stretch;
 }
