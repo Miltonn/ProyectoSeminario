@@ -1,7 +1,8 @@
 ﻿@model biblioteca2.Models.LogOnModel
-
 @{
     ViewBag.Title = "Log On";
+    ReCaptcha.PublicKey="6LcD79ESAAAAADzpJD5pP0rc6Vb0Pl1gQY9rz2Sl";
+    
 }
 
 <h2>Log On</h2>
@@ -14,7 +15,8 @@
 
 @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     <div>
         <fieldset>
             <legend>Account Information</legend>
@@ -39,14 +41,15 @@
                 @Html.CheckBoxFor(m => m.RememberMe)
                 @Html.LabelFor(m => m.RememberMe):(Recordar Contraseña)
             </div>
-
+            @if (Session["captcha"] != null && (int)Session["captcha"] > 2)
+                {
+                    @ReCaptcha.GetHtml(theme: "red")
+                }
             <p>
                 <input type="submit" value="Log On" />
             </p>
             <div> <p>Para realizar alguna publicacocion registre su perfil de Usuario <a href="http://localhost:4391/perfilusuario/perfil" title="ASP.NET MVC Website">Aqui</a></p></div>
         </fieldset>
     </div>
-    <!--captcha-->
-              
-    <!--captcha-->
+    
 }

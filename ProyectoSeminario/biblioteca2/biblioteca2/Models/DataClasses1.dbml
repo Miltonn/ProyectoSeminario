@@ -118,6 +118,7 @@
       <Association Name="aspnet_Users_aspnet_Profile" Member="aspnet_Profile" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Profile" Cardinality="One" />
       <Association Name="aspnet_Users_aspnet_UsersInRoles" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRoles" />
       <Association Name="aspnet_Users_comentarios" Member="comentarios" ThisKey="UserId" OtherKey="UserId" Type="comentarios" />
+      <Association Name="aspnet_Users_perfil" Member="perfil" ThisKey="UserId" OtherKey="UserId" Type="perfil" />
       <Association Name="aspnet_Users_publicacion" Member="publicacion" ThisKey="UserId" OtherKey="UserId" Type="publicacion" />
       <Association Name="aspnet_Applications_aspnet_Users" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
     </Type>
@@ -186,6 +187,16 @@
       <Column Name="indice" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="publicacion_libro" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.perfil" Member="perfil">
+    <Type Name="perfil">
+      <Column Name="idPerfil" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="infraccion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="karma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="beneado" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_Users_perfil" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.persona" Member="persona">

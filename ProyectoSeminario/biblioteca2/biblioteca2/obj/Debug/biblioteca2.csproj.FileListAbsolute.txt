@@ -19,3 +19,15 @@ E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.pdb
 E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.dll
 E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.xml
 E:\PROYECTO\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.pdb
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\Microsoft.Web.Helpers.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.xml
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\Recaptcha.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\Recaptcha.pdb
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.dll
+C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.xml

@@ -78,6 +78,9 @@ namespace biblioteca2.Models
     partial void Insertlibro(libro instance);
     partial void Updatelibro(libro instance);
     partial void Deletelibro(libro instance);
+    partial void Insertperfil(perfil instance);
+    partial void Updateperfil(perfil instance);
+    partial void Deleteperfil(perfil instance);
     partial void Insertpersona(persona instance);
     partial void Updatepersona(persona instance);
     partial void Deletepersona(persona instance);
@@ -244,6 +247,14 @@ namespace biblioteca2.Models
 			get
 			{
 				return this.GetTable<libro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<perfil> perfil
+		{
+			get
+			{
+				return this.GetTable<perfil>();
 			}
 		}
 		
@@ -2461,6 +2472,8 @@ namespace biblioteca2.Models
 		
 		private EntitySet<comentarios> _comentarios;
 		
+		private EntitySet<perfil> _perfil;
+		
 		private EntitySet<publicacion> _publicacion;
 		
 		private EntityRef<aspnet_Applications> _aspnet_Applications;
@@ -2492,6 +2505,7 @@ namespace biblioteca2.Models
 			this._aspnet_Profile = default(EntityRef<aspnet_Profile>);
 			this._aspnet_UsersInRoles = new EntitySet<aspnet_UsersInRoles>(new Action<aspnet_UsersInRoles>(this.attach_aspnet_UsersInRoles), new Action<aspnet_UsersInRoles>(this.detach_aspnet_UsersInRoles));
 			this._comentarios = new EntitySet<comentarios>(new Action<comentarios>(this.attach_comentarios), new Action<comentarios>(this.detach_comentarios));
+			this._perfil = new EntitySet<perfil>(new Action<perfil>(this.attach_perfil), new Action<perfil>(this.detach_perfil));
 			this._publicacion = new EntitySet<publicacion>(new Action<publicacion>(this.attach_publicacion), new Action<publicacion>(this.detach_publicacion));
 			this._aspnet_Applications = default(EntityRef<aspnet_Applications>);
 			OnCreated();
@@ -2738,6 +2752,19 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_perfil", Storage="_perfil", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<perfil> perfil
+		{
+			get
+			{
+				return this._perfil;
+			}
+			set
+			{
+				this._perfil.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_publicacion", Storage="_publicacion", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<publicacion> publicacion
 		{
@@ -2836,6 +2863,18 @@ namespace biblioteca2.Models
 		}
 		
 		private void detach_comentarios(comentarios entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_perfil(perfil entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_perfil(perfil entity)
 		{
 			this.SendPropertyChanging();
 			entity.aspnet_Users = null;
@@ -4171,6 +4210,205 @@ namespace biblioteca2.Models
 						this._idPublicacion = default(int);
 					}
 					this.SendPropertyChanged("publicacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.perfil")]
+	public partial class perfil : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idPerfil;
+		
+		private int _infraccion;
+		
+		private int _karma;
+		
+		private string _beneado;
+		
+		private System.Guid _UserId;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidPerfilChanging(int value);
+    partial void OnidPerfilChanged();
+    partial void OninfraccionChanging(int value);
+    partial void OninfraccionChanged();
+    partial void OnkarmaChanging(int value);
+    partial void OnkarmaChanged();
+    partial void OnbeneadoChanging(string value);
+    partial void OnbeneadoChanged();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
+    #endregion
+		
+		public perfil()
+		{
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPerfil", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idPerfil
+		{
+			get
+			{
+				return this._idPerfil;
+			}
+			set
+			{
+				if ((this._idPerfil != value))
+				{
+					this.OnidPerfilChanging(value);
+					this.SendPropertyChanging();
+					this._idPerfil = value;
+					this.SendPropertyChanged("idPerfil");
+					this.OnidPerfilChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_infraccion", DbType="Int NOT NULL")]
+		public int infraccion
+		{
+			get
+			{
+				return this._infraccion;
+			}
+			set
+			{
+				if ((this._infraccion != value))
+				{
+					this.OninfraccionChanging(value);
+					this.SendPropertyChanging();
+					this._infraccion = value;
+					this.SendPropertyChanged("infraccion");
+					this.OninfraccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_karma", DbType="Int NOT NULL")]
+		public int karma
+		{
+			get
+			{
+				return this._karma;
+			}
+			set
+			{
+				if ((this._karma != value))
+				{
+					this.OnkarmaChanging(value);
+					this.SendPropertyChanging();
+					this._karma = value;
+					this.SendPropertyChanged("karma");
+					this.OnkarmaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_beneado", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string beneado
+		{
+			get
+			{
+				return this._beneado;
+			}
+			set
+			{
+				if ((this._beneado != value))
+				{
+					this.OnbeneadoChanging(value);
+					this.SendPropertyChanging();
+					this._beneado = value;
+					this.SendPropertyChanged("beneado");
+					this.OnbeneadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_perfil", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.perfil.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.perfil.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_Users");
 				}
 			}
 		}

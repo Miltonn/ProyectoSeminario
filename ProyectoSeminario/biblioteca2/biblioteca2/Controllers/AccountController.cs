@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using biblioteca2.Models;
+using Microsoft.Web.Helpers;
+
 
 namespace biblioteca2.Controllers
 {
@@ -20,6 +22,22 @@ namespace biblioteca2.Controllers
             return View();
         }
 
+
+        public ActionResult insertar() 
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            aspnet_Users user = new aspnet_Users()
+            {
+                UserName = "Milton",
+                LoweredUserName = "milton",
+                MobileAlias = "mil",
+                IsAnonymous = true,
+                LastActivityDate = DateTime.Now
+            };
+            db.aspnet_Users.InsertOnSubmit(user);
+            db.SubmitChanges();
+            return View();
+        }
         //
         // POST: /Account/LogOn
         //int cont = 0;
@@ -28,8 +46,6 @@ namespace biblioteca2.Controllers
         {
             //validacion de usuario con permisos
 
-           /* if (cont < 3)
-            {*/
                 if (ModelState.IsValid)
                 {
                     if (Membership.ValidateUser(model.UserName, model.Password))
@@ -43,27 +59,42 @@ namespace biblioteca2.Controllers
                         }
                         else
                         {
-                           
+                            
                             return RedirectToAction("login", "Home");
                         }
                     }
                     else
-                   
-                        ModelState.AddModelError("", "The user name or password provided is incorrect.");
-                        //cont += 1;
+                       
+                    {
+                        
+                        ModelState.AddModelError("", "The user name or password provided is incorrect.(Error de Nombreo Contraseña)");
+                        if (Session["captcha"]!=null&&(int)Session["captcha"]>2&&!ReCaptcha.Validate(privateKey: "6LcD79ESAAAAAHuI-gZuvfEPESrpzMaO-8fT8Bsy"))
+                        {
+                            ModelState.AddModelError("", "Verifique la Imagen Captvha.  Por favor, inténtelo de nuevo ");
+                        }
+                        if (Session["captcha"] == null)
+                        {
+                            Session["captcha"] = 0;
+                        }
+                        int c = (int)Session["captcha"];
+                        c++;
+                        Session["captcha"] = c;
                     }
                 
 
                 // If we got this far, something failed, redisplay form
                 return View(model);
-             //}
-         }
+             }
+                return View(model);
+             
+        }
 
         
         // GET: /Account/LogOff
 
         public ActionResult LogOff()
         {
+            //Session.Abandon();
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");
@@ -83,6 +114,7 @@ namespace biblioteca2.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+                       
             if (ModelState.IsValid)
             {
                 
@@ -94,16 +126,16 @@ namespace biblioteca2.Controllers
                 if (createStatus == MembershipCreateStatus.Success)
                 {
                     //registro usuarioroles
-                                      
-                    DataClasses1DataContext db = new DataClasses1DataContext();
-                    //var registro = from UsersId in db.aspnet_Users select UsersId;
+                                     
+                        DataClasses1DataContext db = new DataClasses1DataContext();
+                        //var registro = from UsersId in db.aspnet_Users select UsersId;
 
-                    System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
-                    System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Cliente").Select(a => a.RoleId).ToArray()[0];
-                    aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = idUs };
+                        //System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
+                        //System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Cliente").Select(a => a.RoleId).ToArray()[0];
+                        //aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = idUs };
+                        //db.aspnet_UsersInRoles.InsertOnSubmit(rel);
+                        //db.SubmitChanges();
                     
-                    db.aspnet_UsersInRoles.InsertOnSubmit(rel);
-                    db.SubmitChanges();
                     
                     //registro usuarioroles
 

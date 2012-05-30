@@ -28,12 +28,7 @@ namespace biblioteca2.Controllers
             var path = ControllerContext.HttpContext.Server.MapPath("/Content/imagenes/");
             var filename = Path.Combine(path, Path.GetFileName(Avatar.FileName));
             System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
-            /*model.nombre = nombre;
-            model.apellido = apellido;
-            model.interes = interes;
-            model.ubicacion = ubicacion;
-            model.avatar = Path.GetFileName(Avatar.FileName).ToString();*/
-
+            
             DataClasses1DataContext db = new DataClasses1DataContext();
             persona reg = new persona() { nombre = nombre, apellido = apellido, avatar = Avatar.FileName, interes = interes, ubicacion = ubicacion };
             db.persona.InsertOnSubmit(reg);
