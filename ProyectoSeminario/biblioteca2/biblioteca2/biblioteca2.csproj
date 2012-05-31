@@ -79,10 +79,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\DataClasses1.designer.cs">
+    <Compile Include="Models\articulos.cs" />
+    <Compile Include="Models\DataClasses2.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\perfil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -150,15 +151,21 @@
     <None Include="ClassDiagram1.cd" />
     <Content Include="Views\perfilusuario\perfil.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
-    <None Include="Models\DataClasses1.dbml">
+    <None Include="Models\DataClasses2.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <LastGenOutput>DataClasses2.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Home\Tutorial.cshtml" />
+    <Content Include="Views\Home\Cursos.cshtml" />
+    <Content Include="Views\Home\libros.cshtml" />
+    <Content Include="Views\Home\articulos.cshtml" />
+    <Content Include="Views\Home\tutoriales.cshtml" />
+    <Content Include="Views\Home\curso.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Models\DataClasses1.dbml.layout">
-      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    <None Include="Models\DataClasses2.dbml.layout">
+      <DependentUpon>DataClasses2.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

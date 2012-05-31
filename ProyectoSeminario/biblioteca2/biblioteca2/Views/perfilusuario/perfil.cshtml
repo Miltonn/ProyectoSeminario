@@ -1,10 +1,13 @@
-﻿@model biblioteca2.Models.persona
+﻿@model biblioteca2.Models.perfilusers
 
 @{
     ViewBag.Title = "perfil";
 }
 
 <h2>REGISTRO DE PERFIL DE USUARIO</h2>
+@{
+    ViewBag.error = "er"; 
+}
 <form enctype="multipart/form-data" method="post" action="@Url.Action("perfil")">
         <fieldset>
             <legend>Account Information</legend>

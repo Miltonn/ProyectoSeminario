@@ -25,7 +25,7 @@ namespace biblioteca2.Controllers
 
         public ActionResult insertar() 
         {
-            DataClasses1DataContext db = new DataClasses1DataContext();
+            DataClasses2DataContext db = new DataClasses2DataContext();
             aspnet_Users user = new aspnet_Users()
             {
                 UserName = "Milton",
@@ -94,7 +94,7 @@ namespace biblioteca2.Controllers
 
         public ActionResult LogOff()
         {
-            //Session.Abandon();
+            Session.Abandon();
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");
@@ -127,14 +127,14 @@ namespace biblioteca2.Controllers
                 {
                     //registro usuarioroles
                                      
-                        DataClasses1DataContext db = new DataClasses1DataContext();
+                        DataClasses2DataContext db = new DataClasses2DataContext();
                         //var registro = from UsersId in db.aspnet_Users select UsersId;
 
-                        //System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
-                        //System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Cliente").Select(a => a.RoleId).ToArray()[0];
-                        //aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = idUs };
-                        //db.aspnet_UsersInRoles.InsertOnSubmit(rel);
-                        //db.SubmitChanges();
+                        System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
+                        System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Cliente").Select(a => a.RoleId).ToArray()[0];
+                        aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = idUs };
+                        db.aspnet_UsersInRoles.InsertOnSubmit(rel);
+                        db.SubmitChanges();
                     
                     
                     //registro usuarioroles

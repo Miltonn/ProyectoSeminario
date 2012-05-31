@@ -10,7 +10,8 @@ body {
     margin: 0;
     padding: 0;
     color: #696969;
-    
+    background: repeating-radial-gradient(left bottom, ellipse farthest-side, #180000 0%, #880000 10%, #FF0000 20%);
+    background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #180000 0%, #880000 10%, #FF0000 20%);
 }
 
 a:link {
@@ -131,6 +132,7 @@ ul#menu {
     position: relative;
     margin: 0;
     text-align: right;
+    /*border:1px solid #000000;*/
 }
 
 ul#menu li {
@@ -253,6 +255,7 @@ div#title
     float: left;
     text-align: left;
     position:relative;
+    
 }
 div#title bljaIMGtex 
 {
@@ -266,8 +269,9 @@ div#title bljaIMGtex
     font-size: 1.1em;
     display: block;
     text-align: right;
-    margin: 10px;
+    margin-bottom: 200px;
     color: White;
+    
 }
 
 #logindisplay a:link {
@@ -332,28 +336,11 @@ div#title bljaIMGtex
 .tri-state {
     width: 6em;
 }
-.links
-{
-	padding:10px;
-	-moz-border-top-left-radius: 30px;
-	-moz-border-top-rigth-radius: 30px;
-	-webkit-border-top-left-radius: 30px;
-	-webkit-border-top-rigth-radius: 30px;
-	/*background:repeating-radial-gradient(left bottom, ellipse farthest-side, #f7ff08 0%, #21ad11 10%, #00A3ef 20%);*/
-	background-color:#180000;
-	text-decoration:none;
-	background: linear-gradient(top, black, white);
-}
-.links:hover
-{
-	padding:10px;
-	background-color:#180000;
-	text-decoration:none;
-	
-}
+
 .links a
 {
-	background-color:#0000FF;
+	background: -moz-linear-gradient(bottom, blue, white);
+	background: linear-gradient(bottom, blue, white);
 	text-decoration:none;
 	padding:5px;
 	color:#00FF00;
@@ -365,18 +352,19 @@ div#title bljaIMGtex
 }
 .links a:hover
 {
-	background-color:#000066;
-	text-decoration:none;
-	padding:5px;
-	text-shadow: 0.1em 0.1em #333;
-	font-family:Old English Text MT;
-	font-size:22px;
-	-moz-border-radius:3px;
-	transform: rotateY(150deg);
-	-webkit-transform: rotateY(150deg); /* Safari and Chrome */
-	-moz-transform: rotateY(150deg); /* Firefox */
-	border: 5px solid #feb515;
--webkit-border-radius: 3px; -moz-border-radius: 3px;
--webkit-border-image: url(/playground/playground/awesome-overlays/border-image.png) 5 5 5 5 stretch;
--moz-border-image: url(/playground/playground/awesome-overlays/border-image.png) 5 5 5 5 stretch;
+	 color:white;
+  font-weight:bold;
+  font-size:25px;
+  text-shadow: 0 1px 0 #00FF00, 
+  0 2px 0 #c9c9c9,
+  0 3px 0 #bbb,
+  0 4px 0 #b9b9b9,
+  0 5px 0 #aaa,
+  0 6px 1px rgba(0,0,0,.1),
+  0 0 5px rgba(0,0,0,.1),
+  0 1px 3px rgba(0,0,0,.3),
+  0 3px 5px rgba(0,0,0,.2),
+  0 5px 10px rgba(0,0,0,.25),
+  0 10px 10px rgba(0,0,0,.2),
+  0 20px 20px rgba(0,0,0,.15);
 }

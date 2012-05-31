@@ -1,0 +1,23 @@
+﻿@model biblioteca2.Models.publicacion
+@{
+    ViewBag.Title = "articulos";
+}
+
+<h2>BIENVENIDO AL FORMULARIO DE REGISTRO DE ARTICULOS</h2>
+@{
+    string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
+}
+
+<form enctype="multipart/form-data" method="post" action="@Url.Action("articulos")">
+        <fieldset>
+            <legend>Account Information</legend>
+            
+            <div class="clearfix">
+              
+            </div>
+            <div class="actions">
+                <input type="submit" class="btn primary" value="Guardar" />
+                <input type="button" class="btn" value="Cancelar" />
+            </div>
+        </fieldset>   
+</form>

@@ -1,25 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="biblioteca" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=NANCY-PC\SQLEXPRESS;Initial Catalog=biblioteca;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ApplicationServices" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.articulos" Member="articulos">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="bibli" Class="DataClasses2DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MILTON-VAIO\SQLEXPRESS;Initial Catalog=bibli;User ID=milton2" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ApplicationServices" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.articulo" Member="articulo">
     <Type Name="articulo">
-      <Column Name="idArticulos" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idArticulo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="publicacion_articulo" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Applications" Member="aspnet_Applications">
-    <Type Name="aspnet_Application">
+    <Type Name="aspnet_Applications">
       <Column Name="ApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="LoweredApplicationName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
-      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Memberships" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
-      <Association Name="aspnet_Application_aspnet_Path" Member="aspnet_Paths" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Path" />
-      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Role" />
-      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_User" />
+      <Association Name="aspnet_Applications_aspnet_Membership" Member="aspnet_Membership" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Membership" />
+      <Association Name="aspnet_Applications_aspnet_Paths" Member="aspnet_Paths" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Paths" />
+      <Association Name="aspnet_Applications_aspnet_Roles" Member="aspnet_Roles" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Roles" />
+      <Association Name="aspnet_Applications_aspnet_Users" Member="aspnet_Users" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Users" />
     </Type>
   </Table>
-  <Table Name="dbo.aspnet_Membership" Member="aspnet_Memberships">
+  <Table Name="dbo.aspnet_Membership" Member="aspnet_Membership">
     <Type Name="aspnet_Membership">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -42,70 +42,70 @@
       <Column Name="FailedPasswordAnswerAttemptCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="FailedPasswordAnswerAttemptWindowStart" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Comment" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="aspnet_Application_aspnet_Membership" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
-      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Applications_aspnet_Membership" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
+      <Association Name="aspnet_Users_aspnet_Membership" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Paths" Member="aspnet_Paths">
-    <Type Name="aspnet_Path">
+    <Type Name="aspnet_Paths">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="PathId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Path" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="LoweredPath" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_Path_aspnet_PersonalizationAllUser" Member="aspnet_PersonalizationAllUser" ThisKey="PathId" OtherKey="PathId" Type="aspnet_PersonalizationAllUser" Cardinality="One" />
-      <Association Name="aspnet_Path_aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUsers" ThisKey="PathId" OtherKey="PathId" Type="aspnet_PersonalizationPerUser" />
-      <Association Name="aspnet_Application_aspnet_Path" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+      <Association Name="aspnet_Paths_aspnet_PersonalizationAllUsers" Member="aspnet_PersonalizationAllUsers" ThisKey="PathId" OtherKey="PathId" Type="aspnet_PersonalizationAllUsers" Cardinality="One" />
+      <Association Name="aspnet_Paths_aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUser" ThisKey="PathId" OtherKey="PathId" Type="aspnet_PersonalizationPerUser" />
+      <Association Name="aspnet_Applications_aspnet_Paths" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_PersonalizationAllUsers" Member="aspnet_PersonalizationAllUsers">
-    <Type Name="aspnet_PersonalizationAllUser">
+    <Type Name="aspnet_PersonalizationAllUsers">
       <Column Name="PathId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PageSettings" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_Path_aspnet_PersonalizationAllUser" Member="aspnet_Path" ThisKey="PathId" OtherKey="PathId" Type="aspnet_Path" IsForeignKey="true" />
+      <Association Name="aspnet_Paths_aspnet_PersonalizationAllUsers" Member="aspnet_Paths" ThisKey="PathId" OtherKey="PathId" Type="aspnet_Paths" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUsers">
+  <Table Name="dbo.aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUser">
     <Type Name="aspnet_PersonalizationPerUser">
       <Column Name="Id" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PathId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Column Name="PageSettings" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_Path_aspnet_PersonalizationPerUser" Member="aspnet_Path" ThisKey="PathId" OtherKey="PathId" Type="aspnet_Path" IsForeignKey="true" />
-      <Association Name="aspnet_User_aspnet_PersonalizationPerUser" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Paths_aspnet_PersonalizationPerUser" Member="aspnet_Paths" ThisKey="PathId" OtherKey="PathId" Type="aspnet_Paths" IsForeignKey="true" />
+      <Association Name="aspnet_Users_aspnet_PersonalizationPerUser" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.aspnet_Profile" Member="aspnet_Profiles">
+  <Table Name="dbo.aspnet_Profile" Member="aspnet_Profile">
     <Type Name="aspnet_Profile">
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="PropertyNames" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="PropertyValuesString" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="PropertyValuesBinary" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="LastUpdatedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_User_aspnet_Profile" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Users_aspnet_Profile" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Roles" Member="aspnet_Roles">
-    <Type Name="aspnet_Role">
+    <Type Name="aspnet_Roles">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="LoweredRoleName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
-      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRole" />
-      <Association Name="aspnet_Application_aspnet_Role" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+      <Association Name="aspnet_Roles_aspnet_UsersInRoles" Member="aspnet_UsersInRoles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_UsersInRoles" />
+      <Association Name="aspnet_Applications_aspnet_Roles" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_SchemaVersions" Member="aspnet_SchemaVersions">
-    <Type Name="aspnet_SchemaVersion">
+    <Type Name="aspnet_SchemaVersions">
       <Column Name="Feature" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CompatibleSchemaVersion" Type="System.String" DbType="NVarChar(128) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="IsCurrentVersion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_Users" Member="aspnet_Users">
-    <Type Name="aspnet_User">
+    <Type Name="aspnet_Users">
       <Column Name="ApplicationId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="UserName" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
@@ -113,26 +113,27 @@
       <Column Name="MobileAlias" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
       <Column Name="IsAnonymous" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="LastActivityDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_User_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
-      <Association Name="aspnet_User_aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUsers" ThisKey="UserId" OtherKey="UserId" Type="aspnet_PersonalizationPerUser" />
-      <Association Name="aspnet_User_aspnet_Profile" Member="aspnet_Profile" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Profile" Cardinality="One" />
-      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRole" />
-      <Association Name="aspnet_User_comentario" Member="comentarios" ThisKey="UserId" OtherKey="UserId" Type="comentario" />
-      <Association Name="aspnet_User_datos_usuario" Member="datos_usuarios" ThisKey="UserId" OtherKey="UserId" Type="datos_usuario" />
-      <Association Name="aspnet_User_publicacion" Member="publicacions" ThisKey="UserId" OtherKey="UserId" Type="publicacion" />
-      <Association Name="aspnet_Application_aspnet_User" Member="aspnet_Application" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Application" IsForeignKey="true" />
+      <Association Name="aspnet_Users_aspnet_Membership" Member="aspnet_Membership" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Membership" Cardinality="One" />
+      <Association Name="aspnet_Users_aspnet_PersonalizationPerUser" Member="aspnet_PersonalizationPerUser" ThisKey="UserId" OtherKey="UserId" Type="aspnet_PersonalizationPerUser" />
+      <Association Name="aspnet_Users_aspnet_Profile" Member="aspnet_Profile" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Profile" Cardinality="One" />
+      <Association Name="aspnet_Users_aspnet_UsersInRoles" Member="aspnet_UsersInRoles" ThisKey="UserId" OtherKey="UserId" Type="aspnet_UsersInRoles" />
+      <Association Name="aspnet_Users_comentarios" Member="comentarios" ThisKey="UserId" OtherKey="UserId" Type="comentarios" />
+      <Association Name="aspnet_Users_perfil" Member="perfil" ThisKey="UserId" OtherKey="UserId" Type="perfil" />
+      <Association Name="aspnet_Users_perfilusers" Member="perfilusers" ThisKey="UserId" OtherKey="UserId" Type="perfilusers" />
+      <Association Name="aspnet_Users_publicacion" Member="publicacion" ThisKey="UserId" OtherKey="UserId" Type="publicacion" />
+      <Association Name="aspnet_Applications_aspnet_Users" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_UsersInRoles" Member="aspnet_UsersInRoles">
-    <Type Name="aspnet_UsersInRole">
+    <Type Name="aspnet_UsersInRoles">
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="RoleId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="aspnet_Role_aspnet_UsersInRole" Member="aspnet_Role" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Role" IsForeignKey="true" />
-      <Association Name="aspnet_User_aspnet_UsersInRole" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="aspnet_Roles_aspnet_UsersInRoles" Member="aspnet_Roles" ThisKey="RoleId" OtherKey="RoleId" Type="aspnet_Roles" IsForeignKey="true" />
+      <Association Name="aspnet_Users_aspnet_UsersInRoles" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.aspnet_WebEvent_Events" Member="aspnet_WebEvent_Events">
-    <Type Name="aspnet_WebEvent_Event">
+    <Type Name="aspnet_WebEvent_Events">
       <Column Name="EventId" Type="System.String" DbType="Char(32) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="EventTimeUtc" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="EventTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -150,97 +151,97 @@
       <Column Name="Details" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.categoria" Member="categorias">
+  <Table Name="dbo.categoria" Member="categoria">
     <Type Name="categoria">
       <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tipo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="categoria_categorizacion" Member="categorizacions" ThisKey="idCategoria" OtherKey="idCategoria" Type="categorizacion" />
+      <Column Name="tipo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="categoria_categorizacion" Member="categorizacion" ThisKey="idCategoria" OtherKey="idCategoria" Type="categorizacion" />
     </Type>
   </Table>
-  <Table Name="dbo.categorizacion" Member="categorizacions">
+  <Table Name="dbo.categorizacion" Member="categorizacion">
     <Type Name="categorizacion">
       <Column Name="idCategorizacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idCategoria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="categoria_categorizacion" Member="categoria" ThisKey="idCategoria" OtherKey="idCategoria" Type="categoria" IsForeignKey="true" />
       <Association Name="publicacion_categorizacion" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.comentarios" Member="comentarios">
-    <Type Name="comentario">
-      <Column Name="idcomentarios" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    <Type Name="comentarios">
+      <Column Name="idComentarios" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="contenido" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="visto_bueno" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="vistobueno" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="fecha_publicacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_User_comentario" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
-      <Association Name="publicacion_comentario" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
+      <Association Name="aspnet_Users_comentarios" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+      <Association Name="publicacion_comentarios" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.cursos" Member="cursos">
+  <Table Name="dbo.curso" Member="curso">
     <Type Name="curso">
-      <Column Name="idCursos" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idCurso" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="publicacion_curso" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.datos_usuario" Member="datos_usuarios">
-    <Type Name="datos_usuario">
-      <Column Name="idDatos_usuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="passwor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="infraccion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="karma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="beneado" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Association Name="aspnet_User_datos_usuario" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.libro" Member="libros">
+  <Table Name="dbo.libro" Member="libro">
     <Type Name="libro">
       <Column Name="idLibro" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="portada" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="portada" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="autor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="año_publicacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="titulo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="indice" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="descripcion" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="indice" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="publicacion_libro" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.persona" Member="personas">
-    <Type Name="persona">
-      <Column Name="idPersona" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="apellido" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="avatar" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="ubicacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="interes" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+  <Table Name="dbo.perfil" Member="perfil">
+    <Type Name="perfil">
+      <Column Name="idPerfil" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="infraccion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="karma" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="beneado" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_Users_perfil" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.publicacion" Member="publicacions">
+  <Table Name="dbo.perfilusers" Member="perfilusers">
+    <Type Name="perfilusers">
+      <Column Name="idPersona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="apellido" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="avatar" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ubicacion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="interes" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_Users_perfilusers" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.publicacion" Member="publicacion">
     <Type Name="publicacion">
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="contenido" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="correcciones" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="puntaje" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
-      <Association Name="publicacion_articulo" Member="articulos" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="articulo" />
-      <Association Name="publicacion_categorizacion" Member="categorizacions" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="categorizacion" />
-      <Association Name="publicacion_comentario" Member="comentarios" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="comentario" />
-      <Association Name="publicacion_curso" Member="cursos" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="curso" />
-      <Association Name="publicacion_libro" Member="libros" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="libro" />
-      <Association Name="publicacion_tutoriale" Member="tutoriales" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="tutoriale" />
-      <Association Name="aspnet_User_publicacion" Member="aspnet_User" ThisKey="UserId" OtherKey="UserId" Type="aspnet_User" IsForeignKey="true" />
+      <Association Name="publicacion_articulo" Member="articulo" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="articulo" />
+      <Association Name="publicacion_categorizacion" Member="categorizacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="categorizacion" />
+      <Association Name="publicacion_comentarios" Member="comentarios" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="comentarios" />
+      <Association Name="publicacion_curso" Member="curso" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="curso" />
+      <Association Name="publicacion_libro" Member="libro" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="libro" />
+      <Association Name="publicacion_tutorial" Member="tutorial" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="tutorial" />
+      <Association Name="aspnet_Users_publicacion" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tutoriales" Member="tutoriales">
-    <Type Name="tutoriale">
-      <Column Name="idTutoriales" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.tutorial" Member="tutorial">
+    <Type Name="tutorial">
+      <Column Name="idTutorial" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="idPublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="publicacion_tutoriale" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
+      <Association Name="publicacion_tutorial" Member="publicacion" ThisKey="idPublicacion" OtherKey="idPublicacion" Type="publicacion" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

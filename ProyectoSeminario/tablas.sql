@@ -1,10 +1,30 @@
- create table persona(
-	idUsuario int identity primary key not null,
+ create table perfilusers(
+	idPersona int identity primary key not null,
 	nombre varchar(50)not null,
 	apellido varchar(50)not null,
 	avatar varchar(30)not null,
 	ubicacion varchar(50)not null,
-	interes text not null
+	interes text not null,
+	UserId uniqueidentifier foreign key(UserId)references aspnet_Users(UserId) not null
+ )
+
+ create table perfil(
+	idPerfil int identity primary key not null,
+	infraccion int not null,
+	karma float(5) not null,
+	beneado varchar(10)not null,
+	UserId uniqueidentifier foreign key(UserId)references aspnet_Users(UserId) not null
+ )
+
+ create table categoria(
+	idCategoria int identity primary key not null,
+	tipo varchar(50)not null
+ )
+
+create table categorizacion(
+	idCategorizacion int identity primary key not null,
+	idCategoria int foreign key(idCategoria)references categoria(idCategoria)not null,
+	idPublicacion int foreign key(idPublicacion)references publicacion(idPublicacion)not null
  )
 
  create table publicacion(
@@ -36,5 +56,16 @@
 
  create table tutorial(
 	idTutorial int identity primary key not null,
+	idPublicacion int foreign key(idPublicacion)references publicacion(idPublicacion)not null
+ )
+
+ create table libro(
+	idLibro int identity primary key not null,
+	portada varchar(50)not null,
+	autor varchar(50)not null,
+	año_publicacion varchar(50)not null,
+	titulo varchar(50)not null,
+	indice varchar(50) not null,
+	descripcion text not null,
 	idPublicacion int foreign key(idPublicacion)references publicacion(idPublicacion)not null
  )

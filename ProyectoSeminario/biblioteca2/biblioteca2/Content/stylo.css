@@ -1,14 +1,30 @@
 ﻿.links
 {
-	-moz-border-radius:5px;	
+	padding:10px;
+	border-top-left-radius: 30px;
+	border-top-rigth-radius: 30px;
+	-moz-border-top-left-radius: 30px;
+	-moz-border-top-rigth-radius: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-webkit-border-top-rigth-radius: 30px;
+	text-decoration:none;
+	background: -moz-linear-gradient(top, blue, white);
 }
+
+/*.links:hover
+{
+	padding:10px;
+	background-color:#180000;
+	text-decoration:none;
+	
+}*/
 #title img
 {
-	float:left;
+	text-align:left;
 	position:relative;
-	width: 200px;
-	height: 100px;
-	border:1px solid #000000;	
+	width: 800px;
+	height: 125px;
+	/*border:1px solid #000000;	*/
 }
 #title img bljaIMGtex
 {
@@ -20,7 +36,8 @@
 }
 .title 
 {
-	border:1px solid #000000;	
+	/*border:1px solid #000000;	*/
+	
 }
 .reg
 {
@@ -28,7 +45,29 @@
 }
 .texto
 {
-	text-shadow: 5px 5px 5px #FFFF00;
-	color:#F0f0f0;
+	margin-top:0;
+	text-align:left;
+	position:relative;
+	text-shadow: 0 1px 0 #707070, 
+	0 2px 0 #c9c9c9,
+	0 3px 0 #bbb,
+	0 4px 0 #b9b9b9,
+	0 5px 0 #aaa,
+	0 6px 1px rgba(0,0,0,.1),
+	0 0 5px rgba(0,0,0,.1),
+	0 1px 3px rgba(0,0,0,.3),
+	0 3px 5px rgba(0,0,0,.2),
+	0 5px 10px rgba(0,0,0,.25),
+	0 10px 10px rgba(0,0,0,.2),
+	0 20px 20px rgba(0,0,0,.15);
+	/*color:#F0f0f0;*/
 	font-family:Old English Text MT;
+}
+.page
+{
+	border:1px solid #000000;	
+	background-color:#0066FF;
+	background-position: center center;
+    background: radial-gradient(circle, #white, #blue);
+    background: -moz-radial-gradient(circle, #white, #blue);
 }

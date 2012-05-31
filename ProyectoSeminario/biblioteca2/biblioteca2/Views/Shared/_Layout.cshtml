@@ -12,19 +12,20 @@
     <div class="page">
         <header>
             <div id="title" >
-                <img src="@Url.Content("~/Content/Imagenes/libro.jpg")"/>
                 <div class="bljaIMGtex">
-                
-                <h1 class="texto">BIBLIOTECA DE CONTENIDOS COLECTIVOS</h1>
+                     <h1 class="texto">BIBLIOTECA DE CONTENIDOS COLECTIVOS</h1>
                 </div>
+                <img src="@Url.Content("~/Content/Imagenes/libro.jpg")"/>
             </div>
             <div id="logindisplay">
                 @{Html.RenderPartial("_LogOnPartial");}
             </div>
-            <nav>
+            <nav id="areatext">
                 <ul id="menu">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Libros", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Articulos", "About", "Home")</li>
+                    <li>@Html.ActionLink("Tutoriales", "tutorial", "Home")</li>
+                    <li>@Html.ActionLink("Cursos", "cursos", "Home")</li>
                 </ul>
             </nav>
         </header>

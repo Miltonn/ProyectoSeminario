@@ -1,7 +1,7 @@
 ﻿@model biblioteca2.Models.RegisterModel
 @{
     ViewBag.Title = "Home Page";
-    <!--string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;-->
+    string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
 }
 
 <h2>@ViewBag.Message</h2>
@@ -10,7 +10,7 @@
     <p1 class="reg">@ViewBag.list.apellido;</p1>
 
 <p class="links">
-    Enlace de Publicaciones........... <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Tutoriales</a>
+    Enlace de Publicaciones........... <a href="http://localhost:4391/Home/libros" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Home/articulos" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Home/curso" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Home/tutoriales" title="ASP.NET MVC Website">Tutoriales</a>
 </p>
 <div>
      <p>E-mail o Nick: <br>@Html.TextBoxFor(x => x.UserName)</p>
