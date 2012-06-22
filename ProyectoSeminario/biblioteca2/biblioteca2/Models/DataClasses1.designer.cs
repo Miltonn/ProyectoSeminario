@@ -22,7 +22,7 @@ namespace biblioteca2.Models
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="biblioteca1")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="bibli")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -69,21 +69,27 @@ namespace biblioteca2.Models
     partial void Insertcategoria(categoria instance);
     partial void Updatecategoria(categoria instance);
     partial void Deletecategoria(categoria instance);
+    partial void Insertcategorizacion(categorizacion instance);
+    partial void Updatecategorizacion(categorizacion instance);
+    partial void Deletecategorizacion(categorizacion instance);
     partial void Insertcomentarios(comentarios instance);
     partial void Updatecomentarios(comentarios instance);
     partial void Deletecomentarios(comentarios instance);
     partial void Insertcurso(curso instance);
     partial void Updatecurso(curso instance);
     partial void Deletecurso(curso instance);
+    partial void Insertindice(indice instance);
+    partial void Updateindice(indice instance);
+    partial void Deleteindice(indice instance);
     partial void Insertlibro(libro instance);
     partial void Updatelibro(libro instance);
     partial void Deletelibro(libro instance);
     partial void Insertperfil(perfil instance);
     partial void Updateperfil(perfil instance);
     partial void Deleteperfil(perfil instance);
-    partial void Insertpersona(persona instance);
-    partial void Updatepersona(persona instance);
-    partial void Deletepersona(persona instance);
+    partial void Insertperfilusers(perfilusers instance);
+    partial void Updateperfilusers(perfilusers instance);
+    partial void Deleteperfilusers(perfilusers instance);
     partial void Insertpublicacion(publicacion instance);
     partial void Updatepublicacion(publicacion instance);
     partial void Deletepublicacion(publicacion instance);
@@ -226,6 +232,14 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<categorizacion> categorizacion
+		{
+			get
+			{
+				return this.GetTable<categorizacion>();
+			}
+		}
+		
 		public System.Data.Linq.Table<comentarios> comentarios
 		{
 			get
@@ -239,6 +253,14 @@ namespace biblioteca2.Models
 			get
 			{
 				return this.GetTable<curso>();
+			}
+		}
+		
+		public System.Data.Linq.Table<indice> indice
+		{
+			get
+			{
+				return this.GetTable<indice>();
 			}
 		}
 		
@@ -258,11 +280,11 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<persona> persona
+		public System.Data.Linq.Table<perfilusers> perfilusers
 		{
 			get
 			{
-				return this.GetTable<persona>();
+				return this.GetTable<perfilusers>();
 			}
 		}
 		
@@ -279,6 +301,46 @@ namespace biblioteca2.Models
 			get
 			{
 				return this.GetTable<tutorial>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vista> vista
+		{
+			get
+			{
+				return this.GetTable<vista>();
+			}
+		}
+		
+		public System.Data.Linq.Table<comentario> comentario
+		{
+			get
+			{
+				return this.GetTable<comentario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<mode_coment> mode_coment
+		{
+			get
+			{
+				return this.GetTable<mode_coment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<categorias> categorias
+		{
+			get
+			{
+				return this.GetTable<categorias>();
+			}
+		}
+		
+		public System.Data.Linq.Table<articulos> articulos
+		{
+			get
+			{
+				return this.GetTable<articulos>();
 			}
 		}
 	}
@@ -2474,6 +2536,8 @@ namespace biblioteca2.Models
 		
 		private EntitySet<perfil> _perfil;
 		
+		private EntitySet<perfilusers> _perfilusers;
+		
 		private EntitySet<publicacion> _publicacion;
 		
 		private EntityRef<aspnet_Applications> _aspnet_Applications;
@@ -2506,6 +2570,7 @@ namespace biblioteca2.Models
 			this._aspnet_UsersInRoles = new EntitySet<aspnet_UsersInRoles>(new Action<aspnet_UsersInRoles>(this.attach_aspnet_UsersInRoles), new Action<aspnet_UsersInRoles>(this.detach_aspnet_UsersInRoles));
 			this._comentarios = new EntitySet<comentarios>(new Action<comentarios>(this.attach_comentarios), new Action<comentarios>(this.detach_comentarios));
 			this._perfil = new EntitySet<perfil>(new Action<perfil>(this.attach_perfil), new Action<perfil>(this.detach_perfil));
+			this._perfilusers = new EntitySet<perfilusers>(new Action<perfilusers>(this.attach_perfilusers), new Action<perfilusers>(this.detach_perfilusers));
 			this._publicacion = new EntitySet<publicacion>(new Action<publicacion>(this.attach_publicacion), new Action<publicacion>(this.detach_publicacion));
 			this._aspnet_Applications = default(EntityRef<aspnet_Applications>);
 			OnCreated();
@@ -2765,6 +2830,19 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_perfilusers", Storage="_perfilusers", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<perfilusers> perfilusers
+		{
+			get
+			{
+				return this._perfilusers;
+			}
+			set
+			{
+				this._perfilusers.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_publicacion", Storage="_publicacion", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<publicacion> publicacion
 		{
@@ -2875,6 +2953,18 @@ namespace biblioteca2.Models
 		}
 		
 		private void detach_perfil(perfil entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_perfilusers(perfilusers entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_perfilusers(perfilusers entity)
 		{
 			this.SendPropertyChanging();
 			entity.aspnet_Users = null;
@@ -3469,7 +3559,7 @@ namespace biblioteca2.Models
 		
 		private string _tipo;
 		
-		private EntitySet<publicacion> _publicacion;
+		private EntitySet<categorizacion> _categorizacion;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3483,7 +3573,7 @@ namespace biblioteca2.Models
 		
 		public categoria()
 		{
-			this._publicacion = new EntitySet<publicacion>(new Action<publicacion>(this.attach_publicacion), new Action<publicacion>(this.detach_publicacion));
+			this._categorizacion = new EntitySet<categorizacion>(new Action<categorizacion>(this.attach_categorizacion), new Action<categorizacion>(this.detach_categorizacion));
 			OnCreated();
 		}
 		
@@ -3527,16 +3617,16 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="categoria_publicacion", Storage="_publicacion", ThisKey="idCategoria", OtherKey="idCategoria")]
-		public EntitySet<publicacion> publicacion
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="categoria_categorizacion", Storage="_categorizacion", ThisKey="idCategoria", OtherKey="idCategoria")]
+		public EntitySet<categorizacion> categorizacion
 		{
 			get
 			{
-				return this._publicacion;
+				return this._categorizacion;
 			}
 			set
 			{
-				this._publicacion.Assign(value);
+				this._categorizacion.Assign(value);
 			}
 		}
 		
@@ -3560,16 +3650,208 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		private void attach_publicacion(publicacion entity)
+		private void attach_categorizacion(categorizacion entity)
 		{
 			this.SendPropertyChanging();
 			entity.categoria = this;
 		}
 		
-		private void detach_publicacion(publicacion entity)
+		private void detach_categorizacion(categorizacion entity)
 		{
 			this.SendPropertyChanging();
 			entity.categoria = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categorizacion")]
+	public partial class categorizacion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idCategorizacion;
+		
+		private int _idCategoria;
+		
+		private int _idPublicacion;
+		
+		private EntityRef<categoria> _categoria;
+		
+		private EntityRef<publicacion> _publicacion;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidCategorizacionChanging(int value);
+    partial void OnidCategorizacionChanged();
+    partial void OnidCategoriaChanging(int value);
+    partial void OnidCategoriaChanged();
+    partial void OnidPublicacionChanging(int value);
+    partial void OnidPublicacionChanged();
+    #endregion
+		
+		public categorizacion()
+		{
+			this._categoria = default(EntityRef<categoria>);
+			this._publicacion = default(EntityRef<publicacion>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategorizacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idCategorizacion
+		{
+			get
+			{
+				return this._idCategorizacion;
+			}
+			set
+			{
+				if ((this._idCategorizacion != value))
+				{
+					this.OnidCategorizacionChanging(value);
+					this.SendPropertyChanging();
+					this._idCategorizacion = value;
+					this.SendPropertyChanged("idCategorizacion");
+					this.OnidCategorizacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
+		public int idCategoria
+		{
+			get
+			{
+				return this._idCategoria;
+			}
+			set
+			{
+				if ((this._idCategoria != value))
+				{
+					if (this._categoria.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidCategoriaChanging(value);
+					this.SendPropertyChanging();
+					this._idCategoria = value;
+					this.SendPropertyChanged("idCategoria");
+					this.OnidCategoriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPublicacion", DbType="Int NOT NULL")]
+		public int idPublicacion
+		{
+			get
+			{
+				return this._idPublicacion;
+			}
+			set
+			{
+				if ((this._idPublicacion != value))
+				{
+					if (this._publicacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPublicacionChanging(value);
+					this.SendPropertyChanging();
+					this._idPublicacion = value;
+					this.SendPropertyChanged("idPublicacion");
+					this.OnidPublicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="categoria_categorizacion", Storage="_categoria", ThisKey="idCategoria", OtherKey="idCategoria", IsForeignKey=true)]
+		public categoria categoria
+		{
+			get
+			{
+				return this._categoria.Entity;
+			}
+			set
+			{
+				categoria previousValue = this._categoria.Entity;
+				if (((previousValue != value) 
+							|| (this._categoria.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._categoria.Entity = null;
+						previousValue.categorizacion.Remove(this);
+					}
+					this._categoria.Entity = value;
+					if ((value != null))
+					{
+						value.categorizacion.Add(this);
+						this._idCategoria = value.idCategoria;
+					}
+					else
+					{
+						this._idCategoria = default(int);
+					}
+					this.SendPropertyChanged("categoria");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_categorizacion", Storage="_publicacion", ThisKey="idPublicacion", OtherKey="idPublicacion", IsForeignKey=true)]
+		public publicacion publicacion
+		{
+			get
+			{
+				return this._publicacion.Entity;
+			}
+			set
+			{
+				publicacion previousValue = this._publicacion.Entity;
+				if (((previousValue != value) 
+							|| (this._publicacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._publicacion.Entity = null;
+						previousValue.categorizacion.Remove(this);
+					}
+					this._publicacion.Entity = value;
+					if ((value != null))
+					{
+						value.categorizacion.Add(this);
+						this._idPublicacion = value.idPublicacion;
+					}
+					else
+					{
+						this._idPublicacion = default(int);
+					}
+					this.SendPropertyChanged("publicacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -3964,6 +4246,181 @@ namespace biblioteca2.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.indice")]
+	public partial class indice : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idIndice;
+		
+		private string _nombre_indice;
+		
+		private string _url;
+		
+		private int _idPublicacion;
+		
+		private EntityRef<publicacion> _publicacion;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidIndiceChanging(int value);
+    partial void OnidIndiceChanged();
+    partial void Onnombre_indiceChanging(string value);
+    partial void Onnombre_indiceChanged();
+    partial void OnurlChanging(string value);
+    partial void OnurlChanged();
+    partial void OnidPublicacionChanging(int value);
+    partial void OnidPublicacionChanged();
+    #endregion
+		
+		public indice()
+		{
+			this._publicacion = default(EntityRef<publicacion>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idIndice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idIndice
+		{
+			get
+			{
+				return this._idIndice;
+			}
+			set
+			{
+				if ((this._idIndice != value))
+				{
+					this.OnidIndiceChanging(value);
+					this.SendPropertyChanging();
+					this._idIndice = value;
+					this.SendPropertyChanged("idIndice");
+					this.OnidIndiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre_indice", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre_indice
+		{
+			get
+			{
+				return this._nombre_indice;
+			}
+			set
+			{
+				if ((this._nombre_indice != value))
+				{
+					this.Onnombre_indiceChanging(value);
+					this.SendPropertyChanging();
+					this._nombre_indice = value;
+					this.SendPropertyChanged("nombre_indice");
+					this.Onnombre_indiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_url", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string url
+		{
+			get
+			{
+				return this._url;
+			}
+			set
+			{
+				if ((this._url != value))
+				{
+					this.OnurlChanging(value);
+					this.SendPropertyChanging();
+					this._url = value;
+					this.SendPropertyChanged("url");
+					this.OnurlChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPublicacion", DbType="Int NOT NULL")]
+		public int idPublicacion
+		{
+			get
+			{
+				return this._idPublicacion;
+			}
+			set
+			{
+				if ((this._idPublicacion != value))
+				{
+					if (this._publicacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPublicacionChanging(value);
+					this.SendPropertyChanging();
+					this._idPublicacion = value;
+					this.SendPropertyChanged("idPublicacion");
+					this.OnidPublicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_indice", Storage="_publicacion", ThisKey="idPublicacion", OtherKey="idPublicacion", IsForeignKey=true)]
+		public publicacion publicacion
+		{
+			get
+			{
+				return this._publicacion.Entity;
+			}
+			set
+			{
+				publicacion previousValue = this._publicacion.Entity;
+				if (((previousValue != value) 
+							|| (this._publicacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._publicacion.Entity = null;
+						previousValue.indice.Remove(this);
+					}
+					this._publicacion.Entity = value;
+					if ((value != null))
+					{
+						value.indice.Add(this);
+						this._idPublicacion = value.idPublicacion;
+					}
+					else
+					{
+						this._idPublicacion = default(int);
+					}
+					this.SendPropertyChanged("publicacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.libro")]
 	public partial class libro : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -3972,17 +4429,13 @@ namespace biblioteca2.Models
 		
 		private int _idLibro;
 		
-		private string _portada;
-		
 		private string _autor;
 		
 		private string _año_publicacion;
 		
-		private string _titulo;
+		private string _idioma;
 		
-		private string _descripcion;
-		
-		private string _indice;
+		private string _tamaño;
 		
 		private int _idPublicacion;
 		
@@ -3994,18 +4447,14 @@ namespace biblioteca2.Models
     partial void OnCreated();
     partial void OnidLibroChanging(int value);
     partial void OnidLibroChanged();
-    partial void OnportadaChanging(string value);
-    partial void OnportadaChanged();
     partial void OnautorChanging(string value);
     partial void OnautorChanged();
     partial void Onaño_publicacionChanging(string value);
     partial void Onaño_publicacionChanged();
-    partial void OntituloChanging(string value);
-    partial void OntituloChanged();
-    partial void OndescripcionChanging(string value);
-    partial void OndescripcionChanged();
-    partial void OnindiceChanging(string value);
-    partial void OnindiceChanged();
+    partial void OnidiomaChanging(string value);
+    partial void OnidiomaChanged();
+    partial void OntamañoChanging(string value);
+    partial void OntamañoChanged();
     partial void OnidPublicacionChanging(int value);
     partial void OnidPublicacionChanged();
     #endregion
@@ -4032,26 +4481,6 @@ namespace biblioteca2.Models
 					this._idLibro = value;
 					this.SendPropertyChanged("idLibro");
 					this.OnidLibroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string portada
-		{
-			get
-			{
-				return this._portada;
-			}
-			set
-			{
-				if ((this._portada != value))
-				{
-					this.OnportadaChanging(value);
-					this.SendPropertyChanging();
-					this._portada = value;
-					this.SendPropertyChanged("portada");
-					this.OnportadaChanged();
 				}
 			}
 		}
@@ -4096,62 +4525,42 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string titulo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idioma", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string idioma
 		{
 			get
 			{
-				return this._titulo;
+				return this._idioma;
 			}
 			set
 			{
-				if ((this._titulo != value))
+				if ((this._idioma != value))
 				{
-					this.OntituloChanging(value);
+					this.OnidiomaChanging(value);
 					this.SendPropertyChanging();
-					this._titulo = value;
-					this.SendPropertyChanged("titulo");
-					this.OntituloChanged();
+					this._idioma = value;
+					this.SendPropertyChanged("idioma");
+					this.OnidiomaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string descripcion
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tamaño", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tamaño
 		{
 			get
 			{
-				return this._descripcion;
+				return this._tamaño;
 			}
 			set
 			{
-				if ((this._descripcion != value))
+				if ((this._tamaño != value))
 				{
-					this.OndescripcionChanging(value);
+					this.OntamañoChanging(value);
 					this.SendPropertyChanging();
-					this._descripcion = value;
-					this.SendPropertyChanged("descripcion");
-					this.OndescripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_indice", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string indice
-		{
-			get
-			{
-				return this._indice;
-			}
-			set
-			{
-				if ((this._indice != value))
-				{
-					this.OnindiceChanging(value);
-					this.SendPropertyChanging();
-					this._indice = value;
-					this.SendPropertyChanged("indice");
-					this.OnindiceChanged();
+					this._tamaño = value;
+					this.SendPropertyChanged("tamaño");
+					this.OntamañoChanged();
 				}
 			}
 		}
@@ -4245,7 +4654,7 @@ namespace biblioteca2.Models
 		
 		private int _infraccion;
 		
-		private int _karma;
+		private float _karma;
 		
 		private string _beneado;
 		
@@ -4261,7 +4670,7 @@ namespace biblioteca2.Models
     partial void OnidPerfilChanged();
     partial void OninfraccionChanging(int value);
     partial void OninfraccionChanged();
-    partial void OnkarmaChanging(int value);
+    partial void OnkarmaChanging(float value);
     partial void OnkarmaChanged();
     partial void OnbeneadoChanging(string value);
     partial void OnbeneadoChanged();
@@ -4315,8 +4724,8 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_karma", DbType="Int NOT NULL")]
-		public int karma
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_karma", DbType="Real NOT NULL")]
+		public float karma
 		{
 			get
 			{
@@ -4434,13 +4843,13 @@ namespace biblioteca2.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.persona")]
-	public partial class persona : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.perfilusers")]
+	public partial class perfilusers : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _idUsuario;
+		private int _idPersona;
 		
 		private string _nombre;
 		
@@ -4452,12 +4861,16 @@ namespace biblioteca2.Models
 		
 		private string _interes;
 		
+		private System.Guid _UserId;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidUsuarioChanging(int value);
-    partial void OnidUsuarioChanged();
+    partial void OnidPersonaChanging(int value);
+    partial void OnidPersonaChanged();
     partial void OnnombreChanging(string value);
     partial void OnnombreChanged();
     partial void OnapellidoChanging(string value);
@@ -4468,29 +4881,32 @@ namespace biblioteca2.Models
     partial void OnubicacionChanged();
     partial void OninteresChanging(string value);
     partial void OninteresChanged();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
     #endregion
 		
-		public persona()
+		public perfilusers()
 		{
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int idUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPersona", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idPersona
 		{
 			get
 			{
-				return this._idUsuario;
+				return this._idPersona;
 			}
 			set
 			{
-				if ((this._idUsuario != value))
+				if ((this._idPersona != value))
 				{
-					this.OnidUsuarioChanging(value);
+					this.OnidPersonaChanging(value);
 					this.SendPropertyChanging();
-					this._idUsuario = value;
-					this.SendPropertyChanged("idUsuario");
-					this.OnidUsuarioChanged();
+					this._idPersona = value;
+					this.SendPropertyChanged("idPersona");
+					this.OnidPersonaChanged();
 				}
 			}
 		}
@@ -4595,6 +5011,64 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_perfilusers", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.perfilusers.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.perfilusers.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4624,27 +5098,35 @@ namespace biblioteca2.Models
 		
 		private int _idPublicacion;
 		
+		private string _titulo;
+		
+		private string _portada;
+		
 		private string _contenido;
 		
 		private string _correcciones;
 		
 		private int _puntaje;
 		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
 		private System.Guid _UserId;
 		
-		private int _idCategoria;
-		
 		private EntitySet<articulo> _articulo;
+		
+		private EntitySet<categorizacion> _categorizacion;
 		
 		private EntitySet<comentarios> _comentarios;
 		
 		private EntitySet<curso> _curso;
 		
+		private EntitySet<indice> _indice;
+		
 		private EntitySet<libro> _libro;
 		
 		private EntitySet<tutorial> _tutorial;
-		
-		private EntityRef<categoria> _categoria;
 		
 		private EntityRef<aspnet_Users> _aspnet_Users;
 		
@@ -4654,26 +5136,33 @@ namespace biblioteca2.Models
     partial void OnCreated();
     partial void OnidPublicacionChanging(int value);
     partial void OnidPublicacionChanged();
+    partial void OntituloChanging(string value);
+    partial void OntituloChanged();
+    partial void OnportadaChanging(string value);
+    partial void OnportadaChanged();
     partial void OncontenidoChanging(string value);
     partial void OncontenidoChanged();
     partial void OncorreccionesChanging(string value);
     partial void OncorreccionesChanged();
     partial void OnpuntajeChanging(int value);
     partial void OnpuntajeChanged();
+    partial void Onfecha_publicacionChanging(System.DateTime value);
+    partial void Onfecha_publicacionChanged();
+    partial void OndescripcionChanging(string value);
+    partial void OndescripcionChanged();
     partial void OnUserIdChanging(System.Guid value);
     partial void OnUserIdChanged();
-    partial void OnidCategoriaChanging(int value);
-    partial void OnidCategoriaChanged();
     #endregion
 		
 		public publicacion()
 		{
 			this._articulo = new EntitySet<articulo>(new Action<articulo>(this.attach_articulo), new Action<articulo>(this.detach_articulo));
+			this._categorizacion = new EntitySet<categorizacion>(new Action<categorizacion>(this.attach_categorizacion), new Action<categorizacion>(this.detach_categorizacion));
 			this._comentarios = new EntitySet<comentarios>(new Action<comentarios>(this.attach_comentarios), new Action<comentarios>(this.detach_comentarios));
 			this._curso = new EntitySet<curso>(new Action<curso>(this.attach_curso), new Action<curso>(this.detach_curso));
+			this._indice = new EntitySet<indice>(new Action<indice>(this.attach_indice), new Action<indice>(this.detach_indice));
 			this._libro = new EntitySet<libro>(new Action<libro>(this.attach_libro), new Action<libro>(this.detach_libro));
 			this._tutorial = new EntitySet<tutorial>(new Action<tutorial>(this.attach_tutorial), new Action<tutorial>(this.detach_tutorial));
-			this._categoria = default(EntityRef<categoria>);
 			this._aspnet_Users = default(EntityRef<aspnet_Users>);
 			OnCreated();
 		}
@@ -4694,6 +5183,46 @@ namespace biblioteca2.Models
 					this._idPublicacion = value;
 					this.SendPropertyChanged("idPublicacion");
 					this.OnidPublicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this.OntituloChanging(value);
+					this.SendPropertyChanging();
+					this._titulo = value;
+					this.SendPropertyChanged("titulo");
+					this.OntituloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this.OnportadaChanging(value);
+					this.SendPropertyChanging();
+					this._portada = value;
+					this.SendPropertyChanged("portada");
+					this.OnportadaChanged();
 				}
 			}
 		}
@@ -4758,6 +5287,46 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this.Onfecha_publicacionChanging(value);
+					this.SendPropertyChanging();
+					this._fecha_publicacion = value;
+					this.SendPropertyChanged("fecha_publicacion");
+					this.Onfecha_publicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this.OndescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._descripcion = value;
+					this.SendPropertyChanged("descripcion");
+					this.OndescripcionChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
 		public System.Guid UserId
 		{
@@ -4782,30 +5351,6 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idCategoria", DbType="Int NOT NULL")]
-		public int idCategoria
-		{
-			get
-			{
-				return this._idCategoria;
-			}
-			set
-			{
-				if ((this._idCategoria != value))
-				{
-					if (this._categoria.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidCategoriaChanging(value);
-					this.SendPropertyChanging();
-					this._idCategoria = value;
-					this.SendPropertyChanged("idCategoria");
-					this.OnidCategoriaChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_articulo", Storage="_articulo", ThisKey="idPublicacion", OtherKey="idPublicacion")]
 		public EntitySet<articulo> articulo
 		{
@@ -4816,6 +5361,19 @@ namespace biblioteca2.Models
 			set
 			{
 				this._articulo.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_categorizacion", Storage="_categorizacion", ThisKey="idPublicacion", OtherKey="idPublicacion")]
+		public EntitySet<categorizacion> categorizacion
+		{
+			get
+			{
+				return this._categorizacion;
+			}
+			set
+			{
+				this._categorizacion.Assign(value);
 			}
 		}
 		
@@ -4845,6 +5403,19 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_indice", Storage="_indice", ThisKey="idPublicacion", OtherKey="idPublicacion")]
+		public EntitySet<indice> indice
+		{
+			get
+			{
+				return this._indice;
+			}
+			set
+			{
+				this._indice.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="publicacion_libro", Storage="_libro", ThisKey="idPublicacion", OtherKey="idPublicacion")]
 		public EntitySet<libro> libro
 		{
@@ -4868,40 +5439,6 @@ namespace biblioteca2.Models
 			set
 			{
 				this._tutorial.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="categoria_publicacion", Storage="_categoria", ThisKey="idCategoria", OtherKey="idCategoria", IsForeignKey=true)]
-		public categoria categoria
-		{
-			get
-			{
-				return this._categoria.Entity;
-			}
-			set
-			{
-				categoria previousValue = this._categoria.Entity;
-				if (((previousValue != value) 
-							|| (this._categoria.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._categoria.Entity = null;
-						previousValue.publicacion.Remove(this);
-					}
-					this._categoria.Entity = value;
-					if ((value != null))
-					{
-						value.publicacion.Add(this);
-						this._idCategoria = value.idCategoria;
-					}
-					else
-					{
-						this._idCategoria = default(int);
-					}
-					this.SendPropertyChanged("categoria");
-				}
 			}
 		}
 		
@@ -4971,6 +5508,18 @@ namespace biblioteca2.Models
 			entity.publicacion = null;
 		}
 		
+		private void attach_categorizacion(categorizacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.publicacion = this;
+		}
+		
+		private void detach_categorizacion(categorizacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.publicacion = null;
+		}
+		
 		private void attach_comentarios(comentarios entity)
 		{
 			this.SendPropertyChanging();
@@ -4990,6 +5539,18 @@ namespace biblioteca2.Models
 		}
 		
 		private void detach_curso(curso entity)
+		{
+			this.SendPropertyChanging();
+			entity.publicacion = null;
+		}
+		
+		private void attach_indice(indice entity)
+		{
+			this.SendPropertyChanging();
+			entity.publicacion = this;
+		}
+		
+		private void detach_indice(indice entity)
 		{
 			this.SendPropertyChanging();
 			entity.publicacion = null;
@@ -5143,6 +5704,537 @@ namespace biblioteca2.Models
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vista")]
+	public partial class vista
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _descripcion;
+		
+		private string _tipo;
+		
+		public vista()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.comentario")]
+	public partial class comentario
+	{
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private string _titulo;
+		
+		public comentario()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mode_coment")]
+	public partial class mode_coment
+	{
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private string _titulo;
+		
+		public mode_coment()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categorias")]
+	public partial class categorias
+	{
+		
+		private string _tipo;
+		
+		private int _idPublicacion;
+		
+		public categorias()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPublicacion", DbType="Int NOT NULL")]
+		public int idPublicacion
+		{
+			get
+			{
+				return this._idPublicacion;
+			}
+			set
+			{
+				if ((this._idPublicacion != value))
+				{
+					this._idPublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.articulos")]
+	public partial class articulos
+	{
+		
+		private string _titulo;
+		
+		private string _descripcion;
+		
+		private string _contenido;
+		
+		private string _portada;
+		
+		private int _puntaje;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private int _idpublicacion;
+		
+		public articulos()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntaje", DbType="Int NOT NULL")]
+		public int puntaje
+		{
+			get
+			{
+				return this._puntaje;
+			}
+			set
+			{
+				if ((this._puntaje != value))
+				{
+					this._puntaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
 			}
 		}
 	}

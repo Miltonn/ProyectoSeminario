@@ -25,17 +25,7 @@ namespace biblioteca2.Controllers
 
         public ActionResult insertar() 
         {
-            DataClasses2DataContext db = new DataClasses2DataContext();
-            aspnet_Users user = new aspnet_Users()
-            {
-                UserName = "Milton",
-                LoweredUserName = "milton",
-                MobileAlias = "mil",
-                IsAnonymous = true,
-                LastActivityDate = DateTime.Now
-            };
-            db.aspnet_Users.InsertOnSubmit(user);
-            db.SubmitChanges();
+            
             return View();
         }
         //
@@ -54,7 +44,7 @@ namespace biblioteca2.Controllers
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                         {
-                            
+                                                                 
                             return Redirect(returnUrl);
                         }
                         else
@@ -127,7 +117,7 @@ namespace biblioteca2.Controllers
                 {
                     //registro usuarioroles
                                      
-                        DataClasses2DataContext db = new DataClasses2DataContext();
+                        DataClasses1DataContext db = new DataClasses1DataContext();
                         //var registro = from UsersId in db.aspnet_Users select UsersId;
 
                         System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];

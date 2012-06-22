@@ -1,9 +1,78 @@
-﻿@{
+﻿@model biblioteca2.Models.publicmodel
+@{
     ViewBag.Title = "libros";
 }
 
-<h2>BIENVENIDO AL FORMULARIO DE REGISTRO DE LIBROS</h2>
-@{
-    string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
-}
-
+<form enctype="multipart/form-data" method="post" action="@Url.Action("libros","Home")">
+        <fieldset>
+            <legend>Registro de Libro</legend>
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Titulo)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.Titulo)
+                    @Html.ValidationMessageFor(m => m.Titulo)
+                </div>
+            </div> 
+            
+           <div class="clearfix">
+                @Html.LabelFor(m => m.Portada)
+                <div class="input">
+                    <!--input type="file" id="file_upload_1"/-->
+                    <input type="file" name="Portada"> 
+                    @Html.ValidationMessageFor(m => m.Portada)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Autor)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.Autor)
+                    @Html.ValidationMessageFor(m => m.Autor)
+                </div>
+            </div>  
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Tipo)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.Tipo)
+                    @Html.ValidationMessageFor(m => m.Tipo)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Idioma)
+                <div class="input">
+                    @Html.DropDownListFor(m => m.Idioma, new []{new SelectListItem { Value="Español",Text="Español"},
+                                                               new SelectListItem { Value="Ingles",Text="Ingles"},
+                                                               new SelectListItem { Value="Portugues",Text="Portugues"},
+                                                               new SelectListItem { Value="Frances",Text="Frances"},
+                                                               new SelectListItem { Value="Aleman",Text="Aleman"}},"seleccione una opcion")
+                    @Html.ValidationMessageFor(m => m.Idioma)
+                </div>
+            </div>       
+             <div class="clearfix">
+                @Html.LabelFor(m => m.Contenido)
+                <div class="input">
+                    <input type="file"  name="Contenido" />
+                    @Html.ValidationMessageFor(m => m.Contenido)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Año_Publicacion)
+                <div class="input">
+                    @Html.TextBoxFor(m => m.Año_Publicacion)
+                    @Html.ValidationMessageFor(m => m.Año_Publicacion)
+                </div>
+            </div>  
+               
+            
+            <div class="clearfix">
+                @Html.LabelFor(m => m.Descripcion)
+                <div class="input">
+                    @Html.TextAreaFor(m => m.Descripcion)
+                    @Html.ValidationMessageFor(m => m.Descripcion)
+                </div>
+            </div>
+            <div class="actions">
+                <input type="submit" class="btn primary" value="Guardar" />
+                <input type="button" class="btn" value="Cancelar" />
+            </div>
+        </fieldset>   
+</form>

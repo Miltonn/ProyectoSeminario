@@ -18,43 +18,58 @@ namespace biblioteca2.Controllers
         {
             return View();
         }
-        public ActionResult perfil() {
+        /*public ActionResult perfil() {
+            return View();
+        }*/
+        [HttpGet]
+        public ActionResult perfil()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("perfilusuario");
+            }
+
             return View();
         }
         [HttpPost]
-        public ViewResult perfil(string nombre, string apellido, HttpPostedFileBase Avatar, perfil model, string ubicacion, string interes)
+        public ActionResult perfil(string nombre, string apellido, HttpPostedFileBase Avatar, perfilext model, string ubicacion, string interes)
         {
             if (ModelState.IsValid){
-            var data = new byte[Avatar.ContentLength];
-            Avatar.InputStream.Read(data, 0, Avatar.ContentLength);
-            var path = ControllerContext.HttpContext.Server.MapPath("/Content/imagenes/");
-            var filename = Path.Combine(path, Path.GetFileName(Avatar.FileName));
-            System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
-            //if (Avatar.Equals(ImageFormat.Jpeg)||Avatar.Equals(ImageFormat.Png))
-            //{
-                DataClasses2DataContext db = new DataClasses2DataContext();
-                //perfilusers p = new perfilusers();
-                //p = (from a in db.perfilusers where a.nombre == User.Identity.Name select a).ToArray()[0];
-                System.Guid idRol = db.aspnet_Users.Where(a => a.UserName == "ivan").Select(a => a.UserId).ToArray()[0];
-                //System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == model.UserName).Select(a => a.UserId).ToArray()[0];
-                perfilusers reg = new perfilusers() { nombre = nombre, apellido = apellido, avatar = Avatar.FileName, ubicacion = ubicacion, interes = interes,UserId=idRol};
-                db.perfilusers.InsertOnSubmit(reg);
-                db.SubmitChanges();
-               /* perfil rg = new perfil() { infraccion = 0, karma = 0, beneado = "true", UserId = p.UserId };
-                db.perfil.InsertOnSubmit(rg);
-                db.SubmitChanges();
+                if(Avatar != null){
+                    var data = new byte[Avatar.ContentLength];
+                    Avatar.InputStream.Read(data, 0, Avatar.ContentLength);
+                    var path = ControllerContext.HttpContext.Server.MapPath("/Content/imagenes/");
+                    var filename = Path.Combine(path, Path.GetFileName(Avatar.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
+                    model.Avatar = Avatar.FileName;
+                }else{
+                    string imagen="MrX.png";
+                    model.Avatar = imagen;
+                }
+                model.Nombre = nombre;
+                model.Apellido = apellido;
+                model.Ubicacion = ubicacion;
+                model.Interes = interes;
+                DataClasses1DataContext db = new DataClasses1DataContext();
+                System.Guid idUs = db.aspnet_Users.Where(a => a.UserName == User.Identity.Name).Select(a => a.UserId).ToArray()[0];
                 System.Guid idRol = db.aspnet_Roles.Where(a => a.RoleName == "Usuario").Select(a => a.RoleId).ToArray()[0];
-                aspnet_UsersInRoles rel = new aspnet_UsersInRoles() { RoleId = idRol, UserId = p.UserId };
-                db.aspnet_UsersInRoles.InsertOnSubmit(rel);
-                db.SubmitChanges();*/
-                ViewBag.er = "datos insertados correctamente";
-                return View();
+                model.regperfilusers(model, idUs);
+                model.regperfil(idUs);
+                model.regroles(idUs,idRol);
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("perfilusuario3");
+                }
             }
-            else {
-                return View();
-                ViewBag.er = "verifique los datos";
+            else
+            {
+                if (Request.IsAjaxRequest()) 
+                return PartialView("perfilusuario");
             }
-        }
+            TempData["Message"] = string.Format("Bienvenidos, {0}! eres un nuevo usuario.");
+            return RedirectToAction("Index");
+          
+       }
         
     }
 }

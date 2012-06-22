@@ -1,11 +1,47 @@
-﻿@{
+﻿@model IEnumerable<biblioteca2.Models.articulos>
+@{
     ViewBag.Title = "Articulos";
 }
 
 <h2>Articulos</h2>
+
 <p>
      Ultimas 10 publicaciones de ARTICULOS
 </p>
 <p class="links">
     Enlace de Publicaciones........... <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Tutoriales</a>
 </p>
+@if(ViewBag.arti != null)
+{
+    <div>
+    @foreach(var item in ViewBag.arti)
+     {
+        <table>
+         <tr>
+            <td>
+                @item.titulo
+            </td>
+         </tr>
+           <tr>
+                <td>
+                @item.avatar
+                @item.nombre
+                @item.apellido
+                </td>
+                <td>
+                 @{string img1 = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img1)" width="150" height="150"/>
+                 @item.descripcion
+                </td>
+           </tr>
+           @foreach(var d in ViewBag.ca){
+                <tr>
+                <td>
+                    @d.tipo
+                </td>
+                </tr>
+           }
+    </table>
+    }</div>
+}
+else
+{   @ViewBag.error}

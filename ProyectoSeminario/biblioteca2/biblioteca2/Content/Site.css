@@ -4,14 +4,16 @@ to use a different color start by replacing all instances of
 #5c87b2 with your new color.
 ----------------------------------------------------------*/
 body {
-    background-color: #5c87b2;
+    background:url(../Content/imagenes/bg_im.jpeg) ;
+    width:100%;
+    height:100%;
     font-size: .85em;
     font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
     color: #696969;
-    background: repeating-radial-gradient(left bottom, ellipse farthest-side, #180000 0%, #880000 10%, #FF0000 20%);
-    background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #180000 0%, #880000 10%, #FF0000 20%);
+    background-size:100% 150%;
+    background-attachment:fixed;
 }
 
 a:link {
@@ -82,6 +84,7 @@ page width. Or, you can specify an exact pixel width. */
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 header, #header {
@@ -108,6 +111,9 @@ header h1, #header h1 {
     border-radius: 4px 0 0 0;
     -webkit-border-radius: 4px 0 0 0;
     -moz-border-radius: 4px 0 0 0;
+    float:right;
+    width:80%;
+    
 }
 
 footer, 
@@ -126,6 +132,12 @@ footer,
 
 /* TAB MENU   
 ----------------------------------------------------------*/
+#men
+{
+	border: 10px red solid;
+	float:left;
+	width:80%;
+}
 ul#menu {
     border-bottom: 1px #5C87B2 solid;
     padding: 0 0 2px;
@@ -136,12 +148,22 @@ ul#menu {
 }
 
 ul#menu li {
-    display: inline;
+    margin-top:5px;   
     list-style: none;
+    font-size:25px;
+    width:155px;
+    border:1px solid red;
+    background-color:Black;
+    border:3px solid #B8B8B8;
+    opacity:0.8;
 }
-
+ul#menu li:hover {
+	background-color: #fff;
+    text-decoration: none;
+    color:Black;
+}
 ul#menu li#greeting {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
@@ -149,20 +171,23 @@ ul#menu li#greeting {
 }
 
 ul#menu li a {
-    padding: 10px 20px;
+    padding: 10px 15px;
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    background-color: #e8eef4;
-    color: #034af3;
+    background-color: #000;
+    color: white;
     border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
+    
+    
 }
 
 ul#menu li a:hover {
     background-color: #fff;
     text-decoration: none;
+    color:Black;
 }
 
 ul#menu li a:active {
@@ -177,31 +202,68 @@ ul#menu li.selected a {
 
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
-
-fieldset {
-    border: 1px solid #ddd;
+#vistaParcial
+{
+    border: 2px solid red;
+    overflow: hidden;
+    margin-left: 250px;
+    background-color: Black;
+    }
+fieldset 
+{
+    width: auto;    
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 30px #ffffff;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
+    background-color:Black;
 }
 
 legend {
     font-size: 1.2em;
     font-weight: bold;
 }
-
+/*
 textarea {
     min-height: 75px;
-}
-
+    
+}*/
+/*
 input[type="text"], 
-input[type="password"] {
-    border: 1px solid #ccc;
+input[type="password"] 
+{
+    background-color: Black;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 10px #ffffff;
     padding: 2px;
     font-size: 1.2em;
     color: #444;
     width: 200px;
 }
+input[type="text"]:invalid, input[type="password"]:invalid {
+ 
+border: 1px solid red;
+box-shadow:0 0 10px red; 
+}
+input[type="text"]:valid, input[type="password"]:valid {
+ 
+border: 1px solid green;
+box-shadow:0 0 10px green; 
+}*/
 
+/*input[type="text"]:required:valid, input[type="password"]:required:valid {
+ 
+border: 1px solid green;
+box-shadow:0 0 10px green;
+ 
+}*/
+
+
+/*input[type="text"]:required:invalid, input[type="password"]:required:invalid {
+ 
+border: 1px solid red;
+box-shadow:0 0 10px red; 
+}*/
 select {
     border: 1px solid #ccc;
     padding: 2px;
@@ -209,10 +271,10 @@ select {
     color: #444;
 }
 
-input[type="submit"] {
+/*input[type="submit"] {
     font-size: 1.2em;
     padding: 5px;
-}
+}*/
 
 /* TABLE
 ----------------------------------------------------------*/
@@ -367,4 +429,31 @@ div#title bljaIMGtex
   0 5px 10px rgba(0,0,0,.25),
   0 10px 10px rgba(0,0,0,.2),
   0 20px 20px rgba(0,0,0,.15);
+}
+/*#areatext
+{
+	border-color: #ff0000;
+	float:left;
+	padding-left:0px;
+	width: 50%;	
+}*/
+#openDialog
+{
+	background-color:Black;	
+	width:auto !important;	
+}
+#emailDialog
+{
+	overflow:hidden;
+	background-color:Black;
+	width:auto !important;	
+	border:1px solid red;	
+}
+.Registro del Perfil de Usuario
+{
+	font-size:25px;	
+}
+.form1
+{
+	width:auto;	
 }

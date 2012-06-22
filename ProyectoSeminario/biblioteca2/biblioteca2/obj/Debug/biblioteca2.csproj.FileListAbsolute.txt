@@ -31,15 +31,3 @@ C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\bibliote
 C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\Recaptcha.pdb
 C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.dll
 C:\Users\MILTON\Documents\Visual Studio 2010\Projects\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.xml
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\biblioteca2.pdb
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\Microsoft.Web.Helpers.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\Recaptcha.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\EntityFramework.xml
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\Recaptcha.pdb
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\bin\System.Web.Helpers.xml
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\ResolveAssemblyReference.cache
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.dll
-F:\ProyectoSeminario\ProyectoSeminario\biblioteca2\biblioteca2\obj\Debug\biblioteca2.pdb

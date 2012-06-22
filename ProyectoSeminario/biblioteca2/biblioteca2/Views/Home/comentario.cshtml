@@ -1,0 +1,28 @@
+﻿@model biblioteca2.Models.buscar
+@{
+    ViewBag.Title = "articulos";
+}
+<form enctype="multipart/form-data" method="get" action="@Url.Action("comentarios","Home")">
+        <fieldset>
+            <legend>Comentar</legend>
+            <input type=text value=model.buscarr/>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Email) o Nick
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Comentario)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Comentario)
+                @Html.ValidationMessageFor(m => m.Comentario)
+            </div>
+            <div>
+                <input type="submit"  value="Comentar" />
+            </div>
+            
+        </fieldset>   
+</form>

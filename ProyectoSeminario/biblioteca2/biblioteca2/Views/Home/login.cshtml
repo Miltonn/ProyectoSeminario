@@ -2,18 +2,52 @@
 @{
     ViewBag.Title = "Home Page";
     string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
+    
 }
 
 <h2>@ViewBag.Message</h2>
-<img src="@Url.Content(img)" width="100" height="100"/></br>
+<h2>@TempData["Message"]</h2>
+<img src="@Url.Content(img)" width="100" height="100"/>
     <p1 class="reg">@ViewBag.list.nombre;</br></p1>
     <p1 class="reg">@ViewBag.list.apellido;</p1>
 
 <p class="links">
-    Enlace de Publicaciones........... <a href="http://localhost:4391/Home/libros" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Home/articulos" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Home/curso" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Home/tutoriales" title="ASP.NET MVC Website">Tutoriales</a>
+    Enlace de Publicaciones........... <a href="http://localhost:4391/Home/libros" title="ASP.NET MVC Website">Libros</a> @Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" }) @Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" }) @Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" }) <a href="http://localhost:4391/Home/libro" title="ASP.NET MVC Website">Busqueda</a>
 </p>
-<div>
+<div style="margin-left:15px;color:white;overflow:hidden;">
+    <div style="overflow:hidden;float:left;width:800px;">
+        <div class="vista">
+        @foreach (var item in @ViewBag.lib)
+        {
+           <div style="border:2px solid white;margin:3px;overflow:hidden;">
+                <div style="background-color:#707070;"><p style="padding:10px"><a style="color:#00FF00;font-size:20px;font-weight:bold;" id="menu1"href="">@item.titulo</a></p>
+                </div>
+                <div style="border:1px solid white;float:left;margin:20px;">
+                     @{string img1 = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img1)" width="200" height="200"/><p>Categoria:  @item.tipo</p>
+                </div>
+                <div style="padding:20px;">@item.descripcion</div>
+                
+           </div>
+        }
+        </div> 
+    </div>   
+    <div style="margin-left:15px;overflow:hidden;float:right;margin-right:30px;border:1px solid white;">
+        @foreach (var ite in @ViewBag.p1)
+        {
+            <div style="width:80;height:80;overflow:hidden;border:1px solid white;">
+            <div>
+                <p style="float:left;">@{string img1 = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img1)" width="100" height="100"/></p>
+                <p style="float:left;">
+                    <p>@ite.titulo</p><br>
+                    <p>@ite.descripcion</p>
+                </p>
+            </div>
+            </div>
+        }
+    </div>
+</div>
+<!--div>
      <p>E-mail o Nick: <br>@Html.TextBoxFor(x => x.UserName)</p>
      <p>Comentario: <br>@Html.TextAreaFor(x => x.UserName)</p>
      <p><input type="submit" value="Comentar"/></p>
-</div>
+</div-->

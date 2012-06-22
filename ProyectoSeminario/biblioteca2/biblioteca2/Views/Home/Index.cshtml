@@ -4,10 +4,37 @@
 }
 
 <h2>@ViewBag.Message</h2>
-<p>Ultimas 10 publicaciones de LIBROS</p>
-<p class="links">
-    Enlace de Publicaciones........... <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Libros</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Articulos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Cursos</a> <a href="http://localhost:4391/Account/LogOn" title="ASP.NET MVC Website">Tutoriales</a>
-</p>
-<div>
-     
+
+<p class="menu1" style="font-family:miFont;font-size:25px;-moz-text-shadow:10px 10px 5px white;text-align:center;color:#00FF00;">ULTIMAS 10 PUBLICACIONES DE LIBROS</p>
+<div style="margin-left:15px;color:white;overflow:hidden;">
+    <div style="overflow:hidden;float:left;width:800px;">
+        <div class="vista">
+        @foreach (var item in @ViewBag.lib)
+        {
+           <div style="border:2px solid white;margin:3px;overflow:hidden;">
+                <div style="background-color:#707070;"><p style="padding:10px"><a style="color:#00FF00;font-size:20px;font-weight:bold;" id="menu1"href="">@item.titulo</a></p>
+                </div>
+                <div style="border:1px solid white;float:left;margin:20px;">
+                     @{string img = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img)" width="200" height="200"/><p>Categoria:  @item.tipo</p>
+                </div>
+                <div style="padding:20px;">@item.descripcion</div>
+                
+           </div>
+        }
+        </div> 
+    </div>   
+    <div style="margin-left:15px;overflow:hidden;float:right;margin-right:30px;border:1px solid white;">
+        @foreach (var ite in @ViewBag.p)
+        {
+            <div style="width:80;height:80;overflow:hidden;border:1px solid white;">
+            <div>
+                <p style="float:left;">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></p>
+                <p style="float:left;">
+                    <p>@ite.titulo</p><br>
+                    <p>@ite.descripcion</p>
+                </p>
+            </div>
+            </div>
+        }
+    </div>
 </div>

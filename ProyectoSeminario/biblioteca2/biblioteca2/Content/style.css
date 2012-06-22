@@ -1,0 +1,172 @@
+﻿/* File Created: junio 12, 2012 */
+input:invalid {
+    border: 1px solid red;
+  }
+/*para la pagina principal que contiene todo*/
+.page1 
+{
+    display: block;
+    border: 1px solid red; /*Al final borrar todos los border en todos los selectores*/
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;    
+}
+@font-face
+{
+    font-family: "miFont";
+    src: url(../Content/fonts/MeriendaOne-Regular.ttf);    
+    }
+/*para la pagina principal que contiene todo*/
+/*title of/from header Biblioteca de contenidos colectivos*/
+#header1
+{
+    border-radius: 45px 0 45px 0;
+    -moz-border-radius: 10px 0 10px 0;
+    }
+#mainTitle
+{
+    
+    overflow: hidden;
+    }
+#title1
+{
+    box-shadow: 0 10 white;
+    width: 20%;
+    float:left;/*Without Width not function */
+    }
+#title2
+{
+    background-color: Black;
+    opacity: 0.9;     
+    margin:0;
+    float: right;
+    width:80%;
+    height: 150px;
+    overflow: hidden;
+    }
+#title2 div
+{
+    padding-left: 30px;
+    text-shadow: 0px 10px 5px #ffffff;
+    margin-top:40px; 
+    font-family:miFont;       
+    color: White;
+    font-size: 42px;
+    border: 1px solid #1584ca;
+    
+     }
+/*title of/from header Biblioteca de contenidos colectivos*/
+/*Login dinamico*/
+#logindisplay1
+{
+    padding-top: 10px;
+    background-color: Black;
+    opacity: 1;
+    margin-top:2px;
+    margin-bottom: 2px;
+    width:100%;
+    height:auto;
+	border: 1px solid red;
+	color: White;
+	font-weight: bold;
+	overflow: hidden;
+    }
+#logindisplay1 a
+{
+    color: White;
+    }
+#loginheader
+{
+    padding-left: 70px;
+    height:35px;
+	overflow: hidden;
+    }
+#loginheader div
+{
+    float: left;
+    }    
+/*Login dinamico*/
+/*header*/
+#header1
+{
+    margin:0 auto;/*creo que centra los div que contiene, pero creo que utiliza float*/
+    border: 1px solid green;
+    height: 150px;
+    }
+/*header*/
+/*nav, inicio, libro, article so on*/
+#areatext1
+{
+    border: 1px solid orange;
+    margin: 0px;
+    width: 19%;
+    float: left;
+    overflow: hidden;
+    }
+
+/*a {color:#808080;text-decoration:underline;outline:none;}*/
+#menu1 
+{
+    padding:0px;
+    list-style: none;
+    font-family: miFont;
+    }
+#menu1 li
+{   /*background-color: green;*/
+    position: relative;
+    /*margin-left:px;*/
+    height: 60px;
+    font-size: 28px;
+    /*width: 158px;*/    
+    }
+#menu1 > li > a
+{
+    line-height: 55px;/*aumenta margen arriba y abajo*/
+    opacity: 0.9;
+    display: inline-block;/*le da un ancho basado en el  width: 214px; */
+    padding-left: 30px;
+    background-color: Black; 
+    color: white;
+    text-decoration: none;
+    width: 214px;
+    /*height: px;*/ 
+    }
+#menu1 > li > a:hover
+{
+    line-height: 55px;/*aumenta margen arriba y abajo*/
+    opacity: 0.9;
+    display: inline-block;/*le da un ancho basado en el  width: 214px; */
+    padding-left: 45px;
+    background-color: white; 
+    color: black;/*el color de la letra en esta seccion es de color negro*/
+    text-decoration: none;
+    width: 214px;
+    /*height: px;*/ 
+    }
+
+/*nav, inicio, libro, article so on*/
+
+/*render body, view partial */
+#main1
+{
+    border: 1px solid #FF1;
+    color: white;
+    background-color: Black;
+    opacity:0.9;
+    float: right;
+    width: 80%;
+    overflow: hidden;
+ }
+
+/*render body, view partial*/
+
+/*footer*/
+#footer1
+{
+    clear:both;/*evita que el div footer tenga div flotantes a sus costados*/
+  }
+/*footer*/
+
+
+

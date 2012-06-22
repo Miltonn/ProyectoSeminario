@@ -1,22 +1,39 @@
-﻿@model biblioteca2.Models.publicacion
-@{
+﻿@{
     ViewBag.Title = "articulos";
 }
 
-<h2>BIENVENIDO AL FORMULARIO DE REGISTRO DE ARTICULOS</h2>
-@{
-    string img = "~/Content/Imagenes/" + @ViewBag.list.avatar;
+<h2>articulos</h2>
+@if(ViewBag.arti != null)
+{
+    <div>
+    @foreach(var item in ViewBag.arti)
+     {
+        <table>
+         <tr>
+            <td>
+                @item.titulo
+            </td>
+         </tr>
+           <tr>
+                <td>
+                @item.avatar
+                @item.nombre
+                @item.apellido
+                </td>
+                <td>
+                 @{string img1 = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img1)" width="150" height="150"/>
+                 @item.descripcion
+                </td>
+           </tr>
+           @foreach(var d in ViewBag.ca){
+                <tr>
+                <td>
+                    @d.tipo
+                </td>
+                </tr>
+           }
+    </table>
+    }</div>
 }
-
-<form enctype="multipart/form-data" method="post" action="@Url.Action("articulos")">
-        <fieldset>
-            <legend>Account Information</legend>
-            
-           
-            </div>
-            <div class="actions">
-                <input type="submit" class="btn primary" value="Guardar" />
-                <input type="button" class="btn" value="Cancelar" />
-            </div>
-        </fieldset>   
-</form>
+else
+{   @ViewBag.error}
