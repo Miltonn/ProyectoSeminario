@@ -1,58 +1,44 @@
 ﻿@model biblioteca2.Models.tutoriales
+@{
+    ViewBag.Title = "tutorial";
+}
 
-
-@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "emailDialog" }))
-{
-    // @Html.ValidationSummary(true)
-
-    //@Html.EditorForModel()
-       
-   <form enctype="multipart/form-data" method="post" action="@Url.Action("tutorial", "tutorial")">
+<h2>tutorial</h2>
+<form class="formulario" enctype="multipart/form-data" method="post" action="@Url.Action("tutorial", "tutorial")">
         <fieldset>
-            <legend>Registro de Tutoriales</legend>
+            <legend>Registro de Articulo</legend>
             <div class="clearfix">
                 @Html.LabelFor(m => m.Titulo)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Titulo)
+                    @Html.TextBoxFor(m => m.Titulo, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Titulo)
                 </div>
             </div> 
             
-           <div class="clearfix">
-                @Html.LabelFor(m => m.Portada)
-                <div class="input">
-                    <input type="file" name="Portada"> 
-                    @Html.ValidationMessageFor(m => m.Portada)
-                </div>
-            </div>
-              
             <div class="clearfix">
                 @Html.LabelFor(m => m.Categoria)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Categoria)
+                    @Html.TextBoxFor(m => m.Categoria, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Categoria)
                 </div>
             </div>
-                
+             <div class="clearfix">
+                @Html.LabelFor(m => m.Descripcion)
+                <div class="input">
+                    @Html.TextAreaFor(m => m.Descripcion, new { @class = "texto" })
+                    @Html.ValidationMessageFor(m => m.Descripcion)
+                </div>
+            </div>  
              <div class="editor-label">
-                @Html.LabelFor(model => model.Descripcion)
-            </div>
-            <div class="editor-field">
-                @Html.TextAreaFor(model => model.Descripcion)
-                @Html.ValidationMessageFor(model => model.Descripcion)
-            </div>
-            <div class="editor-label">
                 @Html.LabelFor(model => model.Contenido)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Contenido)
+                @Html.TextAreaFor(model => model.Contenido, new { @class = "ckeditor" })
                 @Html.ValidationMessageFor(model => model.Contenido)
             </div>
-            
             <p>
-                <input type="submit" value="Guardar" />
+                <input type="submit" value="Registrar" class="texto"/>
                 
             </p>
         </fieldset>   
 </form>
-}

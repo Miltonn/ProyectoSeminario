@@ -47,8 +47,8 @@ namespace biblioteca2.Models
                 titulo = model.Titulo,
                 portada=model.Portada,
                 contenido=model.Contenido,
-                correcciones="true",
-                puntaje=1,
+                correcciones="false",
+                puntaje=0,
                 fecha_publicacion=DateTime.Today,
                 descripcion=model.Descripcion,
                 UserId=model.idusers

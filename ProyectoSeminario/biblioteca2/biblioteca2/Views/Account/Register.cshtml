@@ -25,7 +25,7 @@
                 @Html.LabelFor(m => m.UserName)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName, new { @class="texto"})
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>
 
@@ -33,7 +33,7 @@
                 @Html.LabelFor(m => m.Email)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email,new { @class="texto"})
                 @Html.ValidationMessageFor(m => m.Email)
             </div>
 
@@ -41,7 +41,7 @@
                 @Html.LabelFor(m => m.Password)
             </div>
             <div class="editor-field">
-                @Html.PasswordFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "texto" })
                 @Html.ValidationMessageFor(m => m.Password)
             </div>
 
@@ -49,12 +49,12 @@
                 @Html.LabelFor(m => m.ConfirmPassword)
             </div>
             <div class="editor-field">
-                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "texto" })
                 @Html.ValidationMessageFor(m => m.ConfirmPassword)
             </div>
 
             <p>
-                <input type="submit" value="Register" />
+                <input type="submit" value="Register" class="texto"/>
             </p>
             <div> <p>Para realizar alguna publicacion registre su  @Html.ActionLink("REGISTRE SU PERFIL AQUI", "perfil", "perfilusuario", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro del Perfil de Usuario" })</p></div>
         </fieldset>

@@ -1,0 +1,161 @@
+﻿@model biblioteca2.Models.buscar
+@{
+    ViewBag.Title = "detallelibro";
+}
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<h2 class="tit">detallelibro</h2>
+<div class="tipo">
+    @foreach (var item in @ViewBag.lib)
+    {
+           <div class="alinear">
+                @{string img1 = "~/Content/Imagenes/" + @item.avatar;}<img src="@Url.Content(img1)" width="100" height="100"/><br>
+                 Publicado por<br/>
+                 Nombre:   @item.nombre<br/>
+                 Apellido: @item.apellido
+           </div>
+    }
+    <p class="cat">Categorias</p>
+    @foreach (var t in ViewBag.tipo)
+    {
+    <div class="tipo1">
+        <a href="">@t.tipo   </a>
+    </div>
+    }
+</div>
+<div class="div1">
+    <div class="div2">
+        <div class="vista">
+        @foreach (var item in @ViewBag.lib)
+        {
+            <div class="div3">
+                <div class="div4"><p><a id="menu1"href="">@item.titulo</a></p>
+                </div>
+                <div class="div5">
+                     @{string img = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img)" width="200" height="200"/><p class="pp">Categoria:  @item.tipo</p>
+                     
+                </div>
+                <div class="des">
+                    <div class="u">@item.descripcion</div>
+                    <iframe src="/Content/ArchivoPDF/@item.contenido" width="535" height="500"></iframe>
+                    <div style="color:#00FF00;font-size:25px;background-color:black;">@{string img10 = "~/Content/Imagenes/megusta.png";}<img src="@Url.Content(img10)" width="50" height="50"style="border-radius:15px;"/>A @item.puntaje Personas les Gusta Esto</div>
+                </div>
+                
+                <div>
+                    <div class="boton">
+                    <a href="#">@{string img7 = "~/Content/Imagenes/mano.jpg";}<img src="@Url.Content(img7)" width="30" height="30"style="border-radius:15px;"/>Me Gusta</a>
+                    </div>
+                    <div class="boton">
+                    <a href="#">@{string img8 = "~/Content/Imagenes/gusta.jpg";}<img src="@Url.Content(img8)" width="30" height="30"style="border-radius:15px;"/>No Me Gusta</a>
+                    </div>
+                </div>
+                
+           </div>
+        }
+        </div> 
+    </div>   
+    <div class="div6">
+        @foreach (var ite in @ViewBag.lib)
+        {
+            <div class="div7">
+            <div>
+                <div class="g">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></div>
+                <div class="g">
+                    <div class="t">@ite.titulo</div><br>
+                    <div>@ite.descripcion</div>
+                </div>
+            </div>
+            </div>
+        }
+    </div>
+</div>
+<p style="font-size:20px;color:Red;">Comentarios</p>
+@if (ViewBag.comentario != null)
+{
+    <div>
+         @foreach (var c in ViewBag.comentario)
+         { 
+            <dl>
+		        <dt><a href="#Section1">@c.nombre __ @c.apellido</a></dt>
+		        <dd id="Section1">
+			    <p style="float:left;">
+                    @{string img2 = "~/Content/Imagenes/" + @c.avatar;}<img src="@Url.Content(img2)" width="100" height="100"/>
+                    @c.fecha_publicacion
+                </p>
+                <p>
+				    @c.contenido
+			    </p>
+		        </dd>
+		    </dl>
+         }
+    </div>
+     
+}
+<div>
+    <p>Si realiza un comentario podra acumular puntos en su karma</p>
+</div>
+
+<div style="overflow:hidden;">
+<form enctype="multipart/form-data" method="get" action="@Url.Action("comentarios", "Home")">
+        <fieldset>
+            <div class="editor-label" style="display:none;">
+                @Html.TextBoxFor(m => m.bus, new { @Value = @ViewBag.l,@class="texto"})
+            </div>
+        
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Email) o Nick
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email, new { @class = "texto" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Comentario)
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Comentario, new { @class = "texto" })
+                @Html.ValidationMessageFor(m => m.Comentario)
+            </div>
+            <div>
+                <input type="submit"  value="Comentar" class="texto"/>
+            </div>
+            
+        </fieldset>   
+</form>
+</div>

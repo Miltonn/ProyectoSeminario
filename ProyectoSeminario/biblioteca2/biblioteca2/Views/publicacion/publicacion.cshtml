@@ -8,6 +8,6 @@
     @Html.LabelFor(model => model.Content)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.Content)
+    @Html.EditorFor(model => model.Content, new { @class = "texto" })
     @Html.ValidationMessageFor(model => model.Content)
 </div>

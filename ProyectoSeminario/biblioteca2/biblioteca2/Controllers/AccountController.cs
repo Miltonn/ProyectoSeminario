@@ -36,7 +36,12 @@ namespace biblioteca2.Controllers
         {
             //validacion de usuario con permisos
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                //REVISION DE BENEADO
+                DataClasses1DataContext db = new DataClasses1DataContext();
+                var beneado = (from p in db.perfil join us in db.aspnet_Users on p.UserId equals us.UserId where p.UserId == us.UserId && us.UserName == model.UserName select p.beneado).ToArray()[0];
+                if (beneado == "false")
                 {
                     if (Membership.ValidateUser(model.UserName, model.Password))
                     {
@@ -44,21 +49,20 @@ namespace biblioteca2.Controllers
                         if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                             && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                         {
-                                                                 
+
                             return Redirect(returnUrl);
                         }
                         else
                         {
-                            
+
                             return RedirectToAction("login", "Home");
                         }
                     }
                     else
-                       
                     {
-                        
+
                         ModelState.AddModelError("", "The user name or password provided is incorrect.(Error de Nombreo Contraseña)");
-                        if (Session["captcha"]!=null&&(int)Session["captcha"]>2&&!ReCaptcha.Validate(privateKey: "6LcD79ESAAAAAHuI-gZuvfEPESrpzMaO-8fT8Bsy"))
+                        if (Session["captcha"] != null && (int)Session["captcha"] > 2 && !ReCaptcha.Validate(privateKey: "6LcD79ESAAAAAHuI-gZuvfEPESrpzMaO-8fT8Bsy"))
                         {
                             ModelState.AddModelError("", "Verifique la Imagen Captvha.  Por favor, inténtelo de nuevo ");
                         }
@@ -70,11 +74,16 @@ namespace biblioteca2.Controllers
                         c++;
                         Session["captcha"] = c;
                     }
-                
 
-                // If we got this far, something failed, redisplay form
-                return View(model);
-             }
+
+                    // If we got this far, something failed, redisplay form
+                    return View(model);
+                }
+            }
+            else {
+                ViewBag.beneado = "Lo Sentimos usted esta Beneado por lo tanto no tiene permiso de ver la Pagina";
+                return RedirectToAction("login", "Home"); 
+            }
                 return View(model);
              
         }

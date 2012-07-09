@@ -1,10 +1,15 @@
-﻿
-@if(Request.IsAuthenticated) {
-    <text>Welcome <strong>@User.Identity.Name!</strong>
+﻿<div style="-moz-box-shadow:10px 10px 10px white;margin:15px;">
+    <div style="float:left;margin-left:50px;-moz-box-shadow:10px 10px 10px white;">
+        @if(Request.IsAuthenticated) {
+            <text>Bienvenido:  <strong>@User.Identity.Name!</strong>
     
-    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
-}
-else
-{
-    @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
-}
+            [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+        }
+        else
+        {
+            @:[ @Html.ActionLink("Log On", "LogOn", "Account") ]
+        }
+        
+    </div>
+    
+</div>

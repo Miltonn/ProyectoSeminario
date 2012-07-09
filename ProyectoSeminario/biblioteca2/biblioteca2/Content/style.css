@@ -1,7 +1,5 @@
 ﻿/* File Created: junio 12, 2012 */
-input:invalid {
-    border: 1px solid red;
-  }
+
 /*para la pagina principal que contiene todo*/
 .page1 
 {
@@ -78,8 +76,8 @@ input:invalid {
     }
 #loginheader
 {
-    padding-left: 70px;
-    height:35px;
+    padding-left: 90px;
+    height:60px;
 	overflow: hidden;
     }
 #loginheader div

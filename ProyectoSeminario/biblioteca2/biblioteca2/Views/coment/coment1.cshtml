@@ -1,0 +1,90 @@
+﻿@model biblioteca2.Models.coment
+@{
+    ViewBag.Title = "coment1";
+}
+
+<h2>coment1</h2>
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='#'><span>Moderador Comentarios</span></a></li>
+         <li><a href='#'><span>Moderador Contenidos</span></a></li>
+         <li><a href='#'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<h2 class="tit">MODERADOR Comentarios sin revisar</h2>
+
+<div class="coment">
+<div class="usuario1">
+    <div>
+    <p class="fech">Comentario Fecha</p>
+       @foreach (var ct in ViewBag.cat)
+       {
+            <a href="http://localhost:4391/coment/coment/@ct.idpublicacion">@ct.fecha_publicacion<br/></a>
+       }
+    </div>     
+</div>
+<div class="table">
+    @if (ViewBag.contenido != null)
+    {
+      <div class="table"style="width:auto;overflow:scroll;height:600px;">
+      
+        @foreach (var c in ViewBag.contenido)
+        {
+            <div class="titulo">
+                <div>
+                    @c.titulo
+                </div>
+            </div>
+            <div style="overflow:hidden;">
+                <div class="cuerpo1" >
+                    @{string img = "~/Content/Imagenes/" + @c.avatar;}<img src="@Url.Content(img)" width="70" height="70"/><br/>
+                    @c.nombre
+                    @c.apellido
+                </div>
+                <div class="con">
+                    <div class="texto "style="background-color:Black;margin-left:25%;overflow:scroll;min-height:200px;">@c.contenido</div><br/>
+                    @c.fecha_publicacion
+                </div>
+            </div>
+           <div style="background-color:Black;">
+            </div>
+        }
+      </div>
+      
+    }
+    else
+    {
+    <h3>@ViewBag.error</h3>
+    }
+</div>
+</div>

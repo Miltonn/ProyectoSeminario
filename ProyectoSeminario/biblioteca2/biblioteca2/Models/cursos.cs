@@ -21,14 +21,14 @@ namespace biblioteca2.Models
         public string Fecha_Publicacion { get; set; }
 
         [Required]
-        [UIHint("tinymce_jquery_full"), AllowHtml]
+        //[UIHint("tinymce_jquery_full"), AllowHtml]
         public string Contenido { get; set; }
         //        public string Contenido { get; set; }
 
         public Guid idusers { get; set; }
 
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public void regpubli(articulomodelo model)
+        public void regpubli(cursos model)
         {
 
             publicacion publicacion = new publicacion()
@@ -36,8 +36,8 @@ namespace biblioteca2.Models
                 titulo = model.Titulo,
                 portada = model.Portada,
                 contenido = model.Contenido,
-                correcciones = "true",
-                puntaje = 1,
+                correcciones = "false",
+                puntaje = 0,
                 fecha_publicacion = DateTime.Today,
                 descripcion = model.Descripcion,
                 UserId = model.idusers
@@ -48,16 +48,16 @@ namespace biblioteca2.Models
         }
 
 
-        public void regarticulo(int idUs)
+        public void regcurso(int idUs)
         {
-            articulo libro = new articulo()
+            curso libro = new curso()
             {
                 idPublicacion = idUs
             };
-            db.articulo.InsertOnSubmit(libro);
+            db.curso.InsertOnSubmit(libro);
             db.SubmitChanges();
         }
-        public void regcategoria(string s)
+        public void regcategoriac(string s)
         {
             categoria categoria = new categoria()
             {
@@ -66,7 +66,7 @@ namespace biblioteca2.Models
             db.categoria.InsertOnSubmit(categoria);
             db.SubmitChanges();
         }
-        public void regcategorizacion(int idUs, int cat)
+        public void regcategorizacionc(int idUs, int cat)
         {
             categorizacion categorizacion = new categorizacion()
             {

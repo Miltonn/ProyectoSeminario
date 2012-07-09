@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "detallearticulo";
+}
+
+<h2>detallearticulo</h2>
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='#'><span>Moderador Comentarios</span></a></li>
+         <li><a href='#'><span>Moderador Contenidos</span></a></li>
+         <li><a href='#'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='#'><span>Detalle de Usuario</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/perfilusuario/detalle'><span>Detalle Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallelibro'><span>Detalle Libro</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallearticulo'><span>Detalle Articulo</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detalletutorial'><span>Detalle Tutorial</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallecurso'><span>Detalle Curso</span></a></li>
+      </ul>
+   </li>
+</ul>
+</div>
+@if (@ViewBag.publi != null)
+{
+<div>
+    
+	<div style="border:3px solid white;-moz-box-shadow:10px 10px 10px purple;box-shadow:10px 10px 10px purple;margin-left:100px;margin-right:100px;padding:20px;background-color:#C0C0C0;">
+		<div style="overflow:hidden;float:left;margin-left:100px;margin-right:100px;border:3px solid purple;-moz-box-shadow:10px 10px 10px purple;box-shadow:10px 10px 10px purple;">
+            @foreach(var p in @ViewBag.datos){
+                <div>
+                    <div>@{string img1 = "~/Content/imagenes/" + @p.avatar;}<img src="@Url.Content(img1)" width="100" height="100" style="-moz-border-radius:10px;"/></div><br><div>@p.nombre   @p.apellido</div>
+                </div>
+                
+            }
+        </div>
+        <div>
+        @foreach(var pr in @ViewBag.perfil){
+            <div>
+                    <h2 style="color:White;">Karma: @pr.karma</h2><br>
+                    <h2 style="color:White;">Infraccion: @pr.infraccion</h2><br> 
+                    <h2 style="color:White;">Autorizacion Bloqueado?: @pr.beneado</h2> 
+              </div>
+        }
+        </div>
+    
+        
+	</div>
+    
+    <div class="tabsContent">
+            <div class="tab">
+                <h2 style="color:White;">Detalle de Articulo</h2>
+				<p>Este contenido solo es detalle de Articulo.</p>
+                <p>Las correcciones => true son publicadas.</p>
+                <p>Las correcciones => false no son publicadas.</p>
+                <p>Las correcciones => corregir debe corregir.</p>
+				<div id="myGallery" class="spacegallery"style="border:3px solid #FF00FF;padding:20px;padding-left:140px;padding-right:140px;background-color:white;height:500px;overflow:scroll;">
+					@foreach (var item in @ViewBag.publi)
+                {
+          	        <div style="border:3px solid #FF00FF;margin:20px;padding:20px;background-color:Black;">
+                        <div class="tit">@item.titulo</div>
+                        <div>
+                        <div>@Html.Raw(@item.contenido)</div>
+                         <div>@item.descripcion</div>
+                        <div>Publicado: @item.fecha_publicacion</div>
+                        <div>Correcciones: @item.correcciones</div>
+                        <div>Puntaje: @item.puntaje</div>
+                        </div>
+                    </div>
+                }
+				</div>
+            </div>
+            
+    </div>
+        
+</div>
+}
+else
+{ @ViewBag.publi}
+
+

@@ -18,19 +18,14 @@ namespace biblioteca2.Controllers
         {
             return View();
         }
-        [HttpGet]
+        [Authorize(Roles="Usuario")]
         public ActionResult curso()
         {
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("curso");
-            }
-
             return View();
         }
-
+        [Authorize(Roles = "Usuario")]
         [HttpPost, ValidateInput(false)]
-        public ActionResult curso(string Titulo, HttpPostedFileBase Portada, string Contenido, string Categoria, string Descripcion, articulomodelo model)
+        public ActionResult curso(string Titulo, HttpPostedFileBase Portada, string Contenido, string Categoria, string Descripcion, cursos model)
         {
             if (ModelState.IsValid)
             {
@@ -57,8 +52,8 @@ namespace biblioteca2.Controllers
                 string categori = model.Categoria;
                 model.regpubli(model);
                 int idUs = db.publicacion.Where(m => m.titulo == model.Titulo).Select(m => m.idPublicacion).ToArray()[0];
-                //int idcat = db.categoria.Where(c => c.tipo == model.Categoria).Select(c => c.idCategoria).ToArray()[0];
-                model.regarticulo(idUs);
+                int idd = idUs;
+                model.regcurso(idUs);
 
                 char[] delimiterChars = { ' ', ',', '.', ':' };
                 string[] words = categori.Split(delimiterChars);
@@ -79,26 +74,12 @@ namespace biblioteca2.Controllers
                 {
                     db.categoria.InsertAllOnSubmit(lista);
                     db.SubmitChanges();
-                    //                 
-                    int cat = (from a in db.categoria where a.tipo == tipo select a.idCategoria).ToArray()[0];
-                    //int ct = int(cat);
-                    model.regcategorizacion(idUs, cat);
+                    int cat = db.categoria.Where(a => a.tipo == tipo).Select(a=>a.idCategoria).ToArray()[0];
+                    model.regcategorizacionc(idd, cat);   
                 }
-
-
-                if (Request.IsAjaxRequest())
-                {
-                    return PartialView("articulo3");
-                }
-
+                
             }
-            else
-            {
-                if (Request.IsAjaxRequest())
-                    return PartialView("articulo");
-            }
-            TempData["Message"] = string.Format("En hora buena ,{0}! se registro el articulo.");
-            return RedirectToAction("Index");
+            return RedirectToAction("curso","curso");
         }
     }
 }

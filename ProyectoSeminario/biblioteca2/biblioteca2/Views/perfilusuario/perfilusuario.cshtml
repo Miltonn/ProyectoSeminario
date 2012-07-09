@@ -13,7 +13,7 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Nombre)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Nombre)
+                    @Html.TextBoxFor(m => m.Nombre, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Nombre)
                 </div>
             </div>           
@@ -21,7 +21,7 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Apellido)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Apellido)
+                    @Html.TextBoxFor(m => m.Apellido, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Apellido)
                 </div>
             </div>
@@ -29,7 +29,7 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Ubicacion)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Ubicacion)
+                    @Html.TextBoxFor(m => m.Ubicacion, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Ubicacion)
                 </div>
             </div>
@@ -37,7 +37,7 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Interes)
                 <div class="input">
-                    @Html.TextAreaFor(m => m.Interes)
+                    @Html.TextAreaFor(m => m.Interes, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Interes)
                 </div>
             </div>
@@ -51,8 +51,8 @@
             </div>
 
             <div class="actions">
-                <input type="submit" class="btn" value="Guardar" />
-                <input type="button" class="btn" value="Cancelar" />
+                <input type="submit" class="texto" value="Guardar" />
+                <input type="button" class="texto" value="Cancelar" />
             </div>
         </fieldset>   
 </form>

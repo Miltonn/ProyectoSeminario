@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "mod";
+}
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment1'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<h2 class="titulo">Moderador</h2>
+<div>
+<div class="colum">
+    <p class="fech">LIBROS</p>
+    <div>
+       @foreach (var ct in ViewBag.pub1)
+       {
+           <div>
+           <a href="http://localhost:4391/modcontenido/modcontenido/@ct.idPublicacion">@{string img = "~/Content/Imagenes/" + @ct.portada;}<img src="@Url.Content(img)" width="20" height="20"/></a>
+           <a href="http://localhost:4391/modcontenido/modcontenido/@ct.idPublicacion">@ct.fecha_publicacion<br/></a>
+           </div>
+       }
+    </div> 
+</div>
+<div class="colum">
+    <p class="fech">ARTICULO</p>
+    <div>
+       @foreach (var ct in ViewBag.pub2)
+       {
+           <div>
+           <a href="http://localhost:4391/modcontenido/modarticulo/@ct.idPublicacion">@{string img = "~/Content/Imagenes/" + @ct.portada;}<img src="@Url.Content(img)" width="20" height="20"/></a>
+           <a href="http://localhost:4391/modcontenido/modarticulo/@ct.idPublicacion">@ct.fecha_publicacion<br/></a>
+           </div>
+       }
+    </div> 
+</div>
+<div class="colum">
+    <p class="fech">CURSOS</p>
+    <div>
+       @foreach (var ct in ViewBag.pub3)
+       {
+           <div>
+           <a href="http://localhost:4391/modcontenido/modcurso/@ct.idPublicacion">@{string img = "~/Content/Imagenes/" + @ct.portada;}<img src="@Url.Content(img)" width="20" height="20"/></a>
+           <a href="http://localhost:4391/modcontenido/modcurso/@ct.idPublicacion">@ct.fecha_publicacion<br/></a>
+           </div>
+       }
+    </div> 
+</div>
+<div class="colum">
+    <p class="fech">TUTORIALES</p>
+    <div>
+       @foreach (var ct in ViewBag.pub4)
+       {
+           <div>
+           <a href="http://localhost:4391/modcontenido/modtutorial/@ct.idPublicacion">@{string img = "~/Content/Imagenes/" + @ct.portada;}<img src="@Url.Content(img)" width="20" height="20"/></a>
+           <a href="http://localhost:4391/modcontenido/modtutorial/@ct.idPublicacion">@ct.fecha_publicacion<br/></a>
+           </div>
+       }
+    </div> 
+</div>
+</div>

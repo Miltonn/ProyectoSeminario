@@ -1,0 +1,47 @@
+﻿@model biblioteca2.Models.GridDemo
+
+@using Trirand.Web.Mvc
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
+         <li><a href="http://localhost:4391/modcontenido/mod"><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<h2 style="color:white;">Solo realice actualizaciones del perfil !</h2>
+<div style="margin-left:200px;margin-top:50px;margin-bottom:150px;border:2px solid white;padding-right:0px;width:602px;border-radius:5px;box-shadow:0 0 25px white;">
+@Html.Trirand().JQGrid(ViewBag.grid, "griddemo1__ss")</div>

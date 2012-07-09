@@ -34,13 +34,12 @@ namespace biblioteca2.Models
             db.SubmitChanges();
         }
 
-       /* public void perfil(buscar model)
+        /* void editar(buscar model)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
-            perfil p = new perfil()
+            comentarios p = new comentarios()
             {
-                karma=karma+0.5,
-                //karma=(float)System.Data.EntityState.Modified
+                vistobueno=model.VistoBueno
             };
             db.SubmitChanges();
         }*/

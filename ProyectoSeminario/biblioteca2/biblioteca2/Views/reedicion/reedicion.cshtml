@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "reedicion";
+}
+
+<h2>reedicion</h2>
+<div>
+    <p class="tit">LIBROS</p>
+    <div style="text-align:center;">
+        @if (@ViewBag.libro != null)
+        {
+        <div class="ff">
+            @foreach (var libro in @ViewBag.libro)
+            {
+                <div class="f">
+                <div>
+                    <a href="http://localhost:4391/reedicion/editarlibro/@libro.idPublicacion">@libro.titulo</a>
+                </div>
+                <div>
+                    @{string img1 = "~/Content/Imagenes/" + @libro.portada;}<img src="@Url.Content(img1)" width="100" height="100"/>
+                </div>
+                <div>
+                    @libro.descripcion
+                </div>
+                </div>
+                
+            }
+        </div>
+        }
+        else
+        {<div>@ViewBag.libro</div>}
+    </div>
+    <p class="tit">ARTICULOS</p>
+    <div style="text-align:center;">
+        
+        @if (@ViewBag.art != null)
+        {
+            <div class="ff">
+            @foreach (var libro in @ViewBag.art)
+            {
+                <div class="f">
+                <div>
+                    <a href="#">@libro.titulo</a>
+                </div>
+                <div>
+                    @Html.Raw(@libro.contenido)
+                </div>
+                <div>
+                    @libro.descripcion
+                </div>
+                </div>
+                
+            }
+        </div>
+        }
+        else
+        { @ViewBag.demas}
+    </div>
+    <p class="tit">TUTORIALES</p>
+    <div style="text-align:center;">
+        
+        @if (@ViewBag.tut != null)
+        {
+            <div class="ff">
+            @foreach (var libro in @ViewBag.tut)
+            {
+                <div class="f">
+                <div>
+                    <a href="#">@libro.titulo</a>
+                </div>
+                <div>
+                    @Html.Raw(@libro.contenido)
+                </div>
+                <div>
+                    @libro.descripcion
+                </div>
+                </div>
+                
+            }
+        </div>
+        }
+        else
+        { @ViewBag.demas1}
+    </div>
+    <p class="tit">CURSOS</p>
+    <div style="text-align:center;">
+        
+        @if (@ViewBag.cur != null)
+        {
+            <div class="ff">
+            @foreach (var libro in @ViewBag.cur)
+            {
+                <div class="f">
+                <div>
+                    <a href="#">@libro.titulo</a>
+                </div>
+                <div>
+                    @Html.Raw(@libro.contenido)
+                </div>
+                <div>
+                    @libro.descripcion
+                </div>
+                </div>
+                
+            }
+        </div>
+        }
+        else
+        { @ViewBag.demas2}
+    </div>
+</div>

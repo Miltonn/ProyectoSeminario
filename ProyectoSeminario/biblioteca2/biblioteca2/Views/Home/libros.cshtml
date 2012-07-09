@@ -9,7 +9,7 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Titulo)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Titulo)
+                    @Html.TextBoxFor(m => m.Titulo, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Titulo)
                 </div>
             </div> 
@@ -18,21 +18,21 @@
                 @Html.LabelFor(m => m.Portada)
                 <div class="input">
                     <!--input type="file" id="file_upload_1"/-->
-                    <input type="file" name="Portada"> 
+                    <input class="texto" type="file" name="Portada"> 
                     @Html.ValidationMessageFor(m => m.Portada)
                 </div>
             </div>
             <div class="clearfix">
                 @Html.LabelFor(m => m.Autor)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Autor)
+                    @Html.TextBoxFor(m => m.Autor, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Autor)
                 </div>
             </div>  
             <div class="clearfix">
                 @Html.LabelFor(m => m.Tipo)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Tipo)
+                    @Html.TextBoxFor(m => m.Tipo, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Tipo)
                 </div>
             </div>
@@ -43,21 +43,21 @@
                                                                new SelectListItem { Value="Ingles",Text="Ingles"},
                                                                new SelectListItem { Value="Portugues",Text="Portugues"},
                                                                new SelectListItem { Value="Frances",Text="Frances"},
-                                                               new SelectListItem { Value="Aleman",Text="Aleman"}},"seleccione una opcion")
+                                                               new SelectListItem { Value="Aleman",Text="Aleman"}}, "seleccione una opcion")
                     @Html.ValidationMessageFor(m => m.Idioma)
                 </div>
             </div>       
              <div class="clearfix">
                 @Html.LabelFor(m => m.Contenido)
                 <div class="input">
-                    <input type="file"  name="Contenido" />
+                    <input class="texto"type="file"  name="Contenido" />
                     @Html.ValidationMessageFor(m => m.Contenido)
                 </div>
             </div>
             <div class="clearfix">
                 @Html.LabelFor(m => m.Año_Publicacion)
                 <div class="input">
-                    @Html.TextBoxFor(m => m.Año_Publicacion)
+                    @Html.TextBoxFor(m => m.Año_Publicacion, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Año_Publicacion)
                 </div>
             </div>  
@@ -66,13 +66,13 @@
             <div class="clearfix">
                 @Html.LabelFor(m => m.Descripcion)
                 <div class="input">
-                    @Html.TextAreaFor(m => m.Descripcion)
+                    @Html.TextAreaFor(m => m.Descripcion, new { @class = "texto" })
                     @Html.ValidationMessageFor(m => m.Descripcion)
                 </div>
             </div>
             <div class="actions">
-                <input type="submit" class="btn primary" value="Guardar" />
-                <input type="button" class="btn" value="Cancelar" />
+                <input type="submit" class="texto" value="Guardar" />
+                <!--input type="button" class="texto" value="Cancelar" /-->
             </div>
         </fieldset>   
 </form>

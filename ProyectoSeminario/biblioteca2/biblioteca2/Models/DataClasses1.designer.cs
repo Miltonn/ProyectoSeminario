@@ -304,30 +304,6 @@ namespace biblioteca2.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<vista> vista
-		{
-			get
-			{
-				return this.GetTable<vista>();
-			}
-		}
-		
-		public System.Data.Linq.Table<comentario> comentario
-		{
-			get
-			{
-				return this.GetTable<comentario>();
-			}
-		}
-		
-		public System.Data.Linq.Table<mode_coment> mode_coment
-		{
-			get
-			{
-				return this.GetTable<mode_coment>();
-			}
-		}
-		
 		public System.Data.Linq.Table<categorias> categorias
 		{
 			get
@@ -341,6 +317,126 @@ namespace biblioteca2.Models
 			get
 			{
 				return this.GetTable<articulos>();
+			}
+		}
+		
+		public System.Data.Linq.Table<vista> vista
+		{
+			get
+			{
+				return this.GetTable<vista>();
+			}
+		}
+		
+		public System.Data.Linq.Table<articuloss> articuloss
+		{
+			get
+			{
+				return this.GetTable<articuloss>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tutorialess> tutorialess
+		{
+			get
+			{
+				return this.GetTable<tutorialess>();
+			}
+		}
+		
+		public System.Data.Linq.Table<cursoss> cursoss
+		{
+			get
+			{
+				return this.GetTable<cursoss>();
+			}
+		}
+		
+		public System.Data.Linq.Table<libross> libross
+		{
+			get
+			{
+				return this.GetTable<libross>();
+			}
+		}
+		
+		public System.Data.Linq.Table<mode_coment> mode_coment
+		{
+			get
+			{
+				return this.GetTable<mode_coment>();
+			}
+		}
+		
+		public System.Data.Linq.Table<listaart> listaart
+		{
+			get
+			{
+				return this.GetTable<listaart>();
+			}
+		}
+		
+		public System.Data.Linq.Table<listcur> listcur
+		{
+			get
+			{
+				return this.GetTable<listcur>();
+			}
+		}
+		
+		public System.Data.Linq.Table<listtut> listtut
+		{
+			get
+			{
+				return this.GetTable<listtut>();
+			}
+		}
+		
+		public System.Data.Linq.Table<listalibro> listalibro
+		{
+			get
+			{
+				return this.GetTable<listalibro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<categorialibro> categorialibro
+		{
+			get
+			{
+				return this.GetTable<categorialibro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<categoriatutorial> categoriatutorial
+		{
+			get
+			{
+				return this.GetTable<categoriatutorial>();
+			}
+		}
+		
+		public System.Data.Linq.Table<categoriaarticulo> categoriaarticulo
+		{
+			get
+			{
+				return this.GetTable<categoriaarticulo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<categoriacurso> categoriacurso
+		{
+			get
+			{
+				return this.GetTable<categoriacurso>();
+			}
+		}
+		
+		public System.Data.Linq.Table<comentario> comentario
+		{
+			get
+			{
+				return this.GetTable<comentario>();
 			}
 		}
 	}
@@ -5708,321 +5804,6 @@ namespace biblioteca2.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vista")]
-	public partial class vista
-	{
-		
-		private string _titulo;
-		
-		private string _portada;
-		
-		private string _descripcion;
-		
-		private string _tipo;
-		
-		public vista()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string titulo
-		{
-			get
-			{
-				return this._titulo;
-			}
-			set
-			{
-				if ((this._titulo != value))
-				{
-					this._titulo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string portada
-		{
-			get
-			{
-				return this._portada;
-			}
-			set
-			{
-				if ((this._portada != value))
-				{
-					this._portada = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string tipo
-		{
-			get
-			{
-				return this._tipo;
-			}
-			set
-			{
-				if ((this._tipo != value))
-				{
-					this._tipo = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.comentario")]
-	public partial class comentario
-	{
-		
-		private string _contenido;
-		
-		private System.DateTime _fecha_publicacion;
-		
-		private string _nombre;
-		
-		private string _apellido;
-		
-		private string _avatar;
-		
-		private string _titulo;
-		
-		public comentario()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string contenido
-		{
-			get
-			{
-				return this._contenido;
-			}
-			set
-			{
-				if ((this._contenido != value))
-				{
-					this._contenido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
-		public System.DateTime fecha_publicacion
-		{
-			get
-			{
-				return this._fecha_publicacion;
-			}
-			set
-			{
-				if ((this._fecha_publicacion != value))
-				{
-					this._fecha_publicacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string apellido
-		{
-			get
-			{
-				return this._apellido;
-			}
-			set
-			{
-				if ((this._apellido != value))
-				{
-					this._apellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string avatar
-		{
-			get
-			{
-				return this._avatar;
-			}
-			set
-			{
-				if ((this._avatar != value))
-				{
-					this._avatar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string titulo
-		{
-			get
-			{
-				return this._titulo;
-			}
-			set
-			{
-				if ((this._titulo != value))
-				{
-					this._titulo = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mode_coment")]
-	public partial class mode_coment
-	{
-		
-		private string _contenido;
-		
-		private System.DateTime _fecha_publicacion;
-		
-		private string _nombre;
-		
-		private string _apellido;
-		
-		private string _avatar;
-		
-		private string _titulo;
-		
-		public mode_coment()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public string contenido
-		{
-			get
-			{
-				return this._contenido;
-			}
-			set
-			{
-				if ((this._contenido != value))
-				{
-					this._contenido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
-		public System.DateTime fecha_publicacion
-		{
-			get
-			{
-				return this._fecha_publicacion;
-			}
-			set
-			{
-				if ((this._fecha_publicacion != value))
-				{
-					this._fecha_publicacion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string apellido
-		{
-			get
-			{
-				return this._apellido;
-			}
-			set
-			{
-				if ((this._apellido != value))
-				{
-					this._apellido = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string avatar
-		{
-			get
-			{
-				return this._avatar;
-			}
-			set
-			{
-				if ((this._avatar != value))
-				{
-					this._avatar = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string titulo
-		{
-			get
-			{
-				return this._titulo;
-			}
-			set
-			{
-				if ((this._titulo != value))
-				{
-					this._titulo = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categorias")]
 	public partial class categorias
 	{
@@ -6218,6 +5999,1851 @@ namespace biblioteca2.Models
 				if ((this._avatar != value))
 				{
 					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vista")]
+	public partial class vista
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _descripcion;
+		
+		private string _tipo;
+		
+		private int _idpublicacion;
+		
+		public vista()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.articuloss")]
+	public partial class articuloss
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		public articuloss()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tutorialess")]
+	public partial class tutorialess
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		public tutorialess()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.cursoss")]
+	public partial class cursoss
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		public cursoss()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.libross")]
+	public partial class libross
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		public libross()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.mode_coment")]
+	public partial class mode_coment
+	{
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private string _titulo;
+		
+		private int _idpublicacion;
+		
+		private System.Guid _Userid;
+		
+		private int _idComentarios;
+		
+		public mode_coment()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Userid", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid Userid
+		{
+			get
+			{
+				return this._Userid;
+			}
+			set
+			{
+				if ((this._Userid != value))
+				{
+					this._Userid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idComentarios", DbType="Int NOT NULL")]
+		public int idComentarios
+		{
+			get
+			{
+				return this._idComentarios;
+			}
+			set
+			{
+				if ((this._idComentarios != value))
+				{
+					this._idComentarios = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.listaart")]
+	public partial class listaart
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		private int _puntaje;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private int _idpublicacion;
+		
+		public listaart()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntaje", DbType="Int NOT NULL")]
+		public int puntaje
+		{
+			get
+			{
+				return this._puntaje;
+			}
+			set
+			{
+				if ((this._puntaje != value))
+				{
+					this._puntaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.listcur")]
+	public partial class listcur
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		private int _puntaje;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private int _idpublicacion;
+		
+		public listcur()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntaje", DbType="Int NOT NULL")]
+		public int puntaje
+		{
+			get
+			{
+				return this._puntaje;
+			}
+			set
+			{
+				if ((this._puntaje != value))
+				{
+					this._puntaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.listtut")]
+	public partial class listtut
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		private int _puntaje;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private int _idpublicacion;
+		
+		public listtut()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntaje", DbType="Int NOT NULL")]
+		public int puntaje
+		{
+			get
+			{
+				return this._puntaje;
+			}
+			set
+			{
+				if ((this._puntaje != value))
+				{
+					this._puntaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.listalibro")]
+	public partial class listalibro
+	{
+		
+		private string _titulo;
+		
+		private string _portada;
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _descripcion;
+		
+		private int _puntaje;
+		
+		private int _idpublicacion;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private string _autor;
+		
+		private string _año_publicacion;
+		
+		private string _idioma;
+		
+		private string _tamaño;
+		
+		private string _tipo;
+		
+		private System.Guid _userid;
+		
+		public listalibro()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_portada", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string portada
+		{
+			get
+			{
+				return this._portada;
+			}
+			set
+			{
+				if ((this._portada != value))
+				{
+					this._portada = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_puntaje", DbType="Int NOT NULL")]
+		public int puntaje
+		{
+			get
+			{
+				return this._puntaje;
+			}
+			set
+			{
+				if ((this._puntaje != value))
+				{
+					this._puntaje = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_autor", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string autor
+		{
+			get
+			{
+				return this._autor;
+			}
+			set
+			{
+				if ((this._autor != value))
+				{
+					this._autor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_año_publicacion", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string año_publicacion
+		{
+			get
+			{
+				return this._año_publicacion;
+			}
+			set
+			{
+				if ((this._año_publicacion != value))
+				{
+					this._año_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idioma", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string idioma
+		{
+			get
+			{
+				return this._idioma;
+			}
+			set
+			{
+				if ((this._idioma != value))
+				{
+					this._idioma = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tamaño", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tamaño
+		{
+			get
+			{
+				return this._tamaño;
+			}
+			set
+			{
+				if ((this._tamaño != value))
+				{
+					this._tamaño = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userid", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid userid
+		{
+			get
+			{
+				return this._userid;
+			}
+			set
+			{
+				if ((this._userid != value))
+				{
+					this._userid = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categorialibro")]
+	public partial class categorialibro
+	{
+		
+		private string _tipo;
+		
+		private int _idpublicacion;
+		
+		public categorialibro()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categoriatutorial")]
+	public partial class categoriatutorial
+	{
+		
+		private string _tipo;
+		
+		private int _idpublicacion;
+		
+		public categoriatutorial()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categoriaarticulo")]
+	public partial class categoriaarticulo
+	{
+		
+		private string _tipo;
+		
+		private int _idpublicacion;
+		
+		public categoriaarticulo()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.categoriacurso")]
+	public partial class categoriacurso
+	{
+		
+		private string _tipo;
+		
+		private int _idpublicacion;
+		
+		public categoriacurso()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tipo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string tipo
+		{
+			get
+			{
+				return this._tipo;
+			}
+			set
+			{
+				if ((this._tipo != value))
+				{
+					this._tipo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idpublicacion", DbType="Int NOT NULL")]
+		public int idpublicacion
+		{
+			get
+			{
+				return this._idpublicacion;
+			}
+			set
+			{
+				if ((this._idpublicacion != value))
+				{
+					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.comentario")]
+	public partial class comentario
+	{
+		
+		private string _contenido;
+		
+		private System.DateTime _fecha_publicacion;
+		
+		private string _nombre;
+		
+		private string _apellido;
+		
+		private string _avatar;
+		
+		private string _titulo;
+		
+		private int _idpublicacion;
+		
+		public comentario()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_contenido", DbType="Text NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string contenido
+		{
+			get
+			{
+				return this._contenido;
+			}
+			set
+			{
+				if ((this._contenido != value))
+				{
+					this._contenido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha_publicacion", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha_publicacion
+		{
+			get
+			{
+				return this._fecha_publicacion;
+			}
+			set
+			{
+				if ((this._fecha_publicacion != value))
+				{
+					this._fecha_publicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_apellido", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string apellido
+		{
+			get
+			{
+				return this._apellido;
+			}
+			set
+			{
+				if ((this._apellido != value))
+				{
+					this._apellido = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_avatar", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string avatar
+		{
+			get
+			{
+				return this._avatar;
+			}
+			set
+			{
+				if ((this._avatar != value))
+				{
+					this._avatar = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_titulo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string titulo
+		{
+			get
+			{
+				return this._titulo;
+			}
+			set
+			{
+				if ((this._titulo != value))
+				{
+					this._titulo = value;
 				}
 			}
 		}

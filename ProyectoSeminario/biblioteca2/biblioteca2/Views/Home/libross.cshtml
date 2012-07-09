@@ -1,0 +1,94 @@
+﻿@model biblioteca2.Models.RegisterModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<p class="menu1">ULTIMAS 10 PUBLICACIONES DE LIBROS</p>
+<div class="tipo">
+    <p class="cat">Categorias</p>
+    @foreach (var t in ViewBag.tipo)
+    {
+    <div class="tipo1">
+        <a href="#">@t.tipo   </a>
+    </div>
+    }
+</div>
+<div class="div1">
+    <div class="div2">
+        <div class="vista">
+        @foreach (var item in @ViewBag.lib)
+        {
+           <div style="float:left;">
+                @{string img1 = "~/Content/Imagenes/" + @item.avatar;}<img src="@Url.Content(img1)" width="100" height="100"/><br>
+                 Usuario q Publico el Libro<br/>
+                 Nombre:   @item.nombre<br/>
+                 Apellido: @item.apellido
+           </div>
+            <div class="div3">
+                <div class="div4"><p><a id="menu1"href="http://localhost:4391/Home/detallelibro/@item.idpublicacion">@item.titulo</a></p>
+                </div>
+                <div class="div5">
+                     @{string img = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img)" width="200" height="200"/><p class="pp">Categoria:  @item.tipo<br></p>
+                     <div>@{string img2 = "~/Content/Imagenes/estrella.jpg";}<img src="@Url.Content(img2)" width="30" height="30"/>@item.puntaje</div>
+                </div>
+                <div class="des">
+                    <div class="u">@item.descripcion</div>
+                </div>
+            </div>
+        }
+        </div> 
+    </div>   
+    <div class="div6">
+        @foreach (var ite in @ViewBag.lib)
+        {
+            <div class="div7">
+            <div>
+                <div class="g">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></div>
+                <div class="g">
+                    <div class="t">@ite.titulo</div><br>
+                    <div>@ite.descripcion</div>
+                </div>
+            </div>
+            </div>
+        }
+    </div>
+</div>

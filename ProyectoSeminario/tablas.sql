@@ -25,7 +25,7 @@ create table categorizacion(
 	idCategorizacion int identity primary key not null,
 	idCategoria int foreign key(idCategoria)references categoria(idCategoria)not null,
 	idPublicacion int foreign key(idPublicacion)references publicacion(idPublicacion)not null
- )+
+ )
  
  create table publicacion(
 	idPublicacion int identity primary key not null,

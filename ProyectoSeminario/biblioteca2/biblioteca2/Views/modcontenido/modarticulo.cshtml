@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "modarticulo";
+}
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='#'><span>Moderador Comentarios</span></a></li>
+         <li><a href='#'><span>Moderador Contenidos</span></a></li>
+         <li><a href='#'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<div class="coment">
+<div class="usuario1">
+    <div>
+    <p class="fech">PUBLICACIONES</p>
+       @foreach (var ct in ViewBag.pub)
+       {
+           <div>
+           <a href="http://localhost:4391/modcontenido/modarticulo/@ct.idPublicacion">@{string img = "~/Content/Imagenes/" + @ct.portada;}<img src="@Url.Content(img)" width="20" height="20"/></a>
+           <a href="http://localhost:4391/modcontenido/modarticulo/@ct.idPublicacion">@ct.fecha_publicacion<br/></a>
+           </div>
+       }
+    </div>     
+</div>
+@if (ViewBag.publi != null)
+{
+<div class="table">
+    @if (ViewBag.publi != null)
+    {
+      <div class="table">
+      
+        @foreach (var c in ViewBag.publi)
+        {
+            <div class="titulo">
+                <div>
+                    @c.titulo
+                </div>
+            </div>
+            <div style="overflow:hidden;">
+                 <div class="con">
+                    <div style="width:500px;height:300px;border:1px solid red;margin-left:70px;background-color:black;overflow:scroll;">
+                        @Html.Raw(@c.contenido)
+                    </div>
+                    
+                </div>   
+                <div class="cuerpo2"style="margin-left:140px;width:60%;height:auto;background-color:Black;" >
+                    Descripcion:<br>
+                    @c.descripcion
+                </div>
+                <div class="con">
+                    publicado el: @c.fecha_publicacion
+                </div>
+            </div>
+           <div style="background-color:Black;">
+            <a href="http://localhost:4391/modcontenido/corregidoa/@c.idPublicacion">@{string img3 = "~/Content/Images/acept.jpg";}<img src="@Url.Content(img3)" width="150" height="50" style="border-radius:10px;margin-left:50px;"/></a>
+            <a href="http://localhost:4391/modcontenido/corregir/@c.idPublicacion">@{string img2 = "~/Content/Images/reject.jpg";}<img src="@Url.Content(img2)" width="150" height="50" style="border-radius:10px;margin-left:50px;"/></a> 
+           </div>
+        }
+      </div>
+      
+    }
+    else
+    {
+    <h3>@ViewBag.error</h3>
+    }
+</div>
+
+}
+
+</div>

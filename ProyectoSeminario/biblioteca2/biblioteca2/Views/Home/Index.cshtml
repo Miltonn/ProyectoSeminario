@@ -2,39 +2,160 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+        $('#tabs1 .tab > ul > li').click(function () {
+            var clicktab = $(this);
+            var IDlistaActual = $('.tab > ul').find('li.activo').find('a').attr("href");
+            var IDlistaNueva = clicktab.find('a').attr("href");
+            var contenedor = $('#tabs1 .tabs-content');
+            var alturaActual = contenedor.height();
+
+
+            if (IDlistaActual != IDlistaNueva) {
+
+                //fijo la altura actual
+                contenedor.height(alturaActual);
+                $(IDlistaActual).fadeOut(200, function () {
+                    $(IDlistaNueva).fadeIn(300);
+                    var nuevaAltura = $(IDlistaNueva).height();
+                    contenedor.animate({ height: nuevaAltura });
+                });
+                //botones
+                $('.tab > ul > li').removeClass('activo');
+                clicktab.addClass('activo');
+                contenedor.click(function () {
+                    contenedor.height('auto');
+                });
+            }
+            return false;
+        });
+    });
+		
+</script>
 
 <h2>@ViewBag.Message</h2>
-
-<p class="menu1" style="font-family:miFont;font-size:25px;-moz-text-shadow:10px 10px 5px white;text-align:center;color:#00FF00;">ULTIMAS 10 PUBLICACIONES DE LIBROS</p>
-<div style="margin-left:15px;color:white;overflow:hidden;">
-    <div style="overflow:hidden;float:left;width:800px;">
-        <div class="vista">
-        @foreach (var item in @ViewBag.lib)
+	
+<p class="menu1">BIENVENIDO USUARIO</p>
+<div id="container"><div id="top-bar"><div class="title"><a>AUTORES Milton,Angel,Nancy</a></div><div class="link"></div><p>Publicaciones de Libros .PDF, Articulos, Cursos, Tutoriales Seleccion</p></div>
+<div id="demo-container">
+<div id="tabs1" class="tab-wrapper">
+<div class="tab">
+	<ul>
+		<li class="activo"><a href="#pestana1">Libros</a></li>
+		<li><a href="#pestana2">Articulos</a></li>
+		<li><a href="#pestana3">Cursos</a></li>
+        <li><a href="#pestana4">Tutoriales</a></li>
+	</ul>
+	<div style="clear:both;"></div>
+</div>
+<div class="tabs-content">
+	<div class="pestana" id="pestana1">
+    @if (ViewBag.libro != null)
+    {
+        <div>
+		@foreach (var l in ViewBag.libro)
         {
-           <div style="border:2px solid white;margin:3px;overflow:hidden;">
-                <div style="background-color:#707070;"><p style="padding:10px"><a style="color:#00FF00;font-size:20px;font-weight:bold;" id="menu1"href="">@item.titulo</a></p>
+            <div class="titulo" style="margin-top:10px;">
+                @l.titulo
+            </div>
+            <div class="cuerpo" style="overflow:hidden;">
+                <div style="float:left;">
+                    @{string img = "~/Content/Imagenes/" + @l.portada;}<img src="@Url.Content(img)" width="150" height="150"/>
+                    
                 </div>
-                <div style="border:1px solid white;float:left;margin:20px;">
-                     @{string img = "~/Content/Imagenes/" + @item.portada;}<img src="@Url.Content(img)" width="200" height="200"/><p>Categoria:  @item.tipo</p>
+                <div>
+                    @l.descripcion
                 </div>
-                <div style="padding:20px;">@item.descripcion</div>
-                
-           </div>
+            </div>
+            <div class="cuerpo">
+                @l.fecha_publicacion
+            </div>
         }
-        </div> 
-    </div>   
-    <div style="margin-left:15px;overflow:hidden;float:right;margin-right:30px;border:1px solid white;">
-        @foreach (var ite in @ViewBag.p)
+       </div>
+    }
+    else { @ViewBag.error}
+	</div>
+	<div class="pestana" style="display: none;"id="pestana2">
+		@if (ViewBag.articulo != null)
+    {
+        <div>
+		@foreach (var a in ViewBag.articulo)
         {
-            <div style="width:80;height:80;overflow:hidden;border:1px solid white;">
+            <div class="titulo" style="margin-top:10px;">
+                @a.titulo
+            </div>
             <div>
-                <p style="float:left;">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></p>
-                <p style="float:left;">
-                    <p>@ite.titulo</p><br>
-                    <p>@ite.descripcion</p>
-                </p>
+                <div class="cuerpo" style="overflow:hidden;">
+                    @Html.Raw(@a.contenido)
+                </div>
+                <div class="cuerpo">
+                    @a.descripcion
+                </div>
             </div>
+            <div class="cuerpo">
+                @a.fecha_publicacion
             </div>
         }
-    </div>
+       </div>
+    }
+    else { @ViewBag.error}
+	
+	</div>
+	<div class="pestana" style="display: none;"id="pestana3">
+		@if (ViewBag.curso != null)
+    {
+        <div>
+		@foreach (var c in ViewBag.curso)
+        {
+            <div class="titulo" style="margin-top:10px;">
+                @c.titulo
+            </div>
+            <div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    @Html.Raw(@c.contenido)
+                </div>
+                <div class="cuerpo">
+                    @c.descripcion
+                </div>
+            </div>
+            <div class="cuerpo">
+                @c.fecha_publicacion
+            </div>
+        }
+       </div>
+    }
+    else { @ViewBag.error}
+	
+	</div>
+    <div class="pestana" style="display: none;"id="pestana4">
+		@if (ViewBag.tutorial != null)
+    {
+        <div>
+		@foreach (var t in ViewBag.tutorial)
+        {
+            <div class="titulo" style="margin-top:10px;">
+                @t.titulo
+            </div>
+            <div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    @Html.Raw(@t.contenido)
+                </div>
+                <div class="cuerpo">
+                    @t.descripcion
+                </div>
+            </div>
+            <div class="cuerpo">
+                @t.fecha_publicacion
+            </div>
+        }
+       </div>
+    }
+    else { @ViewBag.error}
+	
+	</div>
+</div>
 </div>

@@ -41,14 +41,15 @@
 }
 .reg
 {
-	color:#700000;	
-}
+	color:white;
+	-moz-box-shadow:10px 10px 10px red;	
+}/*
 .texto
 {
 	margin-top:0;
 	text-align:left;
 	position:relative;
-	text-shadow: 0 1px 0 #707070, 
+	-moz-text-shadow: 0 1px 0 #707070, 
 	0 2px 0 #c9c9c9,
 	0 3px 0 #bbb,
 	0 4px 0 #b9b9b9,
@@ -62,7 +63,7 @@
 	0 20px 20px rgba(0,0,0,.15);
 	/*color:#F0f0f0;*/
 	font-family:Old English Text MT;
-}
+}*/
 .page
 {
 	border:1px solid #000000;	
@@ -108,7 +109,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 	color: #FFF;
 	font: bold 12px Arial, Helvetica, sans-serif;
 	text-align: center;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	-moz-text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
 	width: 100%;
 }
 .uploadify:hover .uploadify-button {
@@ -224,3 +225,191 @@ dl
 		height: auto;
 		color: #cccccc !important;
 	}
+	#titulo
+	{
+		color:white;	
+		margin-left:100px;
+		font-size:30px;
+	}
+	.tit
+	{
+		font-family:miFont;
+		font-size:25px;
+		-moz-box-shadow:10px 10px 10px white;
+		-text-box-shadow:10px 10px 5px white;
+		text-align:center;
+		color:#00FF00;	
+	}
+	.table
+	{
+		margin:20px;
+		margin-left:30px;
+		border:1px solid White;
+		background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #707070 0%, #888888 5%, #E8E8E8 5%);
+		-moz-border-radius:10px;
+		border-radius:10px;
+		-moz-box-shadow:10px 10px 10px white;
+		overflow:hidden;
+		width:700px;
+	}
+	.tablex
+	{
+		margin:20px;
+		margin-left:40px;
+		border:1px solid White;
+		background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #707070 0%, #888888 5%, #E8E8E8 5%);
+		-moz-border-radius:10px;
+		border-radius:10px;
+		-moz-box-shadow:10px 10px 10px white;
+		overflow:hidden;
+		width:750px;
+	}
+	.cuerpo
+	{
+		padding:15px;
+		padding-left:20px;	
+		border:none;
+		margin:5px;
+		margin-left:15px;
+		background-color:Black;
+	}
+	
+	.cuerpo1
+	{
+		padding:15px;
+		padding-left:20px;	
+		border:none;
+		margin:5px;
+		width:100px;
+		height:auto;
+		float:left;
+		overflow:hidden;
+	}
+	.titulo
+	{
+		background-position: center center;
+		background: -moz-radial-gradient(circle, white, black);
+		padding:10px;
+		color:#00FF00;
+		font-size:20px;
+		font-weight:bold;	
+		-moz-box-shadow:10px 10px 10px white;
+		border-radius:10px;
+		margin:5px;
+	}
+	.usuario
+	{
+		background-color:Red;
+		font-weight:bold;	
+		float:left;
+		overflow:hidden;
+		margin:5px;
+	}
+	.categoria
+	{
+		overflow:hidden;
+		margin:5px;
+	}
+	.prin
+	{
+		overflow:hidden;
+	}
+	.coment
+	{
+		border:1px solid red;	
+	}
+	.usuario1
+	{
+		background-color:#800000;
+		font-weight:bold;	
+		float:left;
+		overflow:hidden;
+		margin:15px;
+		margin-top:25px;
+		width:auto;
+	}
+	.usuario1 a
+	{
+		width:auto;
+		color:AntiqueWhite;
+		text-decoration:none;	
+		padding-left:10px;
+	}
+	.fech
+	{
+		color:#99FF00;
+		font-size:14px;
+		background: -moz-radial-gradient(circle,black,white );
+	}
+	.con
+	{
+		margin:20px;	
+	}
+	.fecha
+	{
+		margin:10px;
+		
+	}
+	.table1
+	{
+		margin:20px;
+		border:1px solid White;
+		background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #000000 0%, #404040 5%, #787878 5%);
+		-moz-border-radius:10px;
+		-moz-box-shadow:10px 10px 10px white;
+		overflow:hidden;
+		width:auto;
+	}
+	.border
+	{
+		-moz-border-radius:10px;
+		-moz-box-shadow:10px 10px 10px white;		
+	}
+	.colum
+	{
+		text-align:center;
+		margin-left:80px;
+		float:left;
+		width:150px;
+		font-family:milton;
+	}
+	@font-face
+	{
+		font-family:milton;
+		src:url(../Content/fonts/Lobster_1.1_-webfont.ttf);
+	}
+	.tipo
+	{
+		float:left;
+		border-top:1px;
+		border-bottom:1px;
+		margin-left:10px;
+		border:2px solid red;
+	}
+	.tipo1
+	{
+		border-top:1px solid red;
+		border-bottom:1px solid red;	
+		margin:1px;
+		text-align:center;
+		background: linear-gradient(top, black, white);
+		background: -moz-linear-gradient(top, purple, white);
+	}
+	.tipo1 a{padding-top:20px;padding-bottom:20px;font-size:15px;text-decoration:none;color:black;}
+	.cat
+	{
+		background-color:white;
+		font-size:20px;
+		padding:10px;
+		text-align:center;
+		margin:7px;color:#707070;
+	}
+	.boton{background-color:black;width:19%;border-radius:15px;float:left;margin-left:20%;margin-top:10px;}
+	.boton a{text-decoration:none;color:White;}
+	.alinear{text-align:center;}
+	.des1{border-radius:0px;background:url(../Content/Imagenes/texto2.jpg);width:auto;height:auto;border:3px solid white;padding:30px;padding-left:90px;-moz-box-shadow:0px 0px 20px white;} 
+	.user{border:2px solid white;-moz-box-shadow:10px 10px 10px white;}
+	
+	.f{transition-duration:all 3s;margin-top:10px;background-color:#009900;border-radius:10px;box-shadow:0 0 20px white;}
+	.ff{width:70%;margin-left:15%;}
+	.f:hover{margin-top:10px;background-color:#00CC00;border-radius:10px;box-shadow:0 0 20px white;}

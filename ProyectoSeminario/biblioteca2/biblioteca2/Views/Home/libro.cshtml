@@ -4,27 +4,65 @@
     int idpubli=0;    
  }
 
-<h2>BIENVENIDO AL FORMULARIO DE REGISTRO DE ARTICULOS</h2>
+ <div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<h2 class="tit">BIENVENIDO AL FORMULARIO DE REGISTRO DE ARTICULOS</h2>
     
 <form enctype="multipart/form-data" method="post" action="@Url.Action("libro","Home")">
         <fieldset>
             <legend>Buscador</legend>
             <div class="actions">
-                @Html.TextBoxFor(m => m.buscarr)
+                @Html.TextBoxFor(m => m.buscarr, new { @class = "texto" })
                 @Html.ValidationMessageFor(m => m.buscarr)
-                <input type="submit"  value="Buscar" />
+                <input type="submit"  value="Buscar" class="texto"/>
             </div>
             
         </fieldset>   
 </form>
-@if (ViewBag.p != null && ViewBag.u != null)
+@if (@ViewBag.p != null && @ViewBag.u != null)
 {
-<div style="border:1px solid white;margin:17px;overflow:hidden;">
+    <p>El buscador de contenidos solo le mostrara las publicaciones q fueron aprobados por el Administrador</p>
+<div style="border:1px solid white;margin:17px;overflow:hidden;box-shadow:10px 10px 10px white;border-radius:15px;">
    <div style="float:left;overflow:hidden;">
-     @foreach (var u in ViewBag.u)
+     @foreach (var u in @ViewBag.u)
      {
         <div style="overflow:hidden;">
-          <div style="border:1px solid white;float:left;overflow:hidden;">
+          <div style="border:1px solid white;float:left;overflow:hidden;margin:20px;margin-top:60px;box-shadow:10px 10px 10px white">
             <div>@{string img1 = "~/Content/Imagenes/" + @u.avatar;}<img src="@Url.Content(img1)" width="100" height="100"/></div>
             <div>@u.nombre</div>
             <div>@u.apellido</div>
@@ -32,10 +70,10 @@
         </div>
      }
     </div>
-    <div>
-      @foreach (var p in ViewBag.p)
+    <div style="background: -moz-repeating-radial-gradient(left bottom, ellipse farthest-side, #202020 0%, #505050 5%, #808080 5%);border-radius:10px;">
+      @foreach (var p in @ViewBag.p)
       {
-        <div id="menu1" style="background-color:#707070;padding:10px;color:#00FF00;font-size:15px;font-weight:bold;">
+        <div id="menu1" style="padding:10px;color:#00FF00;font-size:15px;font-weight:bold; background-position: center center;background: -moz-radial-gradient(circle,  white,black);">
             <div>@p.titulo</div>
         </div>
         <div style="border:1px solid white;">
@@ -43,16 +81,16 @@
             <div >@p.descripcion </div>
             <div style="clear: left;">Puntaje: @p.puntaje</div>
         </div>
-       idpubli = @p.idPublicacion;
+                                                       idpubli = @p.idPublicacion;
 
       } 
     </div>
-    <input type="submit" value="Me Gusta"/>
-    <input type="submit" value="Descargar"/>
+    <a href="http://localhost:4391/Home/megusta/12" >@{string img = "~/Content/Images/me-gusta.png";}<img src="@Url.Content(img)" width="200" height="50" style="border-radius:10px;margin:10px;margin-left:30%;box-shadow:10px 10px 10px white;"/></a>
+    <a href="" >@{string img2 = "~/Content/Images/descargar.jpg";}<img src="@Url.Content(img2)" width="200" height="50" style="border-radius:10px;margin:10px;box-shadow:10px 10px 10px white;"/></a>
 </div>
     
 }
-
+else { @ViewBag.error}
 @if (ViewBag.comentario != null)
 {
     <div>
@@ -91,18 +129,18 @@ else
                 @Html.LabelFor(m => m.Email) o Nick
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, new { @class = "texto" })
                 @Html.ValidationMessageFor(m => m.Email)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(m => m.Comentario)
             </div>
             <div class="editor-field">
-                @Html.TextAreaFor(m => m.Comentario)
+                @Html.TextAreaFor(m => m.Comentario, new { @class = "texto" })
                 @Html.ValidationMessageFor(m => m.Comentario)
             </div>
             <div>
-                <input type="submit"  value="Comentar" />
+                <input type="submit"  value="Comentar" class="texto"/>
             </div>
             
         </fieldset>   

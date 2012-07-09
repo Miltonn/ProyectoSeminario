@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using biblioteca2.Models;
 using System.IO;
 using System.Drawing.Imaging;
+using System.Web.Security;
 
 namespace biblioteca2.Controllers
 {
@@ -70,6 +71,81 @@ namespace biblioteca2.Controllers
             return RedirectToAction("Index");
           
        }
-        
+        [Authorize(Roles="Cliente")]
+        public ActionResult detalle() 
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Guid id = (Guid)Membership.GetUser().ProviderUserKey;
+            ViewBag.coment = (from c in db.comentarios where c.UserId == id select c).ToList();
+            if (ViewBag.coment != null)
+            {
+                //ViewBag.publi = (from p in db.publicacion where p.UserId == id select p).ToList();
+                ViewBag.coment = (from c in db.comentarios where c.UserId == id select c).ToList();
+                ViewBag.datos = (from f in db.perfilusers where f.UserId == id select f).ToList();
+                ViewBag.perfil = (from d in db.perfil where d.UserId == id select d).ToList();
+            }
+            else { ViewBag.coment = "Usted no tiene Comentarios"; }
+            return View();
+        }
+        [Authorize(Roles = "Usuario")]
+        public ActionResult detallelibro()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Guid id = (Guid)Membership.GetUser().ProviderUserKey;
+            ViewBag.publi = (from p in db.publicacion join l in db.libro on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id  select p).ToList();
+            if (ViewBag.publi != null)
+            {
+                ViewBag.publi = (from p in db.publicacion join l in db.libro on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+                ViewBag.datos = (from f in db.perfilusers where f.UserId == id select f).ToList();
+                ViewBag.perfil = (from d in db.perfil where d.UserId == id select d).ToList();
+            }
+            else { ViewBag.publi = "Usted no tiene Contenidos de libros publicados"; }
+            return View();
+        }
+        [Authorize(Roles = "Usuario")]
+        public ActionResult detallearticulo()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Guid id = (Guid)Membership.GetUser().ProviderUserKey;
+            ViewBag.publi = (from p in db.publicacion join l in db.articulo on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+            if (ViewBag.publi != null)
+            {
+                ViewBag.publi = (from p in db.publicacion join l in db.articulo on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+                ViewBag.datos = (from f in db.perfilusers where f.UserId == id select f).ToList();
+                ViewBag.perfil = (from d in db.perfil where d.UserId == id select d).ToList();
+            }
+            else { ViewBag.publi = "Usted no tiene Contenidos de libros publicados"; }
+            return View();
+        }
+        [Authorize(Roles = "Usuario")]
+        public ActionResult detalletutorial()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Guid id = (Guid)Membership.GetUser().ProviderUserKey;
+            ViewBag.publi = (from p in db.publicacion join l in db.tutorial on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+            if (ViewBag.publi != null)
+            {
+                ViewBag.publi = (from p in db.publicacion join l in db.tutorial on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+                ViewBag.datos = (from f in db.perfilusers where f.UserId == id select f).ToList();
+                ViewBag.perfil = (from d in db.perfil where d.UserId == id select d).ToList();
+            }
+            else { ViewBag.publi = "Usted no tiene Contenidos de libros publicados"; }
+            return View();
+        }
+        [Authorize(Roles = "Usuario")]
+        public ActionResult detallecurso()
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            Guid id = (Guid)Membership.GetUser().ProviderUserKey;
+            ViewBag.publi = (from p in db.publicacion join l in db.curso on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+            if (ViewBag.publi != null)
+            {
+                ViewBag.publi = (from p in db.publicacion join l in db.curso on p.idPublicacion equals l.idPublicacion where p.idPublicacion == l.idPublicacion && p.UserId == id select p).ToList();
+                ViewBag.datos = (from f in db.perfilusers where f.UserId == id select f).ToList();
+                ViewBag.perfil = (from d in db.perfil where d.UserId == id select d).ToList();
+            }
+            else { ViewBag.publi = "Usted no tiene Contenidos de libros publicados"; }
+            return View();
+        }
     }
 }

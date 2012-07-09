@@ -21,7 +21,7 @@ namespace biblioteca2.Models
         public string Fecha_Publicacion { get; set; }
 
         [Required]
-        [UIHint("tinymce_jquery_full"), AllowHtml]
+        
         public string Contenido { get; set; }
         //        public string Contenido { get; set; }
 
@@ -36,8 +36,8 @@ namespace biblioteca2.Models
                 titulo = model.Titulo,
                 portada = model.Portada,
                 contenido = model.Contenido,
-                correcciones = "true",
-                puntaje = 1,
+                correcciones = "false",
+                puntaje = 0,
                 fecha_publicacion = DateTime.Today,
                 descripcion = model.Descripcion,
                 UserId = model.idusers

@@ -21,7 +21,8 @@ form {
 	opacity:1.0;
 	color: #fff;
 }
-input, textarea {
+/*input, textarea*/
+ .texto{
 	font-family:"Myriad Pro", "Trebuchet MS", sans-serif;
 	font-size: 15px;
 	background-color: #fff;
@@ -44,7 +45,7 @@ input, textarea {
 	transition: all 0.5s ease-in-out;
 	color: #fff;
 }
-textarea {
+.texto1 {
 	min-height: 200px;
 	resize:none;
 }

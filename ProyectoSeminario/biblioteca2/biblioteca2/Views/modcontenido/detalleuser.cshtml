@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "detalleuser";
+}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+
+        $('#tabs1 .tab > ul > li').click(function () {
+            var clicktab = $(this);
+            var IDlistaActual = $('.tab > ul').find('li.activo').find('a').attr("href");
+            var IDlistaNueva = clicktab.find('a').attr("href");
+            var contenedor = $('#tabs1 .tabs-content');
+            var alturaActual = contenedor.height();
+
+
+            if (IDlistaActual != IDlistaNueva) {
+
+                //fijo la altura actual
+                contenedor.height(alturaActual);
+                $(IDlistaActual).fadeOut(200, function () {
+                    $(IDlistaNueva).fadeIn(300);
+                    var nuevaAltura = $(IDlistaNueva).height();
+                    contenedor.animate({ height: nuevaAltura });
+                });
+                //botones
+                $('.tab > ul > li').removeClass('activo');
+                clicktab.addClass('activo');
+                contenedor.click(function () {
+                    contenedor.height('auto');
+                });
+            }
+            return false;
+        });
+    });
+		
+</script>
+<h2>detalleuser</h2>
+
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+</ul>
+</div>
+<p class="menu1">BIENVENIDO USUARIO</p>
+<div id="container"><div id="top-bar"><div class="title"><a>AUTORES Milton,Angel,Nancy</a></div><div class="link"></div><p>Moderador de Usuarios</p></div>
+<div id="demo-container">
+<div id="tabs1" class="tab-wrapper" style="overflow:hidden;">
+<div class="tab">
+	<ul>
+		<li class="activo"><a href="#pestana1">Libros</a></li>
+		<li><a href="#pestana2">Articulos</a></li>
+		<li><a href="#pestana3">Cursos</a></li>
+        <li><a href="#pestana4">Tutoriales</a></li>
+	</ul>
+	<div style="clear:both;"></div>
+</div>
+<div class="tabs-content">
+    <div >
+    
+        @foreach(var item in ViewBag.pu){
+            <div >
+                <div>
+                    @{string img = "~/Content/Imagenes/"+@item.avatar;}<img src="@Url.Content(img)" width="70" height="70"/><br/>
+                </div>
+                <div>
+                    Usuario:<br>
+                    @item.nombre<br>
+                    @item.apellido
+                </div>
+            </div>
+        }
+    </div>
+    <div class="pestana" id="pestana1">
+        <div>
+        @foreach(var item2 in ViewBag.pub1){
+            <div style="float:left;margin:10px;">
+                <div class="titulo" style="margin-top:10px;">
+                    Titulo: @item2.titulo
+                </div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    Contenido Publicado el: @item2.fecha_publicacion
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    <div class="pestana" style="display: none;"id="pestana2">
+        <div>
+        @foreach(var item3 in ViewBag.pub2){
+            <div style="float:left;margin:10px;">
+                <div class="titulo" style="margin-top:10px;">
+                    Titulo: @item3.titulo
+                </div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    Contenido Publicado el: @item3.fecha_publicacion
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    <div class="pestana" style="display: none;"id="pestana3">
+        <div>
+        @foreach(var item4 in ViewBag.pub3){
+            <div style="float:left;margin:10px;">
+                <div class="titulo" style="margin-top:10px;">
+                    Titulo: @item4.titulo
+                </div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    Contenido Publicado el: @item4.fecha_publicacion
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    <div class="pestana" style="display: none;"id="pestana4">
+        <div>
+        @foreach(var item5 in ViewBag.pub4){
+            <div style="float:left;margin:10px;">
+                <div class="titulo" style="margin-top:10px;">
+                    Titulo: @item5.titulo
+                </div>
+                <div class="cuerpo" style="overflow:hidden;">
+                    Contenido Publicado el: @item5.fecha_publicacion
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+    <div>
+          <a href="http://localhost:4391/grid" style="text-decoration:none;color:White;">VER DETALLE DE INFRACCION Y KARMA PARA BENEAR A USUARIOS</a>
+    </div>
+</div>
+</div>
