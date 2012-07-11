@@ -3,50 +3,13 @@
     ViewBag.Title = "coment";
 }
 
-<div class='cssmenu'>
-<ul>
-   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
-   <li><a href='#'><span>Administrador</span></a>
-      <ul>
-         <li><a href='#'><span>Moderador Comentarios</span></a></li>
-         <li><a href='#'><span>Moderador Contenidos</span></a></li>
-         <li><a href='#'><span>Moderador Usuarios</span></a></li>
-      </ul>
-   </li>
-   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
-        <ul>
-             <li><a><span>Registro de Libros!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
-        <ul>
-             <li><a><span>Registro de Articulos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
-        <ul>
-             <li><a><span>Registro de Cursos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
-        <ul>
-             <li><a><span>Registro de Tutoriales!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
-        <ul>
-             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
-        </ul>
-    </li>
-</ul>
-</div>
 <h2 class="tit">MODERADOR Comentarios sin revisar</h2>
 
 <div class="coment">
 <div class="usuario1">
     <div>
     <p class="fech">Comentario Fecha</p>
-       @foreach (var ct in ViewBag.cat)
+       @foreach (var ct in @ViewBag.cat)
        {
             <a href="http://localhost:4391/coment/coment/@ct.idpublicacion">@ct.fecha_publicacion<br/></a>
        }
@@ -76,9 +39,9 @@
                                 <div class="texto "style="background-color:Black;margin-left:25%;overflow:scroll;min-height:200px;">@c.contenido</div>
                                    <div> @if(@ViewBag.img!=null){
                                         <div>
-                                            @ViewBag.img<!--@{string img4 = "~/Content/Imagenes/" + @ViewBag.img;}<img src="@Url.Content(img4)" width="70" height="70"/--><br/>
+                                            @{string img4 = "~/Content/Imagenes/" + @ViewBag.img;}<img src="@Url.Content(img4)" width="70" height="70"/><br/>
                                         </div>
-                                    }else{<div>@ViewBag.img1<!--@{string img5 = "~/Content/Imagenes/" + @ViewBag.img1;}<img src="@Url.Content(img5)" width="70" height="70"/--></div><br/>}
+                                    }else{<div>@{string img5 = "~/Content/Imagenes/" + @ViewBag.img1;}<img src="@Url.Content(img5)" width="70" height="70"/></div><br/>}
                                  
                                     <div>@c.fecha_publicacion</div>
                               </div>

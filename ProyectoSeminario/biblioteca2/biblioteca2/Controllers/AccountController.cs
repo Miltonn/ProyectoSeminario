@@ -40,21 +40,28 @@ namespace biblioteca2.Controllers
             {
                 //REVISION DE BENEADO
                 DataClasses1DataContext db = new DataClasses1DataContext();
-                var beneado = (from p in db.perfil join us in db.aspnet_Users on p.UserId equals us.UserId where p.UserId == us.UserId && us.UserName == model.UserName select p.beneado).ToArray()[0];
-                if (beneado == "false")
-                {
+                
                     if (Membership.ValidateUser(model.UserName, model.Password))
                     {
-                        FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                        if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                            && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                        var beneado = (from p in db.perfil join us in db.aspnet_Users on p.UserId equals us.UserId where p.UserId == us.UserId && us.UserName == model.UserName select p.beneado).ToArray()[0];
+                        if (beneado == "false")
                         {
+                            FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            {
 
-                            return Redirect(returnUrl);
+                                return Redirect(returnUrl);
+                            }
+                            else
+                            {
+
+                                return RedirectToAction("login", "Home");
+                            }
                         }
                         else
                         {
-
+                            ViewBag.beneado = "Lo Sentimos usted esta Beneado por lo tanto no tiene permiso de ver la Pagina";
                             return RedirectToAction("login", "Home");
                         }
                     }
@@ -78,12 +85,9 @@ namespace biblioteca2.Controllers
 
                     // If we got this far, something failed, redisplay form
                     return View(model);
-                }
+                
             }
-            else {
-                ViewBag.beneado = "Lo Sentimos usted esta Beneado por lo tanto no tiene permiso de ver la Pagina";
-                return RedirectToAction("login", "Home"); 
-            }
+            
                 return View(model);
              
         }

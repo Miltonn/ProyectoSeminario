@@ -1,0 +1,67 @@
+﻿<div style="background:url(../Content/images/user.png);height:224px;text-align:center;padding-top:25px;">
+            
+            @if (ViewBag.list != null)
+            {
+                <div>
+                @foreach(var u in @ViewBag.list){
+                    <div>
+                        @{string img7 = "~/Content/Imagenes/" + @u.avatar;}<img src="@Url.Content(img7)" width="110" height="100"/>
+                    </div>
+                    <div style="margin-right:3px;font-size:10px;font-family:Vineta BT;color:red;">
+                        @u.nombre          @u.apellido
+                    </div>
+                }
+                </div>
+            }
+            else {<div>@{string img = "~/Content/images/images (2).jpg";}<img class="images" src="@Url.Content(img)" width="110" height="100" style="border-radius:50px;"/></div><p style="font-size:10px;font-family:Vineta BT;">BIENVENIDO @User.Identity.Name</p> }
+            <p style="font-size:10px;color:silver;font-family:vineta bt;width:auto;height:auto;"><br><br>BIENVENIDO, PARA SER ADMINISTRADOR REALICE UN<br> REGISTRO DE PERMISO EN AUTORIZACION DE USUARIO <br>EN NUESTRO MENU PRINCIPAL DE LA PAGINA</p>
+</div>
+<div class='cssmenu'>
+<ul>
+   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
+   <li><a href='#'><span>Administrador</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/coment/coment1'><span>Moderador Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
+         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
+         <li><a href='http://localhost:4391/solisitud/aceptsolisitud'><span>Solisitud de Usuarios</span></a></li>
+      </ul>
+   </li>
+   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
+        <ul>
+             <li><a><span>Registro de Libros!!!</span></a></li>
+        </ul>
+    </li>
+   <li><a href='http://localhost:4391/articulo/articulop'><span>Articulos</span></a>
+        <ul>
+             <li><a><span>Registro de Articulos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><a href='http://localhost:4391/curso/curso'><span>Cursos</span></a>
+        <ul>
+             <li><a><span>Registro de Cursos!!!</span></a></li>
+        </ul>
+    </li>
+   <li><a href='http://localhost:4391/tutorial/tutorial'><span>Tutoriales</span></a>
+        <ul>
+             <li><a><span>Registro de Tutoriales!!!</span></a></li>
+        </ul>
+    </li>
+    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
+        <ul>
+             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
+        </ul>
+    </li>
+     <li><a><span>Detalle de Usuario</span></a>
+      <ul>
+         <li><a href='http://localhost:4391/solisitud/solisitud'><span>Solisitud</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detalle'><span>Detalle Comentarios</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallelibro'><span>Detalle Libro</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallearticulo'><span>Detalle Articulo</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detalletutorial'><span>Detalle Tutorial</span></a></li>
+         <li><a href='http://localhost:4391/perfilusuario/detallecurso'><span>Detalle Curso</span></a></li>
+      </ul>
+   </li>
+</ul>
+</div>
+

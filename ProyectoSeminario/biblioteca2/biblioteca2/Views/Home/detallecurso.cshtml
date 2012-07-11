@@ -3,43 +3,6 @@
     ViewBag.Title = "detallecurso";
 }
 
-<div class='cssmenu'>
-<ul>
-   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
-   <li><a href='#'><span>Administrador</span></a>
-      <ul>
-         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
-         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
-         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
-      </ul>
-   </li>
-   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
-        <ul>
-             <li><a><span>Registro de Libros!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
-        <ul>
-             <li><a><span>Registro de Articulos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
-        <ul>
-             <li><a><span>Registro de Cursos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
-        <ul>
-             <li><a><span>Registro de Tutoriales!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
-        <ul>
-             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
-        </ul>
-    </li>
-</ul>
-</div>
 <h2 class="tit">detallecurso</h2>
 <div class="tipo">
     @foreach (var item in @ViewBag.lib)
@@ -76,10 +39,10 @@
                     <div style="color:#00FF00;font-size:25px;background-color:black;">@{string img10 = "~/Content/Imagenes/megusta.png";}<img src="@Url.Content(img10)" width="50" height="50"style="border-radius:15px;"/>A @item.puntaje Personas les Gusta Esto</div>
                 <div>
                     <div class="boton">
-                    <a href="#">@{string img7 = "~/Content/Imagenes/mano.jpg";}<img src="@Url.Content(img7)" width="30" height="30"style="border-radius:15px;"/>Me Gusta</a>
+                    <a href="http://localhost:4391/Home/megusta/@item.idpublicacion">@{string img7 = "~/Content/Imagenes/mano.jpg";}<img src="@Url.Content(img7)" width="30" height="30"style="border-radius:15px;"/>Me Gusta</a>
                     </div>
                     <div class="boton">
-                    <a href="#">@{string img8 = "~/Content/Imagenes/gusta.jpg";}<img src="@Url.Content(img8)" width="30" height="30"style="border-radius:15px;"/>No Me Gusta</a>
+                    <a href="http://localhost:4391/Home/nomegusta/@item.idpublicacion">@{string img8 = "~/Content/Imagenes/gusta.jpg";}<img src="@Url.Content(img8)" width="30" height="30"style="border-radius:15px;"/>No Me Gusta</a>
                     </div>
                 </div>
            </div>

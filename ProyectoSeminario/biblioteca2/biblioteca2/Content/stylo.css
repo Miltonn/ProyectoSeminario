@@ -284,6 +284,7 @@ dl
 		height:auto;
 		float:left;
 		overflow:hidden;
+		background:url(../Content/images/trnas.png);
 	}
 	.titulo
 	{
@@ -413,3 +414,40 @@ dl
 	.f{transition-duration:all 3s;margin-top:10px;background-color:#009900;border-radius:10px;box-shadow:0 0 20px white;}
 	.ff{width:70%;margin-left:15%;}
 	.f:hover{margin-top:10px;background-color:#00CC00;border-radius:10px;box-shadow:0 0 20px white;}
+	
+	.images
+	{
+		-webkit-transition: -webkit-transform 5s ease-out;
+		-moz-transition: -moz-transform 5s ease-out;
+		transition: transform 5s ease-out;
+		
+	}
+	.images
+	{
+		-webkit-transform: rotateZ(360deg);
+		-moz-transform: -moz-rotateZ(360deg);
+		transform: rotateZ(360deg);	
+	}	
+	
+	.width100pc {
+    border: solid 3px #707070;
+    border-collapse: collapse;
+    background-color:blue;
+    }
+
+table td {
+    padding: 5px;
+    border: solid 2px #e8eef4;
+}
+
+table tr {
+    padding: 6px 5px;
+    text-align: left;
+    /*background-color: #e8eef4;*/
+    border: solid 1px #e8eef4;
+}
+.tr1{color:black;background-color:Silver;}
+.bgWidth100px{background-color:#707070;color:white;text-align:center;font-family:venus rising;}
+	
+	
+	

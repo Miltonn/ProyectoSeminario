@@ -19,12 +19,13 @@ namespace biblioteca2.Controllers
         {
             return View();
         }
+        [Authorize(Roles="Administrador")]
         public ActionResult coment1() {
             DataClasses1DataContext db = new DataClasses1DataContext();
             var m = (from d in db.mode_coment select d).ToList();
             if (m != null)
             {
-                var contenido = (from d in db.mode_coment select d).ToList();
+                var contenido = db.mode_coment.ToList().Take(1).OrderByDescending(a => a.idpublicacion);
                 ViewBag.contenido = contenido;
                 ViewBag.cat = (from c in db.mode_coment select c).ToList();
             }
@@ -45,16 +46,16 @@ namespace biblioteca2.Controllers
                 {
                     ViewBag.contenido = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
                     ViewBag.cat = (from c in db.mode_coment select c).ToList();
-                    var p = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
+                    ViewBag.p = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
                     char[] delimiterChars = new char[]{ ' ', ',', '.', ';',':' };
-                    string  ofensivo = p.ToString();
-                    foreach (string ofen in ofensivo.Split(delimiterChars))
+                    var  ofensivo = @ViewBag.p.Split(delimiterChars);
+                    foreach (var ofen in ofensivo)
                     {
-                        if (ofen == "carajo" || ofen == "mierda" || ofen == "sonso" || ofen == "chafa" || ofen == "puto")
+                        if (@ofen == "carajo" || @ofen == "mierda" || @ofen == "sonso" || @ofen == "chafa" || @ofen == "puto")
                         {
-                            ViewBag.img = "ofensivo";
+                            ViewBag.img = "escorpion.jpg";
                         }
-                        else { ViewBag.img1 = "no ofensivo"; }
+                        else { ViewBag.img1 = "yes1.jpg"; }
                     }
                 }
                 else
@@ -77,11 +78,11 @@ namespace biblioteca2.Controllers
         {
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
-                var visto = (from a in db.comentarios where a.idComentarios == id select a).Single();
+                var visto = (from a in db.comentarios where a.idPublicacion == id select a).Single();
                 visto.vistobueno = "true";
                 db.SubmitChanges();
             }
-            return RedirectToAction ("coment","coment",id);
+            return RedirectToAction("coment1", "coment");
         }
         public ActionResult eliminarcomet(int id) {
             using(DataClasses1DataContext db=new DataClasses1DataContext()){

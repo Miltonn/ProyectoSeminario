@@ -1,0 +1,64 @@
+﻿@model biblioteca2.Models.soliadmin
+@{
+    ViewBag.Title = "solisitud";
+}
+<script src="@Url.Content("~/solisitud/lib/jquery.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/solisitud/lib/jquery-ui.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/solisitud/src/jquery.textanimation.js")" type="text/javascript"></script>        
+<style>
+        div.demo{
+           font-size: 35px;
+           margin-top: 25px; 
+           text-align:center;
+        }
+        div.demo1{
+           margin-left:10%;
+           text-align:center;
+        }
+        .fo
+        {
+            font-size:30px;
+            text-decoration:none;
+            margin:50px;
+            text-align:center;
+            margin-top:10px;	
+        }
+        .ifr{width:40%;height:40%;margin-left:27%;}
+</style>
+
+<h2>solisitud</h2>
+<div>
+    <div id="demo_high2" class="demo" >Bienvenido @User.Identity.Name al registro de solisitud de tareas de Administracion</div>
+    <div class="ifr"><video src="http://www.double.co.nz/video_test/transformers480.ogg"controls autoplay/></div>
+    <div id="demo_step2" class="demo1" >Para el servicio de Administracion de tareas como Administrador</div>
+    <div id="demo_step2" class="demo1" >usted debera enviar una solisitud para el permiso al Administrador.</div>
+    <div id="demo_step2" class="demo1" >para esto  solo haga click en Enviar Solisitud. </div>
+</div>
+<p style="text-align:center;color:Red;">Desea enviar la solisitud de Rol de Administrador?</p>
+<div class="fo">
+       <a href="http://localhost:4391/solisitud/addsolisitud">Enviar Solisitud</a>
+</div>
+<script type="text/javascript">
+    $(document.body).ready(function () {
+        $("div#demo_high2").textAnimation({
+            mode: "highlight",
+            baseColor: "blue",
+            highlightColor: "#2FFF5F",
+            delay: 35,
+            interval: 0,
+            duration: 50
+        }); 
+        $("div#demo_step2").textAnimation({
+            mode: "step",
+            minsize: 20,            //minimum font size[integer]
+            maxsize: 30,            //maximum font size[integer]
+            upper: false,           //is upper step? [boolean]
+            fixed: "top",           //which fixed top or bottom ["top","bottom"]
+            stuff: 2.2,             //font stuff quantity[float]
+            delay: 200,             //delay for between charactors animation
+            interval: 0,            //interval for between animation
+            duration: 1000          //animation duration
+        });
+        
+    });
+        </script>

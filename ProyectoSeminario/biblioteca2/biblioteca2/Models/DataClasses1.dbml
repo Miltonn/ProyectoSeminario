@@ -121,6 +121,7 @@
       <Association Name="aspnet_Users_perfil" Member="perfil" ThisKey="UserId" OtherKey="UserId" Type="perfil" />
       <Association Name="aspnet_Users_perfilusers" Member="perfilusers" ThisKey="UserId" OtherKey="UserId" Type="perfilusers" />
       <Association Name="aspnet_Users_publicacion" Member="publicacion" ThisKey="UserId" OtherKey="UserId" Type="publicacion" />
+      <Association Name="aspnet_Users_solisitud" Member="solisitud" ThisKey="UserId" OtherKey="UserId" Type="solisitud" />
       <Association Name="aspnet_Applications_aspnet_Users" Member="aspnet_Applications" ThisKey="ApplicationId" OtherKey="ApplicationId" Type="aspnet_Applications" IsForeignKey="true" />
     </Type>
   </Table>
@@ -428,6 +429,25 @@
       <Column Name="avatar" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="titulo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="idpublicacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.solisitud" Member="solisitud">
+    <Type Name="solisitud">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="solisitudes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Association Name="aspnet_Users_solisitud" Member="aspnet_Users" ThisKey="UserId" OtherKey="UserId" Type="aspnet_Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.solisitudes" Member="solisitudes">
+    <Type Name="solisitudes">
+      <Column Name="infraccion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="karma" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="solisitudes" Member="solisitudes1" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="userid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

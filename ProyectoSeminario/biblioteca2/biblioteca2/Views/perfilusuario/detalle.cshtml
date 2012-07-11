@@ -1,53 +1,6 @@
 ﻿@{
     ViewBag.Title = "detalle";
 }
-
-<div class='cssmenu'>
-<ul>
-   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
-   <li><a href='#'><span>Administrador</span></a>
-      <ul>
-         <li><a href='#'><span>Moderador Comentarios</span></a></li>
-         <li><a href='#'><span>Moderador Contenidos</span></a></li>
-         <li><a href='#'><span>Moderador Usuarios</span></a></li>
-      </ul>
-   </li>
-   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
-        <ul>
-             <li><a><span>Registro de Libros!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
-        <ul>
-             <li><a><span>Registro de Articulos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
-        <ul>
-             <li><a><span>Registro de Cursos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
-        <ul>
-             <li><a><span>Registro de Tutoriales!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
-        <ul>
-             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='#'><span>Detalle de Usuario</span></a>
-      <ul>
-         <li><a href='http://localhost:4391/perfilusuario/detalle'><span>Detalle Comentarios</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallelibro'><span>Detalle Libro</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallearticulo'><span>Detalle Articulo</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detalletutorial'><span>Detalle Tutorial</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallecurso'><span>Detalle Curso</span></a></li>
-      </ul>
-   </li>
-</ul>
-</div>
 <h2 class="tit">detalle</h2>
 <style>
           span.reference{
@@ -118,7 +71,7 @@
             <div id="ps_albums">
 			    @foreach (var item in @ViewBag.coment)
        {
-            	    <div class="ps_album" style="opacity:0;"><div class="ps_desc"><h2>Publicado el:<br>@item.fecha_publicacion</h2><h2>Revision:<br>@item.vistobueno</h2><span><h2>Comentrio:</h2><br>@item.contenido</span></div></div>
+            	    <div class="ps_album" style="opacity:0;"><div class="ps_desc"><h2>Publicado el:<br>@item.fecha_publicacion</h2><h2>Revision:<br>@item.vistobueno</h2><span><h2>Comentario:</h2><br>@item.contenido</span></div></div>
        }
             </div>	
 		</div>

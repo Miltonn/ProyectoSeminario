@@ -227,12 +227,12 @@ margin: 5px 0;
 }
 .div3
 {
-	border:2px solid white;padding:10px;overflow:hidden;border-radius:10px;background-color:#202020;margin:5px;background:url(../Content/Imagenes/jaspeadoasul.jpg);
+	box-shadow:0 0 20px white;border:5px solid white;padding:10px;overflow:hidden;border-radius:10px;background-color:#202020;margin:5px;background:url(../Content/Imagenes/fon.jpg);
 }
 .u
 {
 	padding:20px;background:url(../Content/Imagenes/texto1.jpg);
-	height:auto;border-radius:5px;
+	height:350px;border-radius:5px;
 }
 .div4
 {

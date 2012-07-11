@@ -84,6 +84,7 @@
     <Compile Include="Controllers\modcontenidoController.cs" />
     <Compile Include="Controllers\perfilusuarioController.cs" />
     <Compile Include="Controllers\reedicionController.cs" />
+    <Compile Include="Controllers\solisitudController.cs" />
     <Compile Include="Controllers\tutorialController.cs" />
     <Compile Include="Controllers\UploadsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -103,6 +104,7 @@
     <Compile Include="Models\ImageModels.cs" />
     <Compile Include="Models\perfil.cs" />
     <Compile Include="Models\publicacion.cs" />
+    <Compile Include="Models\soliadmin.cs" />
     <Compile Include="Models\tutoriales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -961,6 +963,7 @@
     <Content Include="Content\Imagenes\DSC_0000232.jpg" />
     <Content Include="Content\Imagenes\escorpion.jpg" />
     <Content Include="Content\Imagenes\estrella.jpg" />
+    <Content Include="Content\Imagenes\fon.jpg" />
     <Content Include="Content\Imagenes\gusta.jpg" />
     <Content Include="Content\Imagenes\jaspeadoasul.jpg" />
     <Content Include="Content\Imagenes\mano.jpg" />
@@ -998,6 +1001,7 @@
     <Content Include="Content\images\gallery\6.jpg" />
     <Content Include="Content\images\gallery\6_thumb.jpg" />
     <Content Include="Content\images\imagenxdefecto.png" />
+    <Content Include="Content\images\images %282%29.jpg" />
     <Content Include="Content\images\images.jpg" />
     <Content Include="Content\images\libro3.png" />
     <Content Include="Content\images\linkedin.png" />
@@ -1009,11 +1013,13 @@
     <Content Include="Content\images\no.png" />
     <Content Include="Content\images\overlay.png" />
     <Content Include="Content\images\overlay1.png" />
+    <Content Include="Content\images\piedepagina.jpg" />
     <Content Include="Content\images\prevImgBtn.png" />
     <Content Include="Content\images\reject.jpg" />
     <Content Include="Content\images\tick.png" />
     <Content Include="Content\images\toolbar_fs_icon.png" />
     <Content Include="Content\images\toolbar_n_icon.png" />
+    <Content Include="Content\images\trnas.png" />
     <Content Include="Content\images\twitter.png" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -1028,7 +1034,9 @@
     <Content Include="Content\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images\user.png" />
     <Content Include="Content\images\yes1.jpg" />
+    <Content Include="Content\img\ac.jpg" />
     <Content Include="Content\img\libro1.jpg" />
     <Content Include="Content\img\libro2.jpg" />
     <Content Include="Content\img\libro3.jpg" />
@@ -1497,6 +1505,11 @@
     <Content Include="Scripts\tinymce\utils\form_utils.js" />
     <Content Include="Scripts\tinymce\utils\mctabs.js" />
     <Content Include="Scripts\tinymce\utils\validate.js" />
+    <Content Include="solisitud\.gitignore" />
+    <Content Include="solisitud\index.html" />
+    <Content Include="solisitud\lib\jquery-ui.min.js" />
+    <Content Include="solisitud\lib\jquery.min.js" />
+    <Content Include="solisitud\src\jquery.textanimation.js" />
     <Content Include="spacegallery\css\custom.css" />
     <Content Include="spacegallery\css\layout.css" />
     <Content Include="spacegallery\css\spacegallery.css" />
@@ -1666,6 +1679,16 @@
     <Content Include="Views\reedicion\reedicion.cshtml" />
     <Content Include="Views\reedicion\editarlibro.cshtml" />
     <Content Include="Views\coment\coment1.cshtml" />
+    <Content Include="Views\Shared\user.cshtml" />
+    <Content Include="Views\solisitud\addsolisitud.cshtml" />
+    <Content Include="Views\solisitud\solisitud.cshtml" />
+    <None Include="solisitud\.project" />
+    <None Include="solisitud\.settings\.jsdtscope" />
+    <None Include="solisitud\.settings\org.eclipse.wst.jsdt.ui.superType.container" />
+    <None Include="solisitud\.settings\org.eclipse.wst.jsdt.ui.superType.name" />
+    <None Include="solisitud\README" />
+    <Content Include="Views\solisitud\solisitud1.cshtml" />
+    <Content Include="Views\solisitud\aceptsolisitud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\DataClasses1.dbml.layout">

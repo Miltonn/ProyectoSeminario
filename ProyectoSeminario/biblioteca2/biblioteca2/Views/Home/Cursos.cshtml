@@ -3,43 +3,6 @@
 }
 
 <h2>Cursos</h2>
-<div class='cssmenu'>
-<ul>
-   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
-   <li><a href='#'><span>Administrador</span></a>
-      <ul>
-         <li><a href='http://localhost:4391/coment/coment/14'><span>Moderador Comentarios</span></a></li>
-         <li><a href='http://localhost:4391/modcontenido/mod'><span>Moderador Contenidos</span></a></li>
-         <li><a href='http://localhost:4391/modcontenido/usuario'><span>Moderador Usuarios</span></a></li>
-      </ul>
-   </li>
-   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
-        <ul>
-             <li><a><span>Registro de Libros!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
-        <ul>
-             <li><a><span>Registro de Articulos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
-        <ul>
-             <li><a><span>Registro de Cursos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
-        <ul>
-             <li><a><span>Registro de Tutoriales!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
-        <ul>
-             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
-        </ul>
-    </li>
-</ul>
-</div>
 <p class="tit">Ultimas 10 publicaciones de CURSOS </p>
 <div class="tipo">
     <p class="cat">Categorias</p>
@@ -57,12 +20,12 @@
         {
            <div style="float:left;">
                 @{string img1 = "~/Content/Imagenes/" + @item.avatar;}<img src="@Url.Content(img1)" width="100" height="100"/><br>
-                 Usuario q Publico el Libro<br/>
+                 Publicado por:<br/>
                  Nombre:   @item.nombre<br/>
                  Apellido: @item.apellido
            </div>
             <div class="div3">
-                <div class="div4"><p><a id="menu1"href="">@item.titulo</a></p>
+                <div class="div4"><p><a id="menu1"href="http://localhost:4391/Home/detallecurso/@item.idpublicacion">@item.titulo</a></p>
                 </div>
                 
                 <div class="des">

@@ -97,51 +97,7 @@
         </header>  
         <div id="logindisplay1">
             <div id="reloj" style="font-size:20px;color:#17cf17;float:left;margin-left:30px;"></div>    
-                
-                @model biblioteca2.Models.LogOnModel
-                @{
-                    ViewBag.Title = "Iniciar Secion";
-                    ReCaptcha.PublicKey="6LcD79ESAAAAADzpJD5pP0rc6Vb0Pl1gQY9rz2Sl";
-                 }
-
-                @Html.ValidationSummary(true, "Login was unsuccessful. Please correct the errors and try again.")
-
-                @using (Html.BeginForm())
-                {
-                    <div id="loginheader">
-                        
-                            <div id="hide1" style="margin-top:4px;">
-                                <a  href="#" style="color:#17cf17;text-decoration:none;"><<</a>
-                            </div>
-                            <div id="hide2" style="color:White;padding-right:5px;font-size:10px;padding-top:5px;">
-                            <a href="#">Olvidaste Usuario o Password?</a>
-                            </div>
-                            <div class="field1" style="padding-right:4px;">
-                                @Html.TextBoxFor(m => m.UserName, new { placeholder="su nombre", required="", title="nesecita un nombre", style="width:140px;height:15px; border-radius:10px;", @class="texto"})
-                               
-                            </div>
-                            <div class="field1">
-                                @Html.PasswordFor(m => m.Password, new { placeholder="su password", required="hola", title="nesecita un password", style="width:140px;height:15px; border-radius:10px;",@class="texto"})
-                               
-                            </div>
-
-                            <div class="field2" style="display:none;font-size:12px;">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </div>
-                            @if (Session["captcha"] != null && (int)Session["captcha"] > 2)
-                                {
-                                    <div style="height:10px; border: 2px solid red">@ReCaptcha.GetHtml(theme: "red")</div>
-                                }
-                            <div class="field1">
-                                <input class="texto" type="submit" value="Login" style="" action="@Url.Action("logueo","Home")"/>
-                            </div>
-                            <div style="margin-top:5px;"> o <a href="http://localhost:4391/perfilusuario/perfil" title="">Registrese</a></div>
-                        
-                    </div>
-    
-                }
-                <div>
+                <div style="color:red;font-size:15px;">
                     @{Html.RenderPartial("_LogOnPartial");}
                     
                 </div>
@@ -157,13 +113,14 @@
                     </ul>
                     <div>
                     <!--helper de twitter-->
-                        @Microsoft.Web.Helpers.Twitter.Profile("esmsdn",250,300,"#333333","#ffffff","#000000","#ffffff","#4aed05",3)
+                        @Microsoft.Web.Helpers.Twitter.Profile("esmsdn",250,300,"#333333","#ffffff","#000000","#ffffff","#4aed05",2)
                         @Microsoft.Web.Helpers.LinkShare.GetHtml("Biblioteca de contenidos colectivos", "http://localhost:4391/")
                     </div>
             </nav>
             
         <section id="main1">
-        <div id="cuerpo1">
+        <div id="cuerpo1" style="background:url(../Content/images/trnas.png);">
+            @{Html.RenderPartial("user");}
             @RenderBody()
         </div>
         </section>

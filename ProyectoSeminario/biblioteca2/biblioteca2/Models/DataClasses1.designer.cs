@@ -96,6 +96,9 @@ namespace biblioteca2.Models
     partial void Inserttutorial(tutorial instance);
     partial void Updatetutorial(tutorial instance);
     partial void Deletetutorial(tutorial instance);
+    partial void Insertsolisitud(solisitud instance);
+    partial void Updatesolisitud(solisitud instance);
+    partial void Deletesolisitud(solisitud instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -437,6 +440,22 @@ namespace biblioteca2.Models
 			get
 			{
 				return this.GetTable<comentario>();
+			}
+		}
+		
+		public System.Data.Linq.Table<solisitud> solisitud
+		{
+			get
+			{
+				return this.GetTable<solisitud>();
+			}
+		}
+		
+		public System.Data.Linq.Table<solisitudes> solisitudes
+		{
+			get
+			{
+				return this.GetTable<solisitudes>();
 			}
 		}
 	}
@@ -2636,6 +2655,8 @@ namespace biblioteca2.Models
 		
 		private EntitySet<publicacion> _publicacion;
 		
+		private EntitySet<solisitud> _solisitud;
+		
 		private EntityRef<aspnet_Applications> _aspnet_Applications;
 		
     #region Extensibility Method Definitions
@@ -2668,6 +2689,7 @@ namespace biblioteca2.Models
 			this._perfil = new EntitySet<perfil>(new Action<perfil>(this.attach_perfil), new Action<perfil>(this.detach_perfil));
 			this._perfilusers = new EntitySet<perfilusers>(new Action<perfilusers>(this.attach_perfilusers), new Action<perfilusers>(this.detach_perfilusers));
 			this._publicacion = new EntitySet<publicacion>(new Action<publicacion>(this.attach_publicacion), new Action<publicacion>(this.detach_publicacion));
+			this._solisitud = new EntitySet<solisitud>(new Action<solisitud>(this.attach_solisitud), new Action<solisitud>(this.detach_solisitud));
 			this._aspnet_Applications = default(EntityRef<aspnet_Applications>);
 			OnCreated();
 		}
@@ -2952,6 +2974,19 @@ namespace biblioteca2.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_solisitud", Storage="_solisitud", ThisKey="UserId", OtherKey="UserId")]
+		public EntitySet<solisitud> solisitud
+		{
+			get
+			{
+				return this._solisitud;
+			}
+			set
+			{
+				this._solisitud.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Applications_aspnet_Users", Storage="_aspnet_Applications", ThisKey="ApplicationId", OtherKey="ApplicationId", IsForeignKey=true)]
 		public aspnet_Applications aspnet_Applications
 		{
@@ -3073,6 +3108,18 @@ namespace biblioteca2.Models
 		}
 		
 		private void detach_publicacion(publicacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = null;
+		}
+		
+		private void attach_solisitud(solisitud entity)
+		{
+			this.SendPropertyChanging();
+			entity.aspnet_Users = this;
+		}
+		
+		private void detach_solisitud(solisitud entity)
 		{
 			this.SendPropertyChanging();
 			entity.aspnet_Users = null;
@@ -7860,6 +7907,298 @@ namespace biblioteca2.Models
 				if ((this._idpublicacion != value))
 				{
 					this._idpublicacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.solisitud")]
+	public partial class solisitud : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _solisitudes;
+		
+		private System.DateTime _fecha;
+		
+		private System.Guid _UserId;
+		
+		private EntityRef<aspnet_Users> _aspnet_Users;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnsolisitudesChanging(string value);
+    partial void OnsolisitudesChanged();
+    partial void OnfechaChanging(System.DateTime value);
+    partial void OnfechaChanged();
+    partial void OnUserIdChanging(System.Guid value);
+    partial void OnUserIdChanged();
+    #endregion
+		
+		public solisitud()
+		{
+			this._aspnet_Users = default(EntityRef<aspnet_Users>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_solisitudes", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string solisitudes
+		{
+			get
+			{
+				return this._solisitudes;
+			}
+			set
+			{
+				if ((this._solisitudes != value))
+				{
+					this.OnsolisitudesChanging(value);
+					this.SendPropertyChanging();
+					this._solisitudes = value;
+					this.SendPropertyChanged("solisitudes");
+					this.OnsolisitudesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this.OnfechaChanging(value);
+					this.SendPropertyChanging();
+					this._fecha = value;
+					this.SendPropertyChanged("fecha");
+					this.OnfechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid UserId
+		{
+			get
+			{
+				return this._UserId;
+			}
+			set
+			{
+				if ((this._UserId != value))
+				{
+					if (this._aspnet_Users.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUserIdChanging(value);
+					this.SendPropertyChanging();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_Users_solisitud", Storage="_aspnet_Users", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
+		public aspnet_Users aspnet_Users
+		{
+			get
+			{
+				return this._aspnet_Users.Entity;
+			}
+			set
+			{
+				aspnet_Users previousValue = this._aspnet_Users.Entity;
+				if (((previousValue != value) 
+							|| (this._aspnet_Users.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._aspnet_Users.Entity = null;
+						previousValue.solisitud.Remove(this);
+					}
+					this._aspnet_Users.Entity = value;
+					if ((value != null))
+					{
+						value.solisitud.Add(this);
+						this._UserId = value.UserId;
+					}
+					else
+					{
+						this._UserId = default(System.Guid);
+					}
+					this.SendPropertyChanged("aspnet_Users");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.solisitudes")]
+	public partial class solisitudes
+	{
+		
+		private int _infraccion;
+		
+		private float _karma;
+		
+		private string _solisitudes1;
+		
+		private System.DateTime _fecha;
+		
+		private int _id;
+		
+		private System.Guid _userid;
+		
+		public solisitudes()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_infraccion", DbType="Int NOT NULL")]
+		public int infraccion
+		{
+			get
+			{
+				return this._infraccion;
+			}
+			set
+			{
+				if ((this._infraccion != value))
+				{
+					this._infraccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_karma", DbType="Real NOT NULL")]
+		public float karma
+		{
+			get
+			{
+				return this._karma;
+			}
+			set
+			{
+				if ((this._karma != value))
+				{
+					this._karma = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="solisitudes", Storage="_solisitudes1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string solisitudes1
+		{
+			get
+			{
+				return this._solisitudes1;
+			}
+			set
+			{
+				if ((this._solisitudes1 != value))
+				{
+					this._solisitudes1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fecha", DbType="DateTime NOT NULL")]
+		public System.DateTime fecha
+		{
+			get
+			{
+				return this._fecha;
+			}
+			set
+			{
+				if ((this._fecha != value))
+				{
+					this._fecha = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL")]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this._id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_userid", DbType="UniqueIdentifier NOT NULL")]
+		public System.Guid userid
+		{
+			get
+			{
+				return this._userid;
+			}
+			set
+			{
+				if ((this._userid != value))
+				{
+					this._userid = value;
 				}
 			}
 		}

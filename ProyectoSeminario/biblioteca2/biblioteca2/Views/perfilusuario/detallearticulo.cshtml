@@ -1,54 +1,6 @@
 ﻿@{
     ViewBag.Title = "detallearticulo";
 }
-
-<h2>detallearticulo</h2>
-<div class='cssmenu'>
-<ul>
-   <li class='active '><a href="http://localhost:4391/"><span>Inicio</span></a></li>
-   <li><a href='#'><span>Administrador</span></a>
-      <ul>
-         <li><a href='#'><span>Moderador Comentarios</span></a></li>
-         <li><a href='#'><span>Moderador Contenidos</span></a></li>
-         <li><a href='#'><span>Moderador Usuarios</span></a></li>
-      </ul>
-   </li>
-   <li><a href='http://localhost:4391/Home/libros'><span>Libros</span></a>
-        <ul>
-             <li><a><span>Registro de Libros!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Articulos", "articulopublic", "articulo", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Articulos" })</span>
-        <ul>
-             <li><a><span>Registro de Articulos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Cursos", "curso", "curso", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Cursos" })</span>
-        <ul>
-             <li><a><span>Registro de Cursos!!!</span></a></li>
-        </ul>
-    </li>
-   <li><span>@Html.ActionLink("Tutoriales", "tutorial", "tutorial", null, new { @class = "openDialog", data_dialog_id = "emailDialog", data_dialog_title = "Registro de Tutoriales" })</span>
-        <ul>
-             <li><a><span>Registro de Tutoriales!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='http://localhost:4391/Home/libro'><span>Buscar</span></a>
-        <ul>
-             <li><a><span>Busqueda de Contenidos!!!</span></a></li>
-        </ul>
-    </li>
-    <li><a href='#'><span>Detalle de Usuario</span></a>
-      <ul>
-         <li><a href='http://localhost:4391/perfilusuario/detalle'><span>Detalle Comentarios</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallelibro'><span>Detalle Libro</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallearticulo'><span>Detalle Articulo</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detalletutorial'><span>Detalle Tutorial</span></a></li>
-         <li><a href='http://localhost:4391/perfilusuario/detallecurso'><span>Detalle Curso</span></a></li>
-      </ul>
-   </li>
-</ul>
-</div>
 @if (@ViewBag.publi != null)
 {
 <div>

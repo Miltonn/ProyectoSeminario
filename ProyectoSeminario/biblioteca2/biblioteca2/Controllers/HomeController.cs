@@ -84,6 +84,7 @@ namespace biblioteca2.Controllers
             else { ViewBag.error = "No existe ningun registro"; }
             return View();
         }
+        [Authorize(Roles="Cliente")]
         public ActionResult libro()
         {
             
@@ -162,8 +163,8 @@ namespace biblioteca2.Controllers
         [Authorize(Roles="Cliente")]
         public ActionResult login() {
             DataClasses1DataContext av = new DataClasses1DataContext();
-            perfilusers p = new perfilusers();
-            p = (from a in av.perfilusers where a.nombre == User.Identity.Name select a).ToArray()[0];
+            //perfilusers p = new perfilusers();
+            var p = (from a in av.perfilusers where a.nombre == User.Identity.Name select a).ToList();
             ViewBag.list = p;
             ViewBag.li = av.listalibro.ToList().Take(10).OrderByDescending(a => a.fecha_publicacion);
             if (ViewBag.li != null)
@@ -195,6 +196,10 @@ namespace biblioteca2.Controllers
                 db.SubmitChanges();
             }
             return Redirect("http://localhost:4391/Home/About/"+id);
+        }
+        [Authorize(Roles = "Usuario")]
+        public ActionResult libros() {
+            return View();
         }
         [HttpPost]
         [Authorize(Roles="Usuario")]
@@ -285,7 +290,7 @@ namespace biblioteca2.Controllers
             publicacion p = new publicacion();
             ViewBag.p = db.publicacion.ToList().Take(10).OrderByDescending(a => a.idPublicacion);
             ViewBag.tipo = (from t in db.categoria select t).ToList();
-            ViewBag.comentario = from m in db.comentario where m.idpublicacion == id select m;
+            ViewBag.comentario = (from m in db.comentario where m.idpublicacion == id select m).ToList();
             return View();
         }
         public ActionResult detallecurso(int id)
