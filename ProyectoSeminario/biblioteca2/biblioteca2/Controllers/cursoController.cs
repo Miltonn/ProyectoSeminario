@@ -42,7 +42,7 @@ namespace biblioteca2.Controllers
                 }
                 else
                 {
-                    model.Portada = "imagenxdefecto.jpg";
+                    model.Portada = "cursos.jpg";
                 }
 
                 model.Contenido = Contenido;

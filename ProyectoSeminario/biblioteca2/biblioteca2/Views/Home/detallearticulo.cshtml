@@ -69,6 +69,7 @@
     </div>
     }
 </div>
+<div style="overflow:hidden;">
 <div class="div1">
     <div class="div2">
         <div class="vista">
@@ -78,7 +79,7 @@
                 <div class="div4"><p><a id="menu1"href="">@item.titulo</a></p>
                 </div>
                 <div class="div5"style="float:none;">
-                    <div class="u"style="overflow:auto;">@item.descripcion</div> 
+                    <div class="u"style="overflow:auto;">@{string img55 = "~/Content/Imagenes/"+@item.portada;}<img src="@Url.Content(img55)" width="100" height="100"style="border-radius:15px;float:left;"/>@item.descripcion</div> 
                 </div>
                 <div class="des1"style="overflow:scroll;">
                     <div id="container20">
@@ -104,21 +105,19 @@
     </div>  
     
     <div class="div6">
+         <ul id="listticker">
         @foreach (var ite in @ViewBag.lib)
         {
-            <div class="div7">
-            <div>
-                <div class="t">@ite.titulo</div><br>
-                <div class="g">
-                    <div class="g">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></div>
-                    <div>@ite.descripcion</div>
-                </div>
-            </div>
-            </div>
-            
-        }
-    </div>
+            <li style="opacity: 1; ">
+		    @{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="70" height="80"/>
+		    <a href="http://localhost:4391/Home/detallearticulo/@ite.idpublicacion" class="news-title">@ite.titulo</a>
+		    <span class="news-text">@ite.descripcion</span>
+	        </li>
+        }    
+        </ul>
 </div>
+</div>
+<div>
 <p style="font-size:20px;color:Red;">Comentarios</p>
 @if (ViewBag.comentario != null)
 {
@@ -141,6 +140,7 @@
     </div>
      
 }
+</div>
 <div>
     <p>Si realiza un comentario podra acumular puntos en su karma</p>
 </div>

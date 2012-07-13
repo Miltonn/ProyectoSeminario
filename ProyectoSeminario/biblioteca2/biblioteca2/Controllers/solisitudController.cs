@@ -29,7 +29,7 @@ namespace biblioteca2.Controllers
             Guid id = (Guid)Membership.GetUser().ProviderUserKey;
             model.UserId = id;
             model.regsolisitud(model);
-            return RedirectToAction("http://localhost:4391/solisitud/solisitud1");
+            return RedirectToAction("solisitud1", "solisitud");
         }
         public ActionResult aceptsolisitud() {
             DataClasses1DataContext db =new DataClasses1DataContext();
@@ -41,32 +41,32 @@ namespace biblioteca2.Controllers
             else { ViewBag.sol = "Sin Solisitudes"; }
             return View();
         }
-        public ActionResult aceptarsol(Guid id,soliadmin model)
+        public ActionResult aceptarsol(Guid UserId,soliadmin model)
         {
             DataClasses1DataContext db = new DataClasses1DataContext();
-            Guid idu = id;
+            Guid idu = UserId;
             Guid idr=(from r in db.aspnet_Roles where r.RoleName=="Administrador" select r.RoleId).ToArray()[0];
             model.regroll(idu,idr);
             using (DataClasses1DataContext dbb = new DataClasses1DataContext())
             {
-                ViewBag.p = (from c in dbb.solisitudes where c.userid == id select c).ToList();
-                foreach (var del in ViewBag.p)
-                    db.solisitudes.DeleteOnSubmit(del);
+                ViewBag.p = (from c in dbb.solisitud where c.UserId == UserId select c).ToList();
+                foreach (var del in @ViewBag.p)
+                    db.solisitud.DeleteOnSubmit(del);
                 db.SubmitChanges();
             }
-            return View("http://localhost:4391/solisitud/aceptsolisitud");
+            return RedirectToAction("aceptsolisitud", "solisitud");
         }
 
-        public ActionResult rechazarsol(Guid id)
+        public ActionResult rechazarsol(Guid UserId)
         {
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
-                ViewBag.p = (from c in db.solisitudes where c.userid == id select c).ToList();
-                foreach (var del in ViewBag.p)
-                    db.solisitudes.DeleteOnSubmit(del);
+                ViewBag.p = (from c in db.solisitud where c.UserId == UserId select c).ToList();
+                foreach (var del in @ViewBag.p)
+                    db.solisitud.DeleteOnSubmit(del);
                 db.SubmitChanges();
             }
-            return RedirectToAction("http://localhost:4391/solisitud/aceptsolisitud");
+            return RedirectToAction("aceptsolisitud", "solisitud");
         }
     }
 }

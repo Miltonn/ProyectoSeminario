@@ -30,9 +30,11 @@
             <div class="div3">
                 <div class="div4"><p><a id="menu1"href="">@item.titulo</a></p>
                 </div>
-                <div class="div5">
-                    <div class="u">@item.descripcion</div> 
+                <div class="div5" style="width:90%;">
+                    <div class="u">@{string img55 = "~/Content/Imagenes/"+@item.portada;}<img src="@Url.Content(img55)" width="100" height="100"style="border-radius:15px;float:left;"/>@item.descripcion</div> 
                 </div>
+            </div>
+            <div>
                 <div class="des1">
                     @Html.Raw(@item.contenido)
                 </div>
@@ -52,19 +54,16 @@
     </div>  
     
     <div class="div6">
+         <ul id="listticker">
         @foreach (var ite in @ViewBag.lib)
         {
-            <div class="div7">
-            <div>
-                <div class="g">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></div>
-                <div class="g">
-                    <div class="t">@ite.titulo</div><br>
-                    <div>@ite.descripcion</div>
-                </div>
-            </div>
-            </div>
-            
-        }
+            <li style="opacity: 1; ">
+		    @{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="70" height="80"/>
+		    <a href="http://localhost:4391/Home/detallecurso/@ite.idpublicacion" class="news-title">@ite.titulo</a>
+		    <span class="news-text">@ite.descripcion</span>
+	        </li>
+        }    
+        </ul>
     </div>
 </div>
 <p style="font-size:20px;color:Red;">Comentarios</p>

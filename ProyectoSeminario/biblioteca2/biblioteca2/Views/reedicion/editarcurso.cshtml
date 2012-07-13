@@ -1,11 +1,11 @@
-﻿@model biblioteca2.Models.publicmodel
+﻿@model biblioteca2.Models.cursos
 @{
-    ViewBag.Title = "editarlibro";
+    ViewBag.Title = "editarcurso";
 }
 
-<h2>editarlibro</h2>
+<h2>editarcurso</h2>
 @foreach(var item in @ViewBag.libro){
-<form enctype="multipart/form-data" method="post" action="@Url.Action("actualizar","reedicion")">
+<form enctype="multipart/form-data" method="post" action="@Url.Action("actualizarc","reedicion")">
         <fieldset>
             <legend>Registro de Libro</legend>
             <div class="clearfix">
@@ -29,20 +29,20 @@
                     @Html.ValidationMessageFor(m => m.Portada)
                 </div>
             </div>
-            
              <div class="clearfix">
-                @Html.LabelFor(m => m.Contenido)
-                <div class="input">
-                    <input class="texto"type="file"  name="Contenido" value="@item.contenido" />
-                    @Html.ValidationMessageFor(m => m.Contenido)
-                </div>
-            </div>
-            <div class="clearfix">
                 @Html.LabelFor(m => m.Descripcion)<br>
                 Realice una nueva descripcion de su publicacion
                 <div class="input">
-                    @Html.TextAreaFor(m => m.Descripcion, new { @class = "texto", @Value = @item.descripcion })
+                    <textarea class="texto" name="Descripcion">@item.descripcion</textarea>
+                    
                     @Html.ValidationMessageFor(m => m.Descripcion)
+                </div>
+            </div>
+             <div class="clearfix">
+                @Html.LabelFor(m => m.Contenido)
+                <div class="editor-field">
+                    <textarea class="ckeditor" name="Contenido">@item.contenido</textarea>
+                    @Html.ValidationMessageFor(model => model.Contenido)
                 </div>
             </div>
             <div class="actions">

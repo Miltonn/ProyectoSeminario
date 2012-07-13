@@ -167,4 +167,44 @@
 /*footer*/
 
 
+/*====el costado==============================================================================*/
+#listticker{
+	height:400px;
+	width:195px;
+	overflow:hidden;
+	border:solid 1px #DEDEDE;
+	padding:6px 10px 14px 10px;
+	border:10px solid silver;
+	background-color:White;
+	
+}
+#listticker li{
+	border:0; margin:0; padding:0; list-style:none;
+}
 
+	#listticker li{
+		height:auto;
+		padding:5px;
+		list-style:none;
+	}
+		#listticker a{
+			color:orange;
+			margin-bottom:
+		}
+		#listticker .news-title{
+			display:block;
+			font-weight:bold;
+			margin-bottom:4px;
+			font-size:11px;
+		}
+		#listticker .news-text{
+			display:block;
+			font-size:11px;
+			color:#666666;
+		}
+		#listticker img{
+			float:left;
+			margin-right:14px;
+			padding:4px;
+			border:solid 1px #DEDEDE;
+		}

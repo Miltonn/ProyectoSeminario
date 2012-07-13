@@ -47,8 +47,8 @@
                     <div class="boton">
                     <a href="http://localhost:4391/Home/nomegusta/@item.idpublicacion">@{string img8 = "~/Content/Imagenes/gusta.jpg";}<img src="@Url.Content(img8)" width="30" height="30"style="border-radius:15px;"/>No Me Gusta</a>
                     </div>
-                    <div class="boton">
-                    <a href="http://localhost:4391/Home/descargar/@item.idpublicacion">@{string img9 = "~/Content/images/images.jpg";}<img src="@Url.Content(img9)" width="90" height="50"style="border-radius:15px;"/></a>
+                    <div class="boton" style="margin-left:40%;">
+                    <a href="http://localhost:4391/Manage/DownloadFile/@item.idpublicacion">@{string img9 = "~/Content/images/pdf.jpg";}<img src="@Url.Content(img9)" width="90" height="90"style="border-radius:15px;"/>Descargar</a>
                     </div>
                 </div>
                 
@@ -57,18 +57,16 @@
         </div> 
     </div>   
     <div class="div6">
+        <ul id="listticker">
         @foreach (var ite in @ViewBag.lib)
         {
-            <div class="div7">
-            <div>
-                <div class="g">@{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="100" height="100"/></div>
-                <div class="g">
-                    <div class="t">@ite.titulo</div><br>
-                    <div>@ite.descripcion</div>
-                </div>
-            </div>
-            </div>
-        }
+            <li style="opacity: 1; ">
+		    @{string img = "~/Content/Imagenes/" + @ite.portada;}<img src="@Url.Content(img)" width="70" height="80"/>
+		    <a href="http://localhost:4391/Home/detallelibro/@ite.idpublicacion" class="news-title">@ite.titulo</a>
+		    <span class="news-text">@ite.descripcion</span>
+	        </li>
+        }    
+        </ul>
     </div>
 </div>
 <p style="font-size:20px;color:Red;">Comentarios</p>

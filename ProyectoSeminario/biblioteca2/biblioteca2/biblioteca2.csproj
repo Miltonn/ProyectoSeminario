@@ -75,12 +75,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\GetFile.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\articuloController.cs" />
     <Compile Include="Controllers\comentController.cs" />
     <Compile Include="Controllers\cursoController.cs" />
     <Compile Include="Controllers\gridController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\modcontenidoController.cs" />
     <Compile Include="Controllers\perfilusuarioController.cs" />
     <Compile Include="Controllers\reedicionController.cs" />
@@ -960,17 +962,21 @@
     <Content Include="Content\Imagenes\bg_img1.jpg" />
     <Content Include="Content\Imagenes\boton.jpg" />
     <Content Include="Content\Imagenes\box4_senden.png" />
+    <Content Include="Content\Imagenes\cursos.jpg" />
     <Content Include="Content\Imagenes\DSC_0000232.jpg" />
     <Content Include="Content\Imagenes\escorpion.jpg" />
     <Content Include="Content\Imagenes\estrella.jpg" />
     <Content Include="Content\Imagenes\fon.jpg" />
     <Content Include="Content\Imagenes\gusta.jpg" />
+    <Content Include="Content\Imagenes\imagenxdefecto.jpg" />
     <Content Include="Content\Imagenes\jaspeadoasul.jpg" />
+    <Content Include="Content\Imagenes\libroxd.jpg" />
     <Content Include="Content\Imagenes\mano.jpg" />
     <Content Include="Content\Imagenes\megusta.png" />
     <Content Include="Content\Imagenes\texto.jpg" />
     <Content Include="Content\Imagenes\texto1.jpg" />
     <Content Include="Content\Imagenes\texto2.jpg" />
+    <Content Include="Content\Imagenes\tutoriales.jpg" />
     <Content Include="Content\Imagenes\yes1.jpg" />
     <Content Include="Content\images\1_menu.jpg" />
     <Content Include="Content\images\2_menu.jpg" />
@@ -1013,6 +1019,7 @@
     <Content Include="Content\images\no.png" />
     <Content Include="Content\images\overlay.png" />
     <Content Include="Content\images\overlay1.png" />
+    <Content Include="Content\images\pdf.jpg" />
     <Content Include="Content\images\piedepagina.jpg" />
     <Content Include="Content\images\prevImgBtn.png" />
     <Content Include="Content\images\reject.jpg" />
@@ -1230,6 +1237,7 @@
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.imagecube.js" />
+    <Content Include="Scripts\jquery.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery.stoc.js" />
     <Content Include="Scripts\jquery.uploadify-3.1.min.js" />
@@ -1544,6 +1552,8 @@
     <Content Include="ThumbnailsNavigationGellery\index.html" />
     <Content Include="ThumbnailsNavigationGellery\js\cufon-yui.js" />
     <Content Include="ThumbnailsNavigationGellery\js\Quicksand_Book_400.font.js" />
+    <Content Include="Views\Manage\DownloadFile.aspx" />
+    <Content Include="Views\Manage\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1580,6 +1590,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1606,6 +1617,7 @@
     <None Include="ClassDiagram1.cd" />
     <Content Include="Views\perfilusuario\perfil.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
+    <None Include="Content\ArchivoPDF\1-IA-introduccion_2.pdf" />
     <None Include="Content\ArchivoPDF\agentes.pdf" />
     <None Include="Content\ArchivoPDF\buscaminas.pdf" />
     <None Include="Content\fonts\Lobster_1.1_-webfont.ttf" />
@@ -1689,6 +1701,9 @@
     <None Include="solisitud\README" />
     <Content Include="Views\solisitud\solisitud1.cshtml" />
     <Content Include="Views\solisitud\aceptsolisitud.cshtml" />
+    <Content Include="Views\reedicion\editararticulo.cshtml" />
+    <Content Include="Views\reedicion\editarcurso.cshtml" />
+    <Content Include="Views\reedicion\editartutorial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Models\DataClasses1.dbml.layout">

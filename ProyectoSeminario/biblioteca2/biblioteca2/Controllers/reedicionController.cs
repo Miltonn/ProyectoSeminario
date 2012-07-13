@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using biblioteca2.Models;
+using System.IO;
 
 namespace biblioteca2.Controllers
 {
@@ -52,6 +53,143 @@ namespace biblioteca2.Controllers
             ViewBag.lib = (from p in db.libro where p.idPublicacion == id select p).ToList();
             return View();
         }
+        [ValidateInput(false)]
+        public ActionResult editararticulo(int id)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            ViewBag.libro = db.publicacion.Where(a => a.idPublicacion == id).Select(a => a).ToList();
+            //ViewBag.lib = (from p in db.libro where p.idPublicacion == id select p).ToList();
+            return View();
+        }
+        [ValidateInput(false)]
+        public ActionResult editarcurso(int id)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            ViewBag.libro = db.publicacion.Where(a => a.idPublicacion == id).Select(a => a).ToList();
+            //ViewBag.lib = (from p in db.libro where p.idPublicacion == id select p).ToList();
+            return View();
+        }
+        [ValidateInput(false)]
+        public ActionResult editartutorial(int id)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            ViewBag.libro = db.publicacion.Where(a => a.idPublicacion == id).Select(a => a).ToList();
+            //ViewBag.lib = (from p in db.libro where p.idPublicacion == id select p).ToList();
+            return View();
+        }
 
+        [HttpPost]
+        [Authorize(Roles="Usuario")]
+        public ActionResult actualizar(int idPublicacion, string Titulo, HttpPostedFileBase Portada, HttpPostedFileBase Contenido, string Descripcion, publicmodel model)
+        {
+            DataClasses1DataContext db=new DataClasses1DataContext();
+            using(DataClasses1DataContext dd=new DataClasses1DataContext()){
+                var libro = (from l in dd.publicacion where l.idPublicacion == idPublicacion select l).Single();
+                libro.titulo = Titulo;
+                if (Portada != null)
+                {
+                    var data = new byte[Portada.ContentLength];
+                    Portada.InputStream.Read(data, 0, Portada.ContentLength);
+                    var path = ControllerContext.HttpContext.Server.MapPath("~/Content/Imagenes/");
+                    var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
+                    libro.portada = (Portada.FileName).ToString();
+                }
+                else { libro.portada = libro.portada; }
+                if (Contenido != null)
+                {
+                    var data2 = new byte[Contenido.ContentLength];
+                    Portada.InputStream.Read(data2, 0, Contenido.ContentLength);
+                    var path1 = ControllerContext.HttpContext.Server.MapPath("~/Content/ArchivoPDF/");
+                    var filename1 = Path.Combine(path1, Path.GetFileName(Contenido.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path1, filename1), data2);
+                    libro.contenido = (Contenido.FileName).ToString();
+                }
+                else { libro.contenido = libro.contenido; }
+                libro.correcciones = "false";
+                libro.descripcion = Descripcion;
+                dd.SubmitChanges();
+            }
+            return RedirectToAction("reedicion", "reedicion");
+        }
+
+        [Authorize(Roles = "Usuario")]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult actualizara(int idPublicacion, string Titulo, HttpPostedFileBase Portada, string Contenido, string Descripcion, articulomodelo model)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            using (DataClasses1DataContext dd = new DataClasses1DataContext())
+            {
+                var libro = (from l in dd.publicacion where l.idPublicacion == idPublicacion select l).Single();
+                libro.titulo = Titulo;
+                if (Portada != null)
+                {
+                    var data = new byte[Portada.ContentLength];
+                    Portada.InputStream.Read(data, 0, Portada.ContentLength);
+                    var path = ControllerContext.HttpContext.Server.MapPath("~/Content/Imagenes/");
+                    var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
+                    libro.portada = (Portada.FileName).ToString();
+                }
+                else { libro.portada = libro.portada; }
+                libro.descripcion = Descripcion;
+                libro.contenido = Contenido;
+                libro.correcciones = "false";
+                dd.SubmitChanges();
+            }
+            return RedirectToAction("reedicion", "reedicion");
+        }
+        [Authorize(Roles = "Usuario")]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult actualizarc(int idPublicacion, string Titulo, HttpPostedFileBase Portada, string Contenido, string Descripcion, cursos model)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            using (DataClasses1DataContext dd = new DataClasses1DataContext())
+            {
+                var libro = (from l in dd.publicacion where l.idPublicacion == idPublicacion select l).Single();
+                libro.titulo = Titulo;
+                if (Portada != null)
+                {
+                    var data = new byte[Portada.ContentLength];
+                    Portada.InputStream.Read(data, 0, Portada.ContentLength);
+                    var path = ControllerContext.HttpContext.Server.MapPath("~/Content/Imagenes/");
+                    var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
+                    libro.portada = (Portada.FileName).ToString();
+                }
+                else { libro.portada = libro.portada; }
+                libro.descripcion = Descripcion;
+                libro.contenido = Contenido;
+                libro.correcciones = "false";
+                dd.SubmitChanges();
+            }
+            return RedirectToAction("reedicion", "reedicion");
+        }
+        [Authorize(Roles = "Usuario")]
+        [HttpPost, ValidateInput(false)]
+        public ActionResult actualizart(int idPublicacion, string Titulo, HttpPostedFileBase Portada, string Contenido, string Descripcion, tutoriales model)
+        {
+            DataClasses1DataContext db = new DataClasses1DataContext();
+            using (DataClasses1DataContext dd = new DataClasses1DataContext())
+            {
+                var libro = (from l in dd.publicacion where l.idPublicacion == idPublicacion select l).Single();
+                libro.titulo = Titulo;
+                if (Portada != null)
+                {
+                    var data = new byte[Portada.ContentLength];
+                    Portada.InputStream.Read(data, 0, Portada.ContentLength);
+                    var path = ControllerContext.HttpContext.Server.MapPath("~/Content/Imagenes/");
+                    var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
+                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data);
+                    libro.portada = (Portada.FileName).ToString();
+                }
+                else { libro.portada = libro.portada; }
+                libro.descripcion = Descripcion;
+                libro.contenido = Contenido;
+                libro.correcciones = "false";
+                dd.SubmitChanges();
+            }
+            return RedirectToAction("reedicion", "reedicion");
+        }
     }
 }

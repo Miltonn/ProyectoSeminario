@@ -9,6 +9,7 @@ namespace biblioteca2.Models
 {
     public class cursos
     {
+        public int idPublicacion { set; get; }
         [Required]
         public string Titulo { get; set; }
         public string Portada { get; set; }

@@ -8,6 +8,7 @@ using System.IO;
 using System.Web.Security;
 
 
+
 namespace biblioteca2.Controllers
 {
     public class HomeController : Controller
@@ -181,8 +182,11 @@ namespace biblioteca2.Controllers
         public ActionResult megusta(int id)
         {
             using (DataClasses1DataContext db = new DataClasses1DataContext()) { 
+                Guid iid=(Guid)Membership.GetUser().ProviderUserKey;
                 var pl=(from p in db.publicacion where p.idPublicacion==id select p).Single();
+                var per=(from pp in db.perfil where pp.UserId==iid select pp).Single();
                 pl.puntaje += 1;
+                per.karma += 1;
                 db.SubmitChanges();
             }
             return Redirect("http://localhost:4391/Home/About/"+id);
@@ -208,28 +212,35 @@ namespace biblioteca2.Controllers
             if (ModelState.IsValid)
             {
                 //try
-                //{
+                
                     DataClasses1DataContext db = new DataClasses1DataContext();
                     //model.Titulo = Titulo;
                     model.Titulo = Titulo;
-                     var data2 = new byte[Portada.ContentLength];
-                     Portada.InputStream.Read(data2, 0, Portada.ContentLength);
-                     var path = ControllerContext.HttpContext.Server.MapPath("/Content/Imagenes/");
-                     var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
-                     System.IO.File.WriteAllBytes(Path.Combine(path, filename), data2);
-                    model.Portada = (Portada.FileName).ToString();
+                    if (Portada != null)
+                    {
+                        var data2 = new byte[Portada.ContentLength];
+                        Portada.InputStream.Read(data2, 0, Portada.ContentLength);
+                        var path = ControllerContext.HttpContext.Server.MapPath("/Content/Imagenes/");
+                        var filename = Path.Combine(path, Path.GetFileName(Portada.FileName));
+                        System.IO.File.WriteAllBytes(Path.Combine(path, filename), data2);
+                        model.Portada = (Portada.FileName).ToString();
+                    }
+                    else { model.Portada = "libroxd.jpg"; }
                     model.Autor = Autor;
                     model.Tipo = Tipo;
                     model.Idioma = Idioma;
-                   
-                    var data1 = new byte[contenido.ContentLength];
-                    contenido.InputStream.Read(data1, 0, contenido.ContentLength);
-                    var path1 = ControllerContext.HttpContext.Server.MapPath("/Content/ArchivoPDF/");
-                    var filename1 = Path.Combine(path, Path.GetFileName(contenido.FileName));
-                    System.IO.File.WriteAllBytes(Path.Combine(path, filename), data1);
+                    if (contenido != null)
+                    {
+                        var data1 = new byte[contenido.ContentLength];
+                        contenido.InputStream.Read(data1, 0, contenido.ContentLength);
+                        var path1 = ControllerContext.HttpContext.Server.MapPath("/Content/ArchivoPDF/");
+                        var filename1 = Path.Combine(path1, Path.GetFileName(contenido.FileName));
+                        System.IO.File.WriteAllBytes(Path.Combine(path1, filename1), data1);
+                    
                     model.Tamaño = (contenido.ContentLength).ToString();
                     model.idusers = (Guid)Membership.GetUser().ProviderUserKey;
                     model.Contenido = (contenido.FileName).ToString();
+                    }
                     model.Año_Publicacion = Año_Publicacion;
                     model.Descripcion = Descripcion;
                     model.regpubli(model);
@@ -330,5 +341,6 @@ namespace biblioteca2.Controllers
         public ActionResult curso() {
             return View();
         }
+        
     }
 }

@@ -25,7 +25,7 @@ namespace biblioteca2.Controllers
             var m = (from d in db.mode_coment select d).ToList();
             if (m != null)
             {
-                var contenido = db.mode_coment.ToList().Take(1).OrderByDescending(a => a.idpublicacion);
+                var contenido = db.mode_coment.ToList().Take(1).OrderByDescending(a => a.idComentarios);
                 ViewBag.contenido = contenido;
                 ViewBag.cat = (from c in db.mode_coment select c).ToList();
             }
@@ -44,9 +44,9 @@ namespace biblioteca2.Controllers
                 var m = (from d in db.mode_coment select d).ToList();
                 if (m != null)
                 {
-                    ViewBag.contenido = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
+                    ViewBag.contenido = (from d in db.mode_coment where d.idComentarios == id select d).ToList();
                     ViewBag.cat = (from c in db.mode_coment select c).ToList();
-                    ViewBag.p = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
+                    ViewBag.p = (from d in db.mode_coment where d.idComentarios == id select d).ToList();
                     char[] delimiterChars = new char[]{ ' ', ',', '.', ';',':' };
                     var  ofensivo = @ViewBag.p.Split(delimiterChars);
                     foreach (var ofen in ofensivo)
@@ -66,7 +66,7 @@ namespace biblioteca2.Controllers
             }
             else {
                 DataClasses1DataContext db = new DataClasses1DataContext();
-                var contenido = (from d in db.mode_coment where d.idpublicacion == id select d).ToList();
+                var contenido = (from d in db.mode_coment where d.idComentarios == id select d).ToList();
                 ViewBag.contenido = contenido;
                 ViewBag.cat = (from c in db.mode_coment select c).ToList();
 
@@ -78,7 +78,7 @@ namespace biblioteca2.Controllers
         {
             using (DataClasses1DataContext db = new DataClasses1DataContext())
             {
-                var visto = (from a in db.comentarios where a.idPublicacion == id select a).Single();
+                var visto = (from a in db.comentarios where a.idComentarios == id select a).Single();
                 visto.vistobueno = "true";
                 db.SubmitChanges();
             }
@@ -86,7 +86,7 @@ namespace biblioteca2.Controllers
         }
         public ActionResult eliminarcomet(int id) {
             using(DataClasses1DataContext db=new DataClasses1DataContext()){
-                ViewBag.p=(from c in db.comentarios where c.idPublicacion==id select c).ToList();
+                ViewBag.p=(from c in db.comentarios where c.idComentarios==id select c).ToList();
                 //comentarios Delete = db.comentarios.Single(p => p.idPublicacion == id);
                 foreach(var del in ViewBag.p)
                     db.comentarios.DeleteOnSubmit(del);

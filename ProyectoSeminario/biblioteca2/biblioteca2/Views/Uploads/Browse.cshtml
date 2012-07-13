@@ -16,7 +16,7 @@
             $('a').click(function (e) {
                 e.preventDefault();
                 var ckEditorNum = parseInt($('#CKEditorFuncNum').val());
-                window.opener.CKEDITOR.tools.callFunction(ckEditorNum, '/uploads/' + $(this).attr('href'), '');
+                window.opener.CKEDITOR.tools.callFunction(ckEditorNum, '/Files/Images/Tutos/' + $(this).attr('href'), '');
                 window.close();
             });
         });

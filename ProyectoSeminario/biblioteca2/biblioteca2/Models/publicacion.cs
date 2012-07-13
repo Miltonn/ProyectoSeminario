@@ -12,6 +12,8 @@ namespace biblioteca2.Models
 {
     public class publicmodel
     {
+        public int idPublicacion { get; set; }
+        
         public string Titulo { get; set; }
         
         public string Portada { get; set; }
@@ -41,23 +43,23 @@ namespace biblioteca2.Models
         public string Contenido { get; set; }
         public Guid idusers { get; set; }
         DataClasses1DataContext db = new DataClasses1DataContext();
-        public void regpubli(publicmodel model) {
+        public void regpubli(publicmodel model)
+        {
             publicacion publicacion = new publicacion()
             {
                 titulo = model.Titulo,
-                portada=model.Portada,
-                contenido=model.Contenido,
-                correcciones="false",
-                puntaje=0,
-                fecha_publicacion=DateTime.Today,
-                descripcion=model.Descripcion,
-                UserId=model.idusers
+                portada = model.Portada,
+                contenido = model.Contenido,
+                correcciones = "false",
+                puntaje = 0,
+                fecha_publicacion = DateTime.Today,
+                descripcion = model.Descripcion,
+                UserId = model.idusers
             };
             db.publicacion.InsertOnSubmit(publicacion);
             db.SubmitChanges();
-            
+
         }
-        
         
         public void reglibro(publicmodel model,int idUs) {
             libro libro = new libro()
